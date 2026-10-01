@@ -1,0 +1,3818 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新リース会計基準 全編統合版｜企業会計基準第34号</title>
+<style>
+:root{
+    --plum:#463a5e; --plum-deep:#332a47; --purple:#7b6aa6;
+    --purple-soft:#efebf6; --purple-line:#e0d9ee; --lav-bg:#f7f5fb;
+    --old:#8f8474; --old-soft:#f2efe9; --old-line:#e3ddd0;
+    --ink:#2c2833; --muted:#6f6880; --white:#ffffff; --rule:#e6e2ef;
+    --warn:#a85a45; --warn-soft:#f5e9e6; --warn-line:#e2c7bd;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--lav-bg);color:var(--ink);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    font-size:16px;line-height:1.9;font-feature-settings:"palt";
+  }
+  /* ---- 全体ヘッダ ---- */
+  header.app-head{background:var(--white);border-bottom:1px solid var(--rule);padding:30px 32px 22px;}
+  header.app-head .inner{max-width:1420px;margin:0 auto;}
+  header.app-head .eyebrow{font-size:12px;letter-spacing:.2em;color:var(--purple);font-weight:700;margin:0 0 10px;}
+  header.app-head .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--purple);vertical-align:middle;margin-right:10px;}
+  header.app-head h1{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+    font-size:1.85em;line-height:1.45;margin:0 0 8px;color:var(--plum-deep);font-weight:600;
+  }
+  header.app-head .lead{margin:0;color:var(--muted);font-size:.95em;}
+  /* ---- タブ ---- */
+  nav.tabbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--purple-line);
+    box-shadow:0 1px 6px rgba(52,42,71,.05);
+  }
+  nav.tabbar .inner{
+    max-width:1420px;margin:0 auto;padding:0 32px;
+    display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+  }
+  nav.tabbar button{
+    flex:0 0 auto;appearance:none;background:none;border:0;
+    border-bottom:3px solid transparent;
+    padding:14px 16px 11px;margin:0;cursor:pointer;
+    font:inherit;font-size:.93em;font-weight:600;color:var(--muted);
+    white-space:nowrap;line-height:1.4;
+  }
+  nav.tabbar button .sub{display:block;font-size:.76em;font-weight:400;color:#9a93a8;margin-top:2px;}
+  nav.tabbar button:hover{color:var(--plum);}
+  nav.tabbar button[aria-selected="true"]{color:var(--plum-deep);border-bottom-color:var(--purple);}
+  nav.tabbar button[aria-selected="true"] .sub{color:var(--purple);}
+  /* ---- パネル ---- */
+  .docpanel{display:none;}
+  .docpanel.is-active{display:block;}
+  .docpanel section{scroll-margin-top:86px;}
+  /* ---- 簡単版／詳細版（全タブ共通・タブを移動しても維持） ---- */
+  .subpanel{display:block;}
+  body.level-simple .docpanel [data-level="detail"]{display:none !important;}
+  body.level-detail .docpanel [data-level="simple"]{display:none !important;}
+  .levelbar{background:var(--white);border-bottom:1px solid var(--rule);}
+  .levelbar .inner{
+    max-width:1420px;margin:0 auto;padding:12px clamp(24px,2.6vw,48px);
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  }
+  .levelbar .lbl{font-size:.76em;letter-spacing:.14em;color:var(--purple);font-weight:700;margin-right:4px;}
+  .levelbar .seg{display:inline-flex;border:1px solid var(--purple-line);border-radius:999px;overflow:hidden;background:var(--lav-bg);}
+  .levelbar button{
+    appearance:none;border:0;background:none;margin:0;cursor:pointer;font:inherit;
+    font-size:.88em;font-weight:600;color:var(--muted);padding:7px 20px;white-space:nowrap;
+  }
+  .levelbar button + button{border-left:1px solid var(--purple-line);}
+  .levelbar button:hover{color:var(--plum);}
+  .levelbar button[aria-selected="true"]{background:var(--plum);color:#fff;}
+  @media (max-width:720px){
+    header.app-head{padding:20px 16px 14px;}
+    header.app-head h1{font-size:1.3em;}
+    header.app-head .lead{font-size:.88em;}
+    nav.tabbar .inner{padding:0 10px;gap:2px;}
+    nav.tabbar button{padding:11px 10px 8px;font-size:.86em;}
+    nav.tabbar button .sub{display:none;}
+    .docpanel section{scroll-margin-top:64px;}
+    .levelbar .inner{padding:10px 14px;}
+    .levelbar .lbl{display:none;}
+    .levelbar button{padding:6px 16px;font-size:.84em;}
+  }
+  @media print{
+    nav.tabbar{display:none;}
+    .docpanel{display:block !important;page-break-before:always;}
+  }
+
+/* ==== DEVICE-ADAPTIVE LAYER START (build.py) ==== */
+/* ---- 共通（全デバイス） ---- */
+:root{--shell:1420px;}
+html{scroll-behavior:smooth;}
+nav.toc ol.no-marker,nav.toc ul.no-marker{list-style:none !important;padding-left:2px !important;}
+.doc-body{min-width:0;}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 4px;}
+.tbl-scroll>table{margin-top:8px;}
+/* 図解そのもの（SVG・タイムライン）は元ファイルの設計どおりに描画する。
+   ここで触るのは「置き場所と最大幅」だけで、図の中身・比率は変更しない。
+   タイムラインは外側の余白のみ確保（端のラベルが枠外に切れる／前後の文章に重なるのを防ぐ。
+   トラックの余白・ラベル幅・点の大きさは元のまま）。 */
+/* 年表は資料をまたいで同じ組み方にする（枠いっぱい・横スクロールなし）。
+   資料によって .timeline の有無が違うので、軸(.timeline-track)の余白で揃える。 */
+.tl-wrap-mobile{overflow:visible !important;}
+.timeline{padding:0 !important;}
+.timeline-track{min-width:0 !important;margin:112px 90px 104px !important;}
+.tl-mini{display:none;}
+figure svg.fig-narrow{display:none !important;}
+nav.toc a.is-active{color:var(--plum,#463a5e);font-weight:700;border-bottom-color:currentColor;}
+.scroll-hint{display:none;font-size:.76em;color:var(--muted,#6f6880);margin:8px 0 2px;letter-spacing:.04em;}
+@media (max-width:720px){.scroll-hint{display:block;}}
+.toc-toggle{display:none;}
+#to-top{
+  position:fixed;right:16px;bottom:16px;z-index:60;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--purple-line,#e0d9ee);background:rgba(255,255,255,.94);
+  color:var(--plum,#463a5e);font-size:16px;line-height:1;cursor:pointer;
+  box-shadow:0 2px 10px rgba(52,42,71,.16);
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+#to-top.show{opacity:1;pointer-events:auto;}
+
+/* ---- PC（横幅を使い切る：追従目次＋広い本文） ---- */
+@media (min-width:1080px){
+  body{font-size:17px;}
+  /* ヘッダ・フッタの内側幅を本文シェルと揃える（左端を一直線に） */
+  header.app-head{padding-left:0 !important;padding-right:0 !important;}
+  header.masthead:has(>.inner){padding-left:0 !important;padding-right:0 !important;}
+  footer:has(>.inner){padding-left:0 !important;padding-right:0 !important;}
+  header.masthead>.inner,header.app-head>.inner,footer>.inner{
+    max-width:var(--shell) !important;
+    padding-left:clamp(24px,2.6vw,48px);
+    padding-right:clamp(24px,2.6vw,48px);
+  }
+  .wrap.has-side{
+    max-width:var(--shell) !important;
+    padding-left:clamp(24px,2.6vw,48px) !important;
+    padding-right:clamp(24px,2.6vw,48px) !important;
+    display:grid;
+    grid-template-columns:clamp(208px,16vw,264px) minmax(0,1fr);
+    gap:clamp(28px,3vw,56px);
+    align-items:start;
+  }
+  .wrap.has-side>nav.toc{
+    position:sticky;top:16px;
+    grid-column:1;grid-row:1;
+    margin:30px 0 0 !important;
+    max-width:none !important;
+    padding:18px 18px 20px !important;
+    max-height:calc(100vh - 34px);
+    overflow-y:auto;overscroll-behavior:contain;
+  }
+  .wrap.has-side>nav.toc ol,
+  .wrap.has-side>nav.toc ul{columns:1 !important;-webkit-columns:1 !important;column-gap:0 !important;}
+  .wrap.has-side>nav.toc li{margin:0 0 6px !important;font-size:.84em;line-height:1.65;}
+  .wrap.has-side>nav.toc h2,
+  .wrap.has-side>nav.toc .t{font-size:.95em !important;margin:0 0 10px !important;padding-bottom:8px !important;}
+  .wrap.has-side>.doc-body{grid-column:2;grid-row:1;margin-top:30px;}
+  .doc-body>section:first-child{margin-top:0;}
+  .doc-body table{font-size:.92em;}
+  /* SVG図解は元の設計幅（900px）のまま引き伸ばさない。
+     年表はCSSで描いているので、枠いっぱいに伸ばして使う */
+  .doc-body figure{max-width:946px;}
+  .doc-body figure svg{max-width:900px;}
+}
+@media (min-width:1500px){
+  :root{--shell:1560px;}
+}
+
+/* ---- タブレット〜小型ノート ---- */
+@media (min-width:721px) and (max-width:1079px){
+  .wrap{max-width:none !important;padding-left:24px !important;padding-right:24px !important;}
+  nav.toc{max-width:none !important;margin-left:0 !important;margin-right:0 !important;}
+}
+
+/* ---- スマホ ---- */
+@media (max-width:720px){
+  body{font-size:15.5px;line-height:1.85;}
+  header.hero,header.masthead{padding-left:18px !important;padding-right:18px !important;padding-top:26px !important;}
+  header.hero h1,header.masthead h1{font-size:1.4em !important;}
+  header.hero p.sub,header.masthead .lead{font-size:.96em !important;}
+  .wrap{max-width:none !important;padding-left:14px !important;padding-right:14px !important;}
+  nav.toc{
+    max-width:none !important;margin:14px 0 26px !important;padding:14px 16px !important;border-radius:6px;
+  }
+  nav.toc ol,nav.toc ul{columns:1 !important;-webkit-columns:1 !important;padding-left:18px;}
+  nav.toc li{font-size:.92em;}
+  /* 目次は折り畳み（既定は閉じる） */
+  .toc-toggle{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    width:100%;background:none;border:0;padding:0;margin:0;cursor:pointer;
+    font:inherit;color:var(--purple,#7b6aa6);font-weight:700;text-align:left;
+  }
+  .toc-toggle .mark{font-size:.8em;color:var(--purple,#7b6aa6);}
+  nav.toc.is-collapsed>ol,nav.toc.is-collapsed>ul{display:none;}
+  section{margin-bottom:34px !important;}
+  .card,.panel,.box{padding:15px 15px !important;}
+  /* 列の多い表・図は横スクロール（つぶれ防止） */
+  /* 図は縮めて潰さず、元の比率のまま横スクロールで見せる */
+  .fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .fig-scroll>svg{min-width:640px;}
+  /* 年表は横スクロールさせず、画面内に収まる縦並びへ組み替える */
+  .tl-wrap-mobile{overflow:visible !important;}
+  .timeline{padding:2px 0 0 4px !important;}
+  .timeline-track{
+    min-width:0 !important;height:auto !important;background:none !important;
+    margin:0 !important;padding:2px 0 2px 20px !important;
+    border-left:2px solid var(--purple-line,#e0d9ee) !important;border-radius:0 !important;
+  }
+  .timeline-track .progress{display:none !important;}
+  .tl-point{display:none !important;}
+  .tl-label{
+    position:relative !important;left:auto !important;right:auto !important;
+    top:auto !important;bottom:auto !important;transform:none !important;
+    width:auto !important;text-align:left !important;padding:0 0 14px !important;
+  }
+  .tl-label::before{
+    content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+    background:#fff;border:3px solid var(--plum-deep,#332a47);
+  }
+  .tl-label:last-of-type{padding-bottom:0 !important;}
+  .tl-label .date{font-size:.95em;}
+  .tl-label .desc{font-size:.86em;}
+  /* 図版・年表は、スマホでは同じ内容の縦組み版に差し替える（横スクロールを作らない） */
+  figure svg.has-mini,figure svg.fig-wide{display:none !important;}
+  figure svg.fig-narrow{display:block !important;width:100%;height:auto;min-width:0 !important;}
+  .tl-mini{
+    display:block;margin:4px 0 2px;padding:2px 0 2px 20px;
+    border-left:2px solid var(--purple-line,#e0d9ee);
+  }
+  .tl-mini .it{position:relative;padding:0 0 14px;}
+  .tl-mini .it:last-child{padding-bottom:0;}
+  .tl-mini .it::before{
+    content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+    background:#fff;border:3px solid var(--plum-deep,#332a47);
+  }
+  .tl-mini .it.on::before{background:var(--plum,#463a5e);border-color:var(--plum,#463a5e);}
+  .tl-mini .d{
+    display:block;font-weight:700;color:var(--plum-deep,#332a47);font-size:.95em;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+  .tl-mini .s{display:block;font-size:.86em;color:var(--muted,#6f6880);line-height:1.6;}
+  .tl-mini .it.on .s{color:var(--plum,#463a5e);font-weight:700;}
+  .tbl-scroll{border:1px solid var(--rule,#e6e2ef);border-radius:6px;background:#fff;}
+  .tbl-scroll.is-wide>table{min-width:600px;}
+  .tbl-scroll table{margin-left:0;margin-right:0;}
+  th,td{padding:9px 10px !important;}
+  table{font-size:.88em !important;}
+  figure,svg{max-width:100%;}
+  footer{padding-left:16px !important;padding-right:16px !important;}
+}
+@media (max-width:420px){
+  body{font-size:15px;}
+  header.hero h1,header.masthead h1{font-size:1.26em !important;}
+  .wrap{padding-left:11px !important;padding-right:11px !important;}
+}
+
+/* ---- 印刷 ---- */
+@media print{
+  #to-top{display:none !important;}
+  .wrap.has-side{display:block !important;max-width:none !important;}
+  .wrap.has-side>nav.toc{position:static !important;max-height:none !important;}
+}
+/* ==== DEVICE-ADAPTIVE LAYER END ==== */
+
+/* ======== 01_リース会計基準_わかりやすい版.html ======== */
+
+  .doc01{
+    --plum:#463a5e;
+    --plum-deep:#332a47;
+    --purple:#7b6aa6;
+    --purple-soft:#efebf6;
+    --purple-line:#e0d9ee;
+    --lav-bg:#f7f5fb;
+    --old:#8f8474;
+    --old-soft:#f2efe9;
+    --old-line:#e3ddd0;
+    --ink:#2c2833;
+    --muted:#6f6880;
+    --white:#ffffff;
+    --rule:#e6e2ef;
+    --warn:#a85a45;
+    --warn-soft:#f5e9e6;
+    --warn-line:#e2c7bd;
+  }
+  .doc01 *{box-sizing:border-box;}
+  .doc01{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    background:var(--lav-bg);
+    color:var(--ink);
+    line-height:1.9;
+    font-size:16px;
+    font-feature-settings:"palt";
+  }
+  .doc01 .wrap{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 20px 60px;
+  }
+  .doc01 nav.toc{
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    margin:-28px auto 40px;
+    max-width:860px;
+    padding:20px 24px;
+  }
+  .doc01 nav.toc ol{
+    columns:2;
+    -webkit-columns:2;
+    padding-left:20px;
+    margin:0;
+  }
+  .doc01 nav.toc li{margin-bottom:6px;font-size:0.92em;}
+  .doc01 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+  .doc01 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+
+  .doc01 section{margin-bottom:52px;scroll-margin-top:16px;}
+  .doc01 h3{
+    color:var(--plum);
+    font-size:1.08em;
+    margin:26px 0 10px;
+    font-weight:600;
+  }
+  .doc01 .card{
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:5px;
+    padding:22px 24px;
+    margin-bottom:16px;
+  }
+  .doc01 .card.teal{border-left:4px solid var(--purple);}
+  .doc01 .card.navy{border-left:4px solid var(--plum-deep);}
+  .doc01 .card.accent{border-left:4px solid var(--plum);background:var(--purple-soft);border-color:var(--purple-line);}
+
+  /* 3行サマリ */
+  .doc01 .summary-list{list-style:none;padding:0;margin:0;}
+  .doc01 .summary-list li{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:5px;
+    padding:18px 20px;
+    margin-bottom:14px;
+  }
+  .doc01 .summary-list .num{
+    flex:0 0 auto;
+    width:32px;height:32px;
+    background:var(--plum-deep);
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:bold;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+  .doc01 .summary-list b{color:var(--plum-deep);}
+
+  /* タイムライン */
+  .doc01 .timeline{
+    position:relative;
+    padding:20px 0 10px 0;
+  }
+  .doc01 .timeline-track{
+    position:relative;
+    height:3px;
+    background:var(--rule);
+    border-radius:2px;
+    margin:50px 20px 60px;
+  }
+  .doc01 .timeline-track .progress{
+    position:absolute;left:0;top:0;height:100%;
+    background:var(--purple);
+    border-radius:2px;
+    width:100%;
+  }
+  .doc01 .tl-point{
+    position:absolute;
+    top:-8px;
+    width:20px;height:20px;
+    border-radius:50%;
+    background:var(--white);
+    border:3px solid var(--plum-deep);
+    transform:translateX(-50%);
+  }
+  .doc01 .tl-point.teal{border-color:var(--purple);}
+  .doc01 .tl-point.accent{border-color:var(--plum);background:var(--plum);}
+  .doc01 .tl-label{
+    position:absolute;
+    transform:translateX(-50%);
+    text-align:center;
+    width:180px;
+  }
+  .doc01 .tl-label.above{bottom:32px;}
+  .doc01 .tl-label.below{top:32px;}
+  .doc01 .tl-label .date{font-weight:bold;color:var(--plum-deep);font-size:0.95em;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .doc01 .tl-label .desc{font-size:0.82em;color:var(--muted);margin-top:2px;}
+  .doc01 .tl-wrap-mobile{overflow-x:auto;}
+
+  /* before/after 絵 */
+  .doc01 .compare{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .doc01 .compare .box{
+    flex:1;
+    min-width:260px;
+    border-radius:5px;
+    padding:20px;
+    border:1px solid;
+  }
+  .doc01 .compare .box.old{background:var(--old-soft);border-color:var(--old-line);}
+  .doc01 .compare .box.new{background:var(--purple-soft);border-color:var(--purple-line);}
+  .doc01 .compare .box h4{margin:0 0 12px;font-size:1em;font-weight:600;}
+  .doc01 .compare .box.old h4{color:#6c6252;}
+  .doc01 .compare .box.new h4{color:var(--plum);}
+  .doc01 .bs-visual{
+    border:1px solid var(--rule);
+    border-radius:4px;
+    overflow:hidden;
+    background:#fff;
+    margin-top:10px;
+  }
+  .doc01 .bs-row{display:flex;font-size:0.85em;}
+  .doc01 .bs-cell{padding:8px 10px;flex:1;}
+  .doc01 .bs-cell.asset{background:var(--purple-soft);border-right:1px solid var(--rule);}
+  .doc01 .bs-cell.liab{background:var(--old-soft);}
+  .doc01 .bs-cell.off{background:var(--rule);color:var(--muted);font-style:italic;}
+  .doc01 .bs-title{font-size:0.78em;color:var(--muted);text-align:center;padding-top:6px;}
+
+  /* 判定フロー（このページ内では未使用。他資料とのクラス名統一のため定義を維持） */
+  .doc01 .flow{display:flex;flex-direction:column;align-items:center;gap:0;}
+  .doc01 .flow-box{
+    background:var(--white);
+    border:1px solid var(--plum-deep);
+    border-radius:5px;
+    padding:14px 20px;
+    text-align:center;
+    max-width:520px;
+    width:100%;
+    font-size:0.95em;
+  }
+  .doc01 .flow-box.q{border-color:var(--purple);}
+  .doc01 .flow-box.result{
+    border-color:var(--plum);
+    background:var(--purple-soft);
+    font-weight:bold;
+  }
+  .doc01 .flow-arrow{
+    font-size:1.4em;
+    color:var(--muted);
+    margin:4px 0;
+  }
+  .doc01 .flow-branch{
+    display:flex;
+    gap:24px;
+    width:100%;
+    max-width:640px;
+    justify-content:center;
+    margin:6px 0;
+    flex-wrap:wrap;
+  }
+  .doc01 .flow-branch .col{
+    flex:1;
+    min-width:220px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .doc01 .flow-branch .lbl{font-size:0.8em;color:var(--muted);margin-bottom:4px;}
+
+  /* 4フェーズ */
+  .doc01 .phases{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+  .doc01 .phase{
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:5px;
+    padding:16px;
+    position:relative;
+    border-top:3px solid var(--plum-deep);
+  }
+  .doc01 .phase:nth-child(2){border-top-color:var(--purple);}
+  .doc01 .phase:nth-child(3){border-top-color:var(--plum);}
+  .doc01 .phase:nth-child(4){border-top-color:var(--warn);}
+  .doc01 .phase .phnum{
+    font-size:0.75em;
+    color:#fff;
+    background:var(--plum-deep);
+    display:inline-block;
+    padding:2px 10px;
+    border-radius:3px;
+    margin-bottom:8px;
+    letter-spacing:0.04em;
+  }
+  .doc01 .phase:nth-child(2) .phnum{background:var(--purple);}
+  .doc01 .phase:nth-child(3) .phnum{background:var(--plum);}
+  .doc01 .phase:nth-child(4) .phnum{background:var(--warn);}
+  .doc01 .phase h4{margin:0 0 8px;font-size:0.95em;color:var(--plum-deep);}
+  .doc01 .phase p{margin:0;font-size:0.85em;color:var(--muted);}
+
+  /* チェックリスト */
+  .doc01 .checklist{list-style:none;padding:0;margin:0;}
+  .doc01 .checklist li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:10px 0;
+    border-bottom:1px dashed var(--rule);
+  }
+  .doc01 .checklist li:last-child{border-bottom:none;}
+  .doc01 .checklist .box{
+    flex:0 0 auto;
+    width:18px;height:18px;
+    border:2px solid var(--purple);
+    border-radius:3px;
+    margin-top:2px;
+  }
+
+  .doc01 table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--white);
+    font-size:0.92em;
+  }
+  .doc01 th,
+.doc01 td{
+    padding:10px 12px;
+    text-align:left;
+    vertical-align:top;
+    border-bottom:1px solid var(--rule);
+  }
+  .doc01 th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;background:transparent;}
+  .doc01 tr:last-child td{border-bottom:1px solid var(--rule);}
+
+  .doc01 .note{
+    background:var(--purple-soft);
+    border-left:3px solid var(--purple);
+    border-radius:0 5px 5px 0;
+    padding:12px 18px;
+    font-size:0.88em;
+    color:#4a4256;
+    margin-top:14px;
+  }
+  .doc01 .warn{
+    background:var(--warn-soft);
+    border-left:3px solid var(--warn);
+    border-radius:0 5px 5px 0;
+    padding:12px 18px;
+    font-size:0.9em;
+    color:#7a4433;
+    margin-top:14px;
+  }
+
+  @media (max-width:720px){
+    .doc01 nav.toc ol{columns:1;}
+    .doc01 .phases{grid-template-columns:1fr 1fr;}
+    .doc01 .compare{flex-direction:column;}
+    .doc01 .flow-branch{flex-direction:column;align-items:center;}
+    .doc01 .tl-label{width:120px;font-size:0.85em;}}
+
+  @media print{
+    .doc01{background:#fff;font-size:12px;}
+    .doc01 nav.toc{margin-top:20px;}
+    .doc01 section{page-break-inside:avoid;}}
+
+/* ============================================================
+   共通版面（⑤ 新旧比較 の版面に統一）— 2026-09-29
+   ここより上は各資料固有のコンポーネント定義（図・ステップ・ガント等）。
+   本ブロックは基礎タイポグラフィ／ヘッダ／目次／節見出し／カード／表／
+   図表／出典／フッタを 05 と同一仕様に揃える。
+   ============================================================ */
+.doc01{
+  margin:0;color:var(--ink);background:var(--lav-bg);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.9;font-size:16px;font-feature-settings:"palt";
+}
+.doc01 .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;}
+
+/* ヘッダ */
+.doc01 header.masthead{background:var(--white);border-bottom:1px solid var(--rule);padding:44px 32px 30px;}
+.doc01 header.masthead .inner{max-width:1000px;margin:0 auto;}
+.doc01 header.masthead .eyebrow{font-size:12px;letter-spacing:.22em;color:var(--purple);font-weight:700;margin:0 0 14px;}
+.doc01 header.masthead .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--purple);vertical-align:middle;margin-right:10px;}
+.doc01 header.masthead h1{font-size:2.05em;line-height:1.5;margin:0 0 14px;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;}
+.doc01 header.masthead .lead{font-size:1.02em;color:#4a4550;margin:0 0 20px;max-width:760px;}
+.doc01 header.masthead .meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.82em;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;}
+.doc01 header.masthead .meta-row b{color:var(--plum);font-weight:600;}
+
+.doc01 .wrap{max-width:1000px;margin:0 auto;padding:0 32px 72px;}
+
+/* 目次 */
+.doc01 nav.toc{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:34px 0 46px;max-width:none;padding:22px 28px;}
+.doc01 nav.toc .t{font-size:1.2em;letter-spacing:.08em;color:var(--plum-deep);font-weight:800;margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid var(--purple);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+.doc01 nav.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;}
+.doc01 nav.toc li{margin:0 0 9px;font-size:.9em;break-inside:avoid;}
+.doc01 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+.doc01 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+.doc01 nav.toc .n{color:var(--purple);font-weight:700;margin-right:8px;font-family:"Hiragino Mincho ProN",serif;}
+
+/* 節見出し */
+.doc01 section{margin:0 0 54px;scroll-margin-top:18px;}
+.doc01 .sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--plum);padding-bottom:10px;margin:0 0 22px;}
+.doc01 .sec-head .no{font-family:"Hiragino Mincho ProN",serif;font-size:1.5em;color:var(--purple);font-weight:600;line-height:1;}
+.doc01 .sec-head h2{font-size:1.34em;margin:0;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;border:0;padding:0;}
+.doc01 h3{color:var(--plum);font-size:1.06em;margin:26px 0 10px;font-weight:600;}
+.doc01 h4{color:var(--plum-deep);font-size:.99em;margin:18px 0 8px;font-weight:600;}
+.doc01 p{margin:0 0 14px;}
+.doc01 strong,
+.doc01 b{color:var(--plum-deep);}
+
+/* 本文カード（05 の .panel に統一。旧クラス .card / .box も同じ見た目に） */
+.doc01 .panel,
+.doc01 .card{background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:22px 26px;margin:0 0 18px;}
+.doc01 .panel.tint{background:var(--purple-soft);border-color:var(--purple-line);}
+
+/* 表 */
+.doc01 table{width:100%;border-collapse:collapse;font-size:.9em;margin:14px 0;background:var(--white);}
+.doc01 caption{caption-side:top;text-align:left;font-size:.8em;color:var(--purple);font-weight:700;letter-spacing:.06em;margin-bottom:8px;}
+.doc01 th,
+.doc01 td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--rule);}
+.doc01 thead th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;font-size:.94em;background:transparent;}
+.doc01 tbody th{font-weight:600;color:var(--plum-deep);}
+.doc01 td.old-cell{background:var(--old-soft);}
+.doc01 td.new-cell{background:var(--purple-soft);}
+.doc01 tr:last-child td,
+.doc01 tr:last-child th{border-bottom:1px solid var(--rule);}
+
+/* 図表 */
+.doc01 figure{margin:22px 0;background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:20px 22px 14px;}
+.doc01 figure svg{display:block;width:100%;height:auto;}
+.doc01 figcaption{font-size:.82em;color:var(--muted);margin-top:10px;border-top:1px solid var(--rule);padding-top:9px;}
+.doc01 figcaption .lbl{color:var(--purple);font-weight:700;letter-spacing:.06em;margin-right:8px;}
+
+/* 注記・出典 */
+.doc01 .note{background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;padding:12px 18px;font-size:.88em;color:#4a4256;margin:16px 0;}
+.doc01 .src{font-size:.78em;color:var(--muted);margin:8px 0 0;}
+.doc01 .src::before{content:"出典 ";color:var(--purple);font-weight:700;}
+
+/* フッタ */
+.doc01 footer{border-top:1px solid var(--rule);padding:26px 32px 46px;color:var(--muted);font-size:.8em;text-align:left;margin-top:0;}
+.doc01 footer .inner{max-width:1000px;margin:0 auto;}
+.doc01 footer p{margin:0 0 8px;}
+
+/* ------------------------------------------------------------
+   配色の統一：資料全体で同じ紫のランプ（濃→淡）だけを使う。
+   テラコッタ(--warn)は「注意・誤解」の枠だけに限定し、図版・バッジでは使わない。
+   ------------------------------------------------------------ */
+.doc01{--s0:#8a7bb3;--s1:#6f5f99;--s2:#5a4b80;--s3:#463a5e;--s4:#332a47;}
+
+/* 移行フェーズ：段階が進むほど濃くなる同系色 */
+.doc01 .phase{border-top-color:var(--s1);}
+.doc01 .phase:nth-child(2){border-top-color:var(--s2);}
+.doc01 .phase:nth-child(3){border-top-color:var(--s3);}
+.doc01 .phase:nth-child(4){border-top-color:var(--s4);}
+.doc01 .phase .phnum{background:var(--s1);}
+.doc01 .phase:nth-child(2) .phnum{background:var(--s2);}
+.doc01 .phase:nth-child(3) .phnum{background:var(--s3);}
+.doc01 .phase:nth-child(4) .phnum{background:var(--s4);}
+
+/* ガントの帯も同じランプ */
+.doc01 .bar.p0{background:var(--s0);}
+.doc01 .bar.p1{background:var(--s1);}
+.doc01 .bar.p2{background:var(--s2);}
+.doc01 .bar.p3{background:var(--s3);}
+.doc01 .bar.p4{background:var(--s4);}
+
+/* 重要度TOP5：順位が高いほど濃い */
+.doc01 .top5-card{border-left-color:var(--s2);}
+.doc01 .top5-num{background:var(--s2);}
+.doc01 .top5-card:nth-child(1){border-left-color:var(--s4);}
+.doc01 .top5-card:nth-child(1) .top5-num{background:var(--s4);}
+.doc01 .top5-card:nth-child(2){border-left-color:var(--s3);}
+.doc01 .top5-card:nth-child(2) .top5-num{background:var(--s3);}
+.doc01 .top5-card:nth-child(4){border-left-color:var(--s1);}
+.doc01 .top5-card:nth-child(4) .top5-num{background:var(--s1);}
+.doc01 .top5-card:nth-child(5){border-left-color:var(--s0);}
+.doc01 .top5-card:nth-child(5) .top5-num{background:var(--s0);}
+
+/* バッジ・タイムラインの点も同系色に */
+.doc01 .badge,
+.doc01 .badge.teal,
+.doc01 .badge.accent,
+.doc01 .badge.danger{background:var(--s3);}
+.doc01 .tl-point.teal{border-color:var(--s1);}
+.doc01 .tl-point.accent{background:var(--s4);border-color:var(--s4);}
+
+/* ------------------------------------------------------------
+   新旧比較の図版：⑤「貸借対照表はこう変わる」と同じ考え方に揃える。
+   図版の地は白。旧＝トープの見出し帯、新＝紫の見出し帯。
+   新しく計上される項目だけを紫で塗り、背景と図の色が重ならないようにする。
+   ------------------------------------------------------------ */
+.doc01 .compare .box{background:var(--white);border:1px solid var(--rule);padding:0;overflow:hidden;}
+.doc01 .compare .box h4{margin:0;padding:11px 16px;font-size:.92em;font-weight:600;color:#fff;letter-spacing:.02em;}
+.doc01 .compare .box.old{background:var(--white);border-color:var(--old-line);}
+.doc01 .compare .box.old h4{background:var(--old);color:#fff;}
+.doc01 .compare .box.new{background:var(--white);border-color:var(--purple-line);}
+.doc01 .compare .box.new h4{background:var(--plum);color:#fff;}
+.doc01 .bs-visual{margin:16px 16px 0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--white);}
+.doc01 .bs-row + .bs-row{border-top:1px solid var(--rule);}
+.doc01 .bs-cell{padding:13px 14px;line-height:1.6;}
+.doc01 .bs-cell.asset{background:#faf9fc;color:var(--plum-deep);font-weight:600;border-right:1px solid var(--rule);}
+.doc01 .bs-cell.liab{background:#faf9fc;color:var(--plum-deep);font-weight:600;}
+.doc01 .bs-cell.off{
+  background:repeating-linear-gradient(135deg,#f4f2f7,#f4f2f7 6px,#eceaf2 6px,#eceaf2 12px);
+  color:var(--muted);font-style:normal;font-weight:400;
+}
+.doc01 .compare .box.new .bs-cell.asset,
+.doc01 .compare .box.new .bs-cell.liab{
+  background:var(--purple-soft);color:var(--plum-deep);box-shadow:inset 3px 0 0 var(--purple);
+}
+.doc01 .bs-title{font-size:.8em;color:var(--muted);text-align:left;padding:10px 16px 14px;line-height:1.7;}
+
+/* ------------------------------------------------------------
+   チェックボックスは装飾なので「チェック済み」で描く。
+   一覧に実務上の意味がない箇所（今すぐ着手する3つのこと）は箱自体を出さない。
+   ------------------------------------------------------------ */
+.doc01 .checklist .box{
+  background:var(--plum);border-color:var(--plum);position:relative;
+}
+.doc01 .checklist .box::after{
+  content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+}
+.doc01 .checklist.no-box .box{display:none;}
+.doc01 .checklist.no-box li{gap:0;}
+
+@media (max-width:720px){
+  .doc01 .wrap,
+.doc01 header.masthead{padding-left:20px;padding-right:20px;}
+  .doc01 nav.toc ol{columns:1;}
+  .doc01 header.masthead h1{font-size:1.55em;}
+  .doc01 .compare .box h4{padding:10px 14px;}
+  .doc01 .bs-visual{margin:12px 12px 0;}}
+@media print{
+  .doc01{background:#fff;font-size:11.5px;}
+  .doc01 .panel,
+.doc01 .card,
+.doc01 figure,
+.doc01 nav.toc{break-inside:avoid;}
+  .doc01 header.masthead{border-bottom:2px solid var(--plum);}}
+/* ======== 02_リース会計基準_詳細版.html ======== */
+
+  .doc02{
+    --plum:#463a5e;
+    --plum-deep:#332a47;
+    --purple:#7b6aa6;
+    --purple-soft:#efebf6;
+    --purple-line:#e0d9ee;
+    --lav-bg:#f7f5fb;
+    --old:#8f8474;
+    --old-soft:#f2efe9;
+    --old-line:#e3ddd0;
+    --ink:#2c2833;
+    --muted:#6f6880;
+    --white:#ffffff;
+    --rule:#e6e2ef;
+    --warn:#a85a45;
+    --warn-soft:#f5e9e6;
+    --warn-line:#e2c7bd;
+  }
+  .doc02 *{box-sizing:border-box;}
+  .doc02{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    background:var(--lav-bg);
+    color:var(--ink);
+    line-height:1.85;
+    font-size:15.5px;
+    font-feature-settings:"palt";
+  }
+
+  .doc02 .wrap{max-width:980px;margin:0 auto;padding:0 20px 60px;}
+
+  .doc02 nav.toc{
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    margin:-24px auto 40px;
+    max-width:940px;
+    padding:22px 26px;
+  }
+  .doc02 nav.toc ol{columns:3;-webkit-columns:3;padding-left:20px;margin:0;}
+  .doc02 nav.toc li{margin-bottom:6px;font-size:0.88em;}
+  .doc02 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+  .doc02 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+
+  .doc02 section{margin-bottom:50px;scroll-margin-top:16px;}
+  .doc02 h3{color:var(--plum);font-size:1.05em;margin:24px 0 8px;border-bottom:1px solid var(--purple-line);padding-bottom:4px;font-weight:600;}
+  .doc02 h4{color:var(--plum);font-size:0.98em;margin:16px 0 6px;font-weight:600;}
+
+  .doc02 .card{
+    background:var(--white);border:1px solid var(--rule);border-radius:5px;
+    padding:20px 24px;margin-bottom:16px;
+  }
+  .doc02 .card.teal{border-left:4px solid var(--purple);}
+  .doc02 .card.accent{border-left:4px solid var(--plum);background:var(--purple-soft);border-color:var(--purple-line);}
+  .doc02 .card.danger{border-left:4px solid var(--warn);background:var(--warn-soft);border-color:var(--warn-line);}
+
+  .doc02 table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.9em;margin:10px 0;}
+  .doc02 th,
+.doc02 td{padding:9px 11px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule);}
+  .doc02 th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;background:transparent;}
+  .doc02 td.num{text-align:right;white-space:nowrap;}
+
+  .doc02 .source{
+    font-size:0.78em;color:var(--muted);
+    background:var(--purple-soft);border-radius:3px;padding:6px 10px;
+    margin-top:6px;display:inline-block;
+  }
+  .doc02 .note{
+    background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;
+    padding:12px 16px;font-size:0.88em;color:#4a4256;margin-top:14px;
+  }
+  .doc02 .warn{
+    background:var(--warn-soft);border-left:3px solid var(--warn);border-radius:0 5px 5px 0;
+    padding:12px 16px;font-size:0.88em;color:#7a4433;margin-top:14px;
+  }
+  .doc02 .tip{
+    background:var(--purple-soft);border-left:3px solid var(--plum);border-radius:0 5px 5px 0;
+    padding:12px 16px;font-size:0.88em;color:#3c3450;margin-top:14px;
+  }
+
+  .doc02 .checklist{list-style:none;padding:0;margin:0;}
+  .doc02 .checklist li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--rule);}
+  .doc02 .checklist li:last-child{border-bottom:none;}
+  .doc02 .checklist .box{flex:0 0 auto;width:16px;height:16px;border:2px solid var(--purple);border-radius:3px;margin-top:3px;}
+
+  /* タイムライン */
+  .doc02 .timeline-track{position:relative;height:3px;background:var(--rule);border-radius:2px;margin:50px 20px 60px;}
+  .doc02 .timeline-track .progress{position:absolute;left:0;top:0;height:100%;background:var(--purple);border-radius:2px;width:100%;}
+  .doc02 .tl-point{position:absolute;top:-8px;width:18px;height:18px;border-radius:50%;background:var(--white);border:3px solid var(--plum-deep);transform:translateX(-50%);}
+  .doc02 .tl-point.teal{border-color:var(--purple);}
+  .doc02 .tl-point.accent{border-color:var(--plum);background:var(--plum);}
+  .doc02 .tl-label{position:absolute;transform:translateX(-50%);text-align:center;width:180px;}
+  .doc02 .tl-label.above{bottom:30px;}
+  .doc02 .tl-label.below{top:30px;}
+  .doc02 .tl-label .date{font-weight:bold;color:var(--plum-deep);font-size:0.9em;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .doc02 .tl-label .desc{font-size:0.78em;color:var(--muted);margin-top:2px;}
+  .doc02 .tl-wrap-mobile{overflow-x:auto;}
+
+  /* フロー */
+  .doc02 .flow{display:flex;flex-direction:column;align-items:center;gap:0;}
+  .doc02 .flow-box{background:var(--white);border:1px solid var(--plum-deep);border-radius:5px;padding:12px 18px;text-align:center;max-width:560px;width:100%;font-size:0.9em;}
+  .doc02 .flow-box.q{border-color:var(--purple);}
+  .doc02 .flow-box.result{border-color:var(--plum);background:var(--purple-soft);font-weight:bold;}
+  .doc02 .flow-arrow{font-size:1.3em;color:var(--muted);margin:2px 0;}
+  .doc02 .flow-branch{display:flex;gap:20px;width:100%;max-width:680px;justify-content:center;margin:6px 0;flex-wrap:wrap;}
+  .doc02 .flow-branch .col{flex:1;min-width:220px;display:flex;flex-direction:column;align-items:center;}
+  .doc02 .flow-branch .lbl{font-size:0.78em;color:var(--muted);margin-bottom:4px;}
+
+  .doc02 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .doc02 .phase{background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:14px;border-top:3px solid var(--plum-deep);}
+  .doc02 .phase:nth-child(2){border-top-color:var(--purple);}
+  .doc02 .phase:nth-child(3){border-top-color:var(--plum);}
+  .doc02 .phase:nth-child(4){border-top-color:var(--warn);}
+  .doc02 .phase .phnum{font-size:0.72em;color:#fff;background:var(--plum-deep);display:inline-block;padding:2px 9px;border-radius:3px;margin-bottom:6px;letter-spacing:0.04em;}
+  .doc02 .phase:nth-child(2) .phnum{background:var(--purple);}
+  .doc02 .phase:nth-child(3) .phnum{background:var(--plum);}
+  .doc02 .phase:nth-child(4) .phnum{background:var(--warn);}
+  .doc02 .phase h4{margin:0 0 6px;font-size:0.9em;}
+  .doc02 .phase p{margin:0;font-size:0.8em;color:var(--muted);}
+
+  .doc02 .badge{display:inline-block;font-size:0.72em;background:var(--plum-deep);color:#fff;border-radius:3px;padding:2px 9px;margin-left:6px;}
+  .doc02 .badge.teal{background:var(--purple);}
+  .doc02 .badge.accent{background:var(--plum);}
+
+  @media (max-width:760px){
+    .doc02 nav.toc ol{columns:1;}
+    .doc02 .phases{grid-template-columns:1fr 1fr;}
+    .doc02 .flow-branch{flex-direction:column;align-items:center;}}
+  @media print{
+    .doc02{background:#fff;font-size:11px;}
+    .doc02 section{page-break-inside:avoid;}}
+
+/* ============================================================
+   共通版面（⑤ 新旧比較 の版面に統一）— 2026-09-29
+   ここより上は各資料固有のコンポーネント定義（図・ステップ・ガント等）。
+   本ブロックは基礎タイポグラフィ／ヘッダ／目次／節見出し／カード／表／
+   図表／出典／フッタを 05 と同一仕様に揃える。
+   ============================================================ */
+.doc02{
+  margin:0;color:var(--ink);background:var(--lav-bg);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.9;font-size:16px;font-feature-settings:"palt";
+}
+.doc02 .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;}
+
+/* ヘッダ */
+.doc02 header.masthead{background:var(--white);border-bottom:1px solid var(--rule);padding:44px 32px 30px;}
+.doc02 header.masthead .inner{max-width:1000px;margin:0 auto;}
+.doc02 header.masthead .eyebrow{font-size:12px;letter-spacing:.22em;color:var(--purple);font-weight:700;margin:0 0 14px;}
+.doc02 header.masthead .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--purple);vertical-align:middle;margin-right:10px;}
+.doc02 header.masthead h1{font-size:2.05em;line-height:1.5;margin:0 0 14px;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;}
+.doc02 header.masthead .lead{font-size:1.02em;color:#4a4550;margin:0 0 20px;max-width:760px;}
+.doc02 header.masthead .meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.82em;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;}
+.doc02 header.masthead .meta-row b{color:var(--plum);font-weight:600;}
+
+.doc02 .wrap{max-width:1000px;margin:0 auto;padding:0 32px 72px;}
+
+/* 目次 */
+.doc02 nav.toc{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:34px 0 46px;max-width:none;padding:22px 28px;}
+.doc02 nav.toc .t{font-size:1.2em;letter-spacing:.08em;color:var(--plum-deep);font-weight:800;margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid var(--purple);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+.doc02 nav.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;}
+.doc02 nav.toc li{margin:0 0 9px;font-size:.9em;break-inside:avoid;}
+.doc02 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+.doc02 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+.doc02 nav.toc .n{color:var(--purple);font-weight:700;margin-right:8px;font-family:"Hiragino Mincho ProN",serif;}
+
+/* 節見出し */
+.doc02 section{margin:0 0 54px;scroll-margin-top:18px;}
+.doc02 .sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--plum);padding-bottom:10px;margin:0 0 22px;}
+.doc02 .sec-head .no{font-family:"Hiragino Mincho ProN",serif;font-size:1.5em;color:var(--purple);font-weight:600;line-height:1;}
+.doc02 .sec-head h2{font-size:1.34em;margin:0;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;border:0;padding:0;}
+.doc02 h3{color:var(--plum);font-size:1.06em;margin:26px 0 10px;font-weight:600;}
+.doc02 h4{color:var(--plum-deep);font-size:.99em;margin:18px 0 8px;font-weight:600;}
+.doc02 p{margin:0 0 14px;}
+.doc02 strong,
+.doc02 b{color:var(--plum-deep);}
+
+/* 本文カード（05 の .panel に統一。旧クラス .card / .box も同じ見た目に） */
+.doc02 .panel,
+.doc02 .card{background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:22px 26px;margin:0 0 18px;}
+.doc02 .panel.tint{background:var(--purple-soft);border-color:var(--purple-line);}
+
+/* 表 */
+.doc02 table{width:100%;border-collapse:collapse;font-size:.9em;margin:14px 0;background:var(--white);}
+.doc02 caption{caption-side:top;text-align:left;font-size:.8em;color:var(--purple);font-weight:700;letter-spacing:.06em;margin-bottom:8px;}
+.doc02 th,
+.doc02 td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--rule);}
+.doc02 thead th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;font-size:.94em;background:transparent;}
+.doc02 tbody th{font-weight:600;color:var(--plum-deep);}
+.doc02 td.old-cell{background:var(--old-soft);}
+.doc02 td.new-cell{background:var(--purple-soft);}
+.doc02 tr:last-child td,
+.doc02 tr:last-child th{border-bottom:1px solid var(--rule);}
+
+/* 図表 */
+.doc02 figure{margin:22px 0;background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:20px 22px 14px;}
+.doc02 figure svg{display:block;width:100%;height:auto;}
+.doc02 figcaption{font-size:.82em;color:var(--muted);margin-top:10px;border-top:1px solid var(--rule);padding-top:9px;}
+.doc02 figcaption .lbl{color:var(--purple);font-weight:700;letter-spacing:.06em;margin-right:8px;}
+
+/* 注記・出典 */
+.doc02 .note{background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;padding:12px 18px;font-size:.88em;color:#4a4256;margin:16px 0;}
+.doc02 .src{font-size:.78em;color:var(--muted);margin:8px 0 0;}
+.doc02 .src::before{content:"出典 ";color:var(--purple);font-weight:700;}
+
+/* フッタ */
+.doc02 footer{border-top:1px solid var(--rule);padding:26px 32px 46px;color:var(--muted);font-size:.8em;text-align:left;margin-top:0;}
+.doc02 footer .inner{max-width:1000px;margin:0 auto;}
+.doc02 footer p{margin:0 0 8px;}
+
+/* ------------------------------------------------------------
+   配色の統一：資料全体で同じ紫のランプ（濃→淡）だけを使う。
+   テラコッタ(--warn)は「注意・誤解」の枠だけに限定し、図版・バッジでは使わない。
+   ------------------------------------------------------------ */
+.doc02{--s0:#8a7bb3;--s1:#6f5f99;--s2:#5a4b80;--s3:#463a5e;--s4:#332a47;}
+
+/* 移行フェーズ：段階が進むほど濃くなる同系色 */
+.doc02 .phase{border-top-color:var(--s1);}
+.doc02 .phase:nth-child(2){border-top-color:var(--s2);}
+.doc02 .phase:nth-child(3){border-top-color:var(--s3);}
+.doc02 .phase:nth-child(4){border-top-color:var(--s4);}
+.doc02 .phase .phnum{background:var(--s1);}
+.doc02 .phase:nth-child(2) .phnum{background:var(--s2);}
+.doc02 .phase:nth-child(3) .phnum{background:var(--s3);}
+.doc02 .phase:nth-child(4) .phnum{background:var(--s4);}
+
+/* ガントの帯も同じランプ */
+.doc02 .bar.p0{background:var(--s0);}
+.doc02 .bar.p1{background:var(--s1);}
+.doc02 .bar.p2{background:var(--s2);}
+.doc02 .bar.p3{background:var(--s3);}
+.doc02 .bar.p4{background:var(--s4);}
+
+/* 重要度TOP5：順位が高いほど濃い */
+.doc02 .top5-card{border-left-color:var(--s2);}
+.doc02 .top5-num{background:var(--s2);}
+.doc02 .top5-card:nth-child(1){border-left-color:var(--s4);}
+.doc02 .top5-card:nth-child(1) .top5-num{background:var(--s4);}
+.doc02 .top5-card:nth-child(2){border-left-color:var(--s3);}
+.doc02 .top5-card:nth-child(2) .top5-num{background:var(--s3);}
+.doc02 .top5-card:nth-child(4){border-left-color:var(--s1);}
+.doc02 .top5-card:nth-child(4) .top5-num{background:var(--s1);}
+.doc02 .top5-card:nth-child(5){border-left-color:var(--s0);}
+.doc02 .top5-card:nth-child(5) .top5-num{background:var(--s0);}
+
+/* バッジ・タイムラインの点も同系色に */
+.doc02 .badge,
+.doc02 .badge.teal,
+.doc02 .badge.accent,
+.doc02 .badge.danger{background:var(--s3);}
+.doc02 .tl-point.teal{border-color:var(--s1);}
+.doc02 .tl-point.accent{background:var(--s4);border-color:var(--s4);}
+
+/* ------------------------------------------------------------
+   新旧比較の図版：⑤「貸借対照表はこう変わる」と同じ考え方に揃える。
+   図版の地は白。旧＝トープの見出し帯、新＝紫の見出し帯。
+   新しく計上される項目だけを紫で塗り、背景と図の色が重ならないようにする。
+   ------------------------------------------------------------ */
+.doc02 .compare .box{background:var(--white);border:1px solid var(--rule);padding:0;overflow:hidden;}
+.doc02 .compare .box h4{margin:0;padding:11px 16px;font-size:.92em;font-weight:600;color:#fff;letter-spacing:.02em;}
+.doc02 .compare .box.old{background:var(--white);border-color:var(--old-line);}
+.doc02 .compare .box.old h4{background:var(--old);color:#fff;}
+.doc02 .compare .box.new{background:var(--white);border-color:var(--purple-line);}
+.doc02 .compare .box.new h4{background:var(--plum);color:#fff;}
+.doc02 .bs-visual{margin:16px 16px 0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--white);}
+.doc02 .bs-row + .bs-row{border-top:1px solid var(--rule);}
+.doc02 .bs-cell{padding:13px 14px;line-height:1.6;}
+.doc02 .bs-cell.asset{background:#faf9fc;color:var(--plum-deep);font-weight:600;border-right:1px solid var(--rule);}
+.doc02 .bs-cell.liab{background:#faf9fc;color:var(--plum-deep);font-weight:600;}
+.doc02 .bs-cell.off{
+  background:repeating-linear-gradient(135deg,#f4f2f7,#f4f2f7 6px,#eceaf2 6px,#eceaf2 12px);
+  color:var(--muted);font-style:normal;font-weight:400;
+}
+.doc02 .compare .box.new .bs-cell.asset,
+.doc02 .compare .box.new .bs-cell.liab{
+  background:var(--purple-soft);color:var(--plum-deep);box-shadow:inset 3px 0 0 var(--purple);
+}
+.doc02 .bs-title{font-size:.8em;color:var(--muted);text-align:left;padding:10px 16px 14px;line-height:1.7;}
+
+/* ------------------------------------------------------------
+   チェックボックスは装飾なので「チェック済み」で描く。
+   一覧に実務上の意味がない箇所（今すぐ着手する3つのこと）は箱自体を出さない。
+   ------------------------------------------------------------ */
+.doc02 .checklist .box{
+  background:var(--plum);border-color:var(--plum);position:relative;
+}
+.doc02 .checklist .box::after{
+  content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+}
+.doc02 .checklist.no-box .box{display:none;}
+.doc02 .checklist.no-box li{gap:0;}
+
+@media (max-width:720px){
+  .doc02 .wrap,
+.doc02 header.masthead{padding-left:20px;padding-right:20px;}
+  .doc02 nav.toc ol{columns:1;}
+  .doc02 header.masthead h1{font-size:1.55em;}
+  .doc02 .compare .box h4{padding:10px 14px;}
+  .doc02 .bs-visual{margin:12px 12px 0;}}
+@media print{
+  .doc02{background:#fff;font-size:11.5px;}
+  .doc02 .panel,
+.doc02 .card,
+.doc02 figure,
+.doc02 nav.toc{break-inside:avoid;}
+  .doc02 header.masthead{border-bottom:2px solid var(--plum);}}
+/* ======== 03_リース移行_会社提示用手順書.html ======== */
+
+  .doc03{
+    --plum:#463a5e;
+    --plum-deep:#332a47;
+    --purple:#7b6aa6;
+    --purple-soft:#efebf6;
+    --purple-line:#e0d9ee;
+    --lav-bg:#f7f5fb;
+    --old:#8f8474;
+    --old-soft:#f2efe9;
+    --old-line:#e3ddd0;
+    --ink:#2c2833;
+    --muted:#6f6880;
+    --gray:#6f6880;
+    --white:#ffffff;
+    --rule:#e6e2ef;
+    --warn:#a85a45;
+    --warn-soft:#f5e9e6;
+    --warn-line:#e2c7bd;
+  }
+  .doc03 *{box-sizing:border-box;}
+  .doc03{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    background:var(--lav-bg);
+    color:var(--ink);
+    line-height:1.85;
+    font-size:16px;
+    font-feature-settings:"palt";
+  }
+
+  .doc03 .wrap{max-width:960px;margin:0 auto;padding:0 20px 60px;}
+
+  .doc03 nav.toc{
+    background:var(--white);border:1px solid var(--rule);border-radius:4px;
+    margin:-26px auto 40px;max-width:920px;padding:22px 26px;
+  }
+  .doc03 nav.toc ol{columns:2;-webkit-columns:2;padding-left:20px;margin:0;}
+  .doc03 nav.toc li{margin-bottom:6px;font-size:0.9em;}
+  .doc03 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+  .doc03 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+
+  .doc03 section{margin-bottom:52px;scroll-margin-top:16px;}
+  .doc03 h3{color:var(--plum);font-size:1.05em;margin:22px 0 8px;font-weight:600;}
+  .doc03 h4{color:var(--plum);font-size:0.98em;margin:14px 0 6px;font-weight:600;}
+
+  .doc03 .card{
+    background:var(--white);border:1px solid var(--rule);border-radius:5px;
+    padding:20px 24px;margin-bottom:16px;
+  }
+  .doc03 .card.teal{border-left:4px solid var(--purple);}
+  .doc03 .card.accent{border-left:4px solid var(--plum);background:var(--purple-soft);border-color:var(--purple-line);}
+
+  .doc03 table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.9em;margin:10px 0;}
+  .doc03 th,
+.doc03 td{padding:9px 11px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule);}
+  .doc03 th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;background:transparent;}
+
+  .doc03 .note{background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;padding:12px 16px;font-size:0.88em;color:#4a4256;margin-top:14px;}
+  .doc03 .warn{background:var(--warn-soft);border-left:3px solid var(--warn);border-radius:0 5px 5px 0;padding:12px 16px;font-size:0.88em;color:#7a4433;margin-top:14px;}
+  .doc03 .tip{background:var(--purple-soft);border-left:3px solid var(--plum);border-radius:0 5px 5px 0;padding:12px 16px;font-size:0.88em;color:#3c3450;margin-top:14px;}
+
+  .doc03 .checklist{list-style:none;padding:0;margin:0;}
+  .doc03 .checklist li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--rule);}
+  .doc03 .checklist li:last-child{border-bottom:none;}
+  .doc03 .checklist .box{flex:0 0 auto;width:17px;height:17px;border:2px solid var(--purple);border-radius:3px;margin-top:3px;}
+
+  /* ガント */
+  .doc03 .gantt{overflow-x:auto;}
+  .doc03 .gantt table{min-width:760px;}
+  .doc03 .gantt th.qtr{text-align:center;font-size:0.8em;}
+  .doc03 .gantt td.bar-cell{padding:4px 6px;height:34px;position:relative;}
+  .doc03 .bar{
+    height:20px;border-radius:3px;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:0.72em;font-weight:bold;
+  }
+  .doc03 .bar.p0{background:#8f89a2;}
+  .doc03 .bar.p1{background:var(--plum-deep);}
+  .doc03 .bar.p2{background:var(--purple);}
+  .doc03 .bar.p3{background:var(--plum);}
+  .doc03 .bar.p4{background:var(--warn);}
+
+  /* ステップカード */
+  .doc03 .step{
+    background:var(--white);border:1px solid var(--rule);border-radius:5px;
+    padding:0;margin-bottom:22px;overflow:hidden;
+  }
+  .doc03 .step-head{
+    background:var(--plum-deep);color:#fff;padding:14px 22px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .doc03 .step-head .stepnum{
+    background:var(--purple);color:#fff;font-weight:bold;
+    border-radius:50%;width:36px;height:36px;
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+  .doc03 .step-head h3{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;color:#fff;margin:0;border:none;font-size:1.05em;font-weight:600;}
+  .doc03 .step-body{padding:18px 22px;}
+  .doc03 .step-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px;
+  }
+  .doc03 .step-block{
+    background:var(--lav-bg);border:1px solid var(--rule);border-radius:4px;padding:14px 16px;
+  }
+  .doc03 .step-block h4{margin:0 0 8px;font-size:0.85em;color:var(--purple);letter-spacing:0.04em;font-weight:700;}
+  .doc03 .step-block p,
+.doc03 .step-block ul{margin:0;font-size:0.9em;}
+  .doc03 .step-block ul{padding-left:18px;}
+  .doc03 .step-complete{
+    background:var(--purple-soft);border:1px solid var(--purple-line);border-radius:4px;
+    padding:12px 16px;margin-top:14px;font-size:0.9em;
+  }
+  .doc03 .step-complete h4{margin:0 0 8px;font-size:0.85em;color:var(--plum-deep);}
+
+  @media (max-width:760px){
+    .doc03 nav.toc ol{columns:1;}
+    .doc03 .step-grid{grid-template-columns:1fr;}}
+  @media print{
+    .doc03{background:#fff;font-size:12px;}
+    .doc03 .step-head{background:var(--plum-deep) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .doc03 section,
+.doc03 .step{page-break-inside:avoid;}}
+
+/* ============================================================
+   共通版面（⑤ 新旧比較 の版面に統一）— 2026-09-29
+   ここより上は各資料固有のコンポーネント定義（図・ステップ・ガント等）。
+   本ブロックは基礎タイポグラフィ／ヘッダ／目次／節見出し／カード／表／
+   図表／出典／フッタを 05 と同一仕様に揃える。
+   ============================================================ */
+.doc03{
+  margin:0;color:var(--ink);background:var(--lav-bg);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.9;font-size:16px;font-feature-settings:"palt";
+}
+.doc03 .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;}
+
+/* ヘッダ */
+.doc03 header.masthead{background:var(--white);border-bottom:1px solid var(--rule);padding:44px 32px 30px;}
+.doc03 header.masthead .inner{max-width:1000px;margin:0 auto;}
+.doc03 header.masthead .eyebrow{font-size:12px;letter-spacing:.22em;color:var(--purple);font-weight:700;margin:0 0 14px;}
+.doc03 header.masthead .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--purple);vertical-align:middle;margin-right:10px;}
+.doc03 header.masthead h1{font-size:2.05em;line-height:1.5;margin:0 0 14px;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;}
+.doc03 header.masthead .lead{font-size:1.02em;color:#4a4550;margin:0 0 20px;max-width:760px;}
+.doc03 header.masthead .meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.82em;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;}
+.doc03 header.masthead .meta-row b{color:var(--plum);font-weight:600;}
+
+.doc03 .wrap{max-width:1000px;margin:0 auto;padding:0 32px 72px;}
+
+/* 目次 */
+.doc03 nav.toc{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:34px 0 46px;max-width:none;padding:22px 28px;}
+.doc03 nav.toc .t{font-size:1.2em;letter-spacing:.08em;color:var(--plum-deep);font-weight:800;margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid var(--purple);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+.doc03 nav.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;}
+.doc03 nav.toc li{margin:0 0 9px;font-size:.9em;break-inside:avoid;}
+.doc03 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+.doc03 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+.doc03 nav.toc .n{color:var(--purple);font-weight:700;margin-right:8px;font-family:"Hiragino Mincho ProN",serif;}
+
+/* 節見出し */
+.doc03 section{margin:0 0 54px;scroll-margin-top:18px;}
+.doc03 .sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--plum);padding-bottom:10px;margin:0 0 22px;}
+.doc03 .sec-head .no{font-family:"Hiragino Mincho ProN",serif;font-size:1.5em;color:var(--purple);font-weight:600;line-height:1;}
+.doc03 .sec-head h2{font-size:1.34em;margin:0;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;border:0;padding:0;}
+.doc03 h3{color:var(--plum);font-size:1.06em;margin:26px 0 10px;font-weight:600;}
+.doc03 h4{color:var(--plum-deep);font-size:.99em;margin:18px 0 8px;font-weight:600;}
+.doc03 p{margin:0 0 14px;}
+.doc03 strong,
+.doc03 b{color:var(--plum-deep);}
+
+/* 本文カード（05 の .panel に統一。旧クラス .card / .box も同じ見た目に） */
+.doc03 .panel,
+.doc03 .card{background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:22px 26px;margin:0 0 18px;}
+.doc03 .panel.tint{background:var(--purple-soft);border-color:var(--purple-line);}
+
+/* 表 */
+.doc03 table{width:100%;border-collapse:collapse;font-size:.9em;margin:14px 0;background:var(--white);}
+.doc03 caption{caption-side:top;text-align:left;font-size:.8em;color:var(--purple);font-weight:700;letter-spacing:.06em;margin-bottom:8px;}
+.doc03 th,
+.doc03 td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--rule);}
+.doc03 thead th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;font-size:.94em;background:transparent;}
+.doc03 tbody th{font-weight:600;color:var(--plum-deep);}
+.doc03 td.old-cell{background:var(--old-soft);}
+.doc03 td.new-cell{background:var(--purple-soft);}
+.doc03 tr:last-child td,
+.doc03 tr:last-child th{border-bottom:1px solid var(--rule);}
+
+/* 図表 */
+.doc03 figure{margin:22px 0;background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:20px 22px 14px;}
+.doc03 figure svg{display:block;width:100%;height:auto;}
+.doc03 figcaption{font-size:.82em;color:var(--muted);margin-top:10px;border-top:1px solid var(--rule);padding-top:9px;}
+.doc03 figcaption .lbl{color:var(--purple);font-weight:700;letter-spacing:.06em;margin-right:8px;}
+
+/* 注記・出典 */
+.doc03 .note{background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;padding:12px 18px;font-size:.88em;color:#4a4256;margin:16px 0;}
+.doc03 .src{font-size:.78em;color:var(--muted);margin:8px 0 0;}
+.doc03 .src::before{content:"出典 ";color:var(--purple);font-weight:700;}
+
+/* フッタ */
+.doc03 footer{border-top:1px solid var(--rule);padding:26px 32px 46px;color:var(--muted);font-size:.8em;text-align:left;margin-top:0;}
+.doc03 footer .inner{max-width:1000px;margin:0 auto;}
+.doc03 footer p{margin:0 0 8px;}
+
+/* ------------------------------------------------------------
+   配色の統一：資料全体で同じ紫のランプ（濃→淡）だけを使う。
+   テラコッタ(--warn)は「注意・誤解」の枠だけに限定し、図版・バッジでは使わない。
+   ------------------------------------------------------------ */
+.doc03{--s0:#8a7bb3;--s1:#6f5f99;--s2:#5a4b80;--s3:#463a5e;--s4:#332a47;}
+
+/* 移行フェーズ：段階が進むほど濃くなる同系色 */
+.doc03 .phase{border-top-color:var(--s1);}
+.doc03 .phase:nth-child(2){border-top-color:var(--s2);}
+.doc03 .phase:nth-child(3){border-top-color:var(--s3);}
+.doc03 .phase:nth-child(4){border-top-color:var(--s4);}
+.doc03 .phase .phnum{background:var(--s1);}
+.doc03 .phase:nth-child(2) .phnum{background:var(--s2);}
+.doc03 .phase:nth-child(3) .phnum{background:var(--s3);}
+.doc03 .phase:nth-child(4) .phnum{background:var(--s4);}
+
+/* ガントの帯も同じランプ */
+.doc03 .bar.p0{background:var(--s0);}
+.doc03 .bar.p1{background:var(--s1);}
+.doc03 .bar.p2{background:var(--s2);}
+.doc03 .bar.p3{background:var(--s3);}
+.doc03 .bar.p4{background:var(--s4);}
+
+/* 重要度TOP5：順位が高いほど濃い */
+.doc03 .top5-card{border-left-color:var(--s2);}
+.doc03 .top5-num{background:var(--s2);}
+.doc03 .top5-card:nth-child(1){border-left-color:var(--s4);}
+.doc03 .top5-card:nth-child(1) .top5-num{background:var(--s4);}
+.doc03 .top5-card:nth-child(2){border-left-color:var(--s3);}
+.doc03 .top5-card:nth-child(2) .top5-num{background:var(--s3);}
+.doc03 .top5-card:nth-child(4){border-left-color:var(--s1);}
+.doc03 .top5-card:nth-child(4) .top5-num{background:var(--s1);}
+.doc03 .top5-card:nth-child(5){border-left-color:var(--s0);}
+.doc03 .top5-card:nth-child(5) .top5-num{background:var(--s0);}
+
+/* バッジ・タイムラインの点も同系色に */
+.doc03 .badge,
+.doc03 .badge.teal,
+.doc03 .badge.accent,
+.doc03 .badge.danger{background:var(--s3);}
+.doc03 .tl-point.teal{border-color:var(--s1);}
+.doc03 .tl-point.accent{background:var(--s4);border-color:var(--s4);}
+
+/* ------------------------------------------------------------
+   新旧比較の図版：⑤「貸借対照表はこう変わる」と同じ考え方に揃える。
+   図版の地は白。旧＝トープの見出し帯、新＝紫の見出し帯。
+   新しく計上される項目だけを紫で塗り、背景と図の色が重ならないようにする。
+   ------------------------------------------------------------ */
+.doc03 .compare .box{background:var(--white);border:1px solid var(--rule);padding:0;overflow:hidden;}
+.doc03 .compare .box h4{margin:0;padding:11px 16px;font-size:.92em;font-weight:600;color:#fff;letter-spacing:.02em;}
+.doc03 .compare .box.old{background:var(--white);border-color:var(--old-line);}
+.doc03 .compare .box.old h4{background:var(--old);color:#fff;}
+.doc03 .compare .box.new{background:var(--white);border-color:var(--purple-line);}
+.doc03 .compare .box.new h4{background:var(--plum);color:#fff;}
+.doc03 .bs-visual{margin:16px 16px 0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--white);}
+.doc03 .bs-row + .bs-row{border-top:1px solid var(--rule);}
+.doc03 .bs-cell{padding:13px 14px;line-height:1.6;}
+.doc03 .bs-cell.asset{background:#faf9fc;color:var(--plum-deep);font-weight:600;border-right:1px solid var(--rule);}
+.doc03 .bs-cell.liab{background:#faf9fc;color:var(--plum-deep);font-weight:600;}
+.doc03 .bs-cell.off{
+  background:repeating-linear-gradient(135deg,#f4f2f7,#f4f2f7 6px,#eceaf2 6px,#eceaf2 12px);
+  color:var(--muted);font-style:normal;font-weight:400;
+}
+.doc03 .compare .box.new .bs-cell.asset,
+.doc03 .compare .box.new .bs-cell.liab{
+  background:var(--purple-soft);color:var(--plum-deep);box-shadow:inset 3px 0 0 var(--purple);
+}
+.doc03 .bs-title{font-size:.8em;color:var(--muted);text-align:left;padding:10px 16px 14px;line-height:1.7;}
+
+/* ------------------------------------------------------------
+   チェックボックスは装飾なので「チェック済み」で描く。
+   一覧に実務上の意味がない箇所（今すぐ着手する3つのこと）は箱自体を出さない。
+   ------------------------------------------------------------ */
+.doc03 .checklist .box{
+  background:var(--plum);border-color:var(--plum);position:relative;
+}
+.doc03 .checklist .box::after{
+  content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+}
+.doc03 .checklist.no-box .box{display:none;}
+.doc03 .checklist.no-box li{gap:0;}
+
+@media (max-width:720px){
+  .doc03 .wrap,
+.doc03 header.masthead{padding-left:20px;padding-right:20px;}
+  .doc03 nav.toc ol{columns:1;}
+  .doc03 header.masthead h1{font-size:1.55em;}
+  .doc03 .compare .box h4{padding:10px 14px;}
+  .doc03 .bs-visual{margin:12px 12px 0;}}
+@media print{
+  .doc03{background:#fff;font-size:11.5px;}
+  .doc03 .panel,
+.doc03 .card,
+.doc03 figure,
+.doc03 nav.toc{break-inside:avoid;}
+  .doc03 header.masthead{border-bottom:2px solid var(--plum);}}
+/* ======== 04_IFRS16との相違点.html ======== */
+
+  .doc04{
+    --plum:#463a5e;
+    --plum-deep:#332a47;
+    --purple:#7b6aa6;
+    --purple-soft:#efebf6;
+    --purple-line:#e0d9ee;
+    --lav-bg:#f7f5fb;
+    --old:#8f8474;
+    --old-soft:#f2efe9;
+    --old-line:#e3ddd0;
+    --ink:#2c2833;
+    --muted:#6f6880;
+    --white:#ffffff;
+    --rule:#e6e2ef;
+    --warn:#a85a45;
+    --warn-soft:#f5e9e6;
+    --warn-line:#e2c7bd;
+    --navy-light:#efebf6; /* 本文インラインstyleのvar(--navy-light)参照を維持するために定義 */
+  }
+  .doc04 *{box-sizing:border-box;}
+  .doc04{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    background:var(--lav-bg);
+    color:var(--ink);
+    line-height:1.85;
+    font-size:15.5px;
+    font-feature-settings:"palt";
+  }
+
+  .doc04 .wrap{max-width:980px;margin:0 auto;padding:0 20px 60px;}
+
+  .doc04 nav.toc{
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    margin:-24px auto 40px;
+    max-width:940px;
+    padding:22px 26px;
+  }
+  .doc04 nav.toc ol{columns:3;-webkit-columns:3;padding-left:20px;margin:0;}
+  .doc04 nav.toc li{margin-bottom:6px;font-size:0.88em;}
+  .doc04 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+  .doc04 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+
+  .doc04 section{margin-bottom:50px;scroll-margin-top:16px;}
+  .doc04 h3{color:var(--plum);font-size:1.05em;margin:24px 0 8px;border-bottom:1px solid var(--purple-line);padding-bottom:4px;font-weight:600;}
+  .doc04 h4{color:var(--plum);font-size:0.98em;margin:16px 0 6px;font-weight:600;}
+
+  .doc04 .card{
+    background:var(--white);border:1px solid var(--rule);border-radius:5px;
+    padding:20px 24px;margin-bottom:16px;
+  }
+  .doc04 .card.teal{border-left:4px solid var(--purple);}
+  .doc04 .card.accent{border-left:4px solid var(--plum);background:var(--purple-soft);border-color:var(--purple-line);}
+  .doc04 .card.danger{border-left:4px solid var(--warn);background:var(--warn-soft);border-color:var(--warn-line);}
+
+  .doc04 table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.9em;margin:10px 0;}
+  .doc04 th,
+.doc04 td{padding:9px 11px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule);}
+  .doc04 th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;background:transparent;}
+  .doc04 td.num{text-align:right;white-space:nowrap;}
+
+  .doc04 .source{
+    font-size:0.78em;color:var(--muted);
+    background:var(--purple-soft);border-radius:3px;padding:6px 10px;
+    margin-top:6px;display:inline-block;
+  }
+  .doc04 .note{
+    background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;
+    padding:12px 16px;font-size:0.88em;color:#4a4256;margin-top:14px;
+  }
+  .doc04 .warn{
+    background:var(--warn-soft);border-left:3px solid var(--warn);border-radius:0 5px 5px 0;
+    padding:12px 16px;font-size:0.88em;color:#7a4433;margin-top:14px;
+  }
+  .doc04 .tip{
+    background:var(--purple-soft);border-left:3px solid var(--plum);border-radius:0 5px 5px 0;
+    padding:12px 16px;font-size:0.88em;color:#3c3450;margin-top:14px;
+  }
+
+  .doc04 .checklist{list-style:none;padding:0;margin:0;}
+  .doc04 .checklist li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--rule);}
+  .doc04 .checklist li:last-child{border-bottom:none;}
+  .doc04 .checklist .box{flex:0 0 auto;width:16px;height:16px;border:2px solid var(--purple);border-radius:3px;margin-top:3px;}
+
+  .doc04 .top5{display:flex;flex-direction:column;gap:14px;}
+  .doc04 .top5-card{
+    background:var(--white);border:1px solid var(--rule);border-radius:5px;
+    padding:18px 22px;
+    border-left:4px solid var(--warn);display:flex;gap:16px;align-items:flex-start;
+  }
+  .doc04 .top5-num{
+    flex:0 0 auto;width:32px;height:32px;border-radius:50%;
+    background:var(--warn);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-weight:bold;font-size:1em;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+  .doc04 .top5-card h4{margin:0 0 6px;font-size:1em;color:var(--plum-deep);}
+  .doc04 .top5-card p{margin:0;font-size:0.9em;}
+
+  .doc04 .badge{display:inline-block;font-size:0.72em;background:var(--plum-deep);color:#fff;border-radius:3px;padding:2px 9px;margin-left:6px;}
+  .doc04 .badge.teal{background:var(--purple);}
+  .doc04 .badge.accent{background:var(--plum);}
+  .doc04 .badge.danger{background:var(--warn);}
+
+  @media (max-width:760px){
+    .doc04 nav.toc ol{columns:1;}
+    .doc04 .top5-card{flex-direction:column;}}
+  @media print{
+    .doc04{background:#fff;font-size:11px;}
+    .doc04 section{page-break-inside:avoid;}}
+
+/* ============================================================
+   共通版面（⑤ 新旧比較 の版面に統一）— 2026-09-29
+   ここより上は各資料固有のコンポーネント定義（図・ステップ・ガント等）。
+   本ブロックは基礎タイポグラフィ／ヘッダ／目次／節見出し／カード／表／
+   図表／出典／フッタを 05 と同一仕様に揃える。
+   ============================================================ */
+.doc04{
+  margin:0;color:var(--ink);background:var(--lav-bg);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.9;font-size:16px;font-feature-settings:"palt";
+}
+.doc04 .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;}
+
+/* ヘッダ */
+.doc04 header.masthead{background:var(--white);border-bottom:1px solid var(--rule);padding:44px 32px 30px;}
+.doc04 header.masthead .inner{max-width:1000px;margin:0 auto;}
+.doc04 header.masthead .eyebrow{font-size:12px;letter-spacing:.22em;color:var(--purple);font-weight:700;margin:0 0 14px;}
+.doc04 header.masthead .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--purple);vertical-align:middle;margin-right:10px;}
+.doc04 header.masthead h1{font-size:2.05em;line-height:1.5;margin:0 0 14px;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;}
+.doc04 header.masthead .lead{font-size:1.02em;color:#4a4550;margin:0 0 20px;max-width:760px;}
+.doc04 header.masthead .meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.82em;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;}
+.doc04 header.masthead .meta-row b{color:var(--plum);font-weight:600;}
+
+.doc04 .wrap{max-width:1000px;margin:0 auto;padding:0 32px 72px;}
+
+/* 目次 */
+.doc04 nav.toc{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:34px 0 46px;max-width:none;padding:22px 28px;}
+.doc04 nav.toc .t{font-size:1.2em;letter-spacing:.08em;color:var(--plum-deep);font-weight:800;margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid var(--purple);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+.doc04 nav.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;}
+.doc04 nav.toc li{margin:0 0 9px;font-size:.9em;break-inside:avoid;}
+.doc04 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+.doc04 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+.doc04 nav.toc .n{color:var(--purple);font-weight:700;margin-right:8px;font-family:"Hiragino Mincho ProN",serif;}
+
+/* 節見出し */
+.doc04 section{margin:0 0 54px;scroll-margin-top:18px;}
+.doc04 .sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--plum);padding-bottom:10px;margin:0 0 22px;}
+.doc04 .sec-head .no{font-family:"Hiragino Mincho ProN",serif;font-size:1.5em;color:var(--purple);font-weight:600;line-height:1;}
+.doc04 .sec-head h2{font-size:1.34em;margin:0;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;border:0;padding:0;}
+.doc04 h3{color:var(--plum);font-size:1.06em;margin:26px 0 10px;font-weight:600;}
+.doc04 h4{color:var(--plum-deep);font-size:.99em;margin:18px 0 8px;font-weight:600;}
+.doc04 p{margin:0 0 14px;}
+.doc04 strong,
+.doc04 b{color:var(--plum-deep);}
+
+/* 本文カード（05 の .panel に統一。旧クラス .card / .box も同じ見た目に） */
+.doc04 .panel,
+.doc04 .card{background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:22px 26px;margin:0 0 18px;}
+.doc04 .panel.tint{background:var(--purple-soft);border-color:var(--purple-line);}
+
+/* 表 */
+.doc04 table{width:100%;border-collapse:collapse;font-size:.9em;margin:14px 0;background:var(--white);}
+.doc04 caption{caption-side:top;text-align:left;font-size:.8em;color:var(--purple);font-weight:700;letter-spacing:.06em;margin-bottom:8px;}
+.doc04 th,
+.doc04 td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--rule);}
+.doc04 thead th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;font-size:.94em;background:transparent;}
+.doc04 tbody th{font-weight:600;color:var(--plum-deep);}
+.doc04 td.old-cell{background:var(--old-soft);}
+.doc04 td.new-cell{background:var(--purple-soft);}
+.doc04 tr:last-child td,
+.doc04 tr:last-child th{border-bottom:1px solid var(--rule);}
+
+/* 図表 */
+.doc04 figure{margin:22px 0;background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:20px 22px 14px;}
+.doc04 figure svg{display:block;width:100%;height:auto;}
+.doc04 figcaption{font-size:.82em;color:var(--muted);margin-top:10px;border-top:1px solid var(--rule);padding-top:9px;}
+.doc04 figcaption .lbl{color:var(--purple);font-weight:700;letter-spacing:.06em;margin-right:8px;}
+
+/* 注記・出典 */
+.doc04 .note{background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;padding:12px 18px;font-size:.88em;color:#4a4256;margin:16px 0;}
+.doc04 .src{font-size:.78em;color:var(--muted);margin:8px 0 0;}
+.doc04 .src::before{content:"出典 ";color:var(--purple);font-weight:700;}
+
+/* フッタ */
+.doc04 footer{border-top:1px solid var(--rule);padding:26px 32px 46px;color:var(--muted);font-size:.8em;text-align:left;margin-top:0;}
+.doc04 footer .inner{max-width:1000px;margin:0 auto;}
+.doc04 footer p{margin:0 0 8px;}
+
+/* ------------------------------------------------------------
+   配色の統一：資料全体で同じ紫のランプ（濃→淡）だけを使う。
+   テラコッタ(--warn)は「注意・誤解」の枠だけに限定し、図版・バッジでは使わない。
+   ------------------------------------------------------------ */
+.doc04{--s0:#8a7bb3;--s1:#6f5f99;--s2:#5a4b80;--s3:#463a5e;--s4:#332a47;}
+
+/* 移行フェーズ：段階が進むほど濃くなる同系色 */
+.doc04 .phase{border-top-color:var(--s1);}
+.doc04 .phase:nth-child(2){border-top-color:var(--s2);}
+.doc04 .phase:nth-child(3){border-top-color:var(--s3);}
+.doc04 .phase:nth-child(4){border-top-color:var(--s4);}
+.doc04 .phase .phnum{background:var(--s1);}
+.doc04 .phase:nth-child(2) .phnum{background:var(--s2);}
+.doc04 .phase:nth-child(3) .phnum{background:var(--s3);}
+.doc04 .phase:nth-child(4) .phnum{background:var(--s4);}
+
+/* ガントの帯も同じランプ */
+.doc04 .bar.p0{background:var(--s0);}
+.doc04 .bar.p1{background:var(--s1);}
+.doc04 .bar.p2{background:var(--s2);}
+.doc04 .bar.p3{background:var(--s3);}
+.doc04 .bar.p4{background:var(--s4);}
+
+/* 重要度TOP5：順位が高いほど濃い */
+.doc04 .top5-card{border-left-color:var(--s2);}
+.doc04 .top5-num{background:var(--s2);}
+.doc04 .top5-card:nth-child(1){border-left-color:var(--s4);}
+.doc04 .top5-card:nth-child(1) .top5-num{background:var(--s4);}
+.doc04 .top5-card:nth-child(2){border-left-color:var(--s3);}
+.doc04 .top5-card:nth-child(2) .top5-num{background:var(--s3);}
+.doc04 .top5-card:nth-child(4){border-left-color:var(--s1);}
+.doc04 .top5-card:nth-child(4) .top5-num{background:var(--s1);}
+.doc04 .top5-card:nth-child(5){border-left-color:var(--s0);}
+.doc04 .top5-card:nth-child(5) .top5-num{background:var(--s0);}
+
+/* バッジ・タイムラインの点も同系色に */
+.doc04 .badge,
+.doc04 .badge.teal,
+.doc04 .badge.accent,
+.doc04 .badge.danger{background:var(--s3);}
+.doc04 .tl-point.teal{border-color:var(--s1);}
+.doc04 .tl-point.accent{background:var(--s4);border-color:var(--s4);}
+
+/* ------------------------------------------------------------
+   新旧比較の図版：⑤「貸借対照表はこう変わる」と同じ考え方に揃える。
+   図版の地は白。旧＝トープの見出し帯、新＝紫の見出し帯。
+   新しく計上される項目だけを紫で塗り、背景と図の色が重ならないようにする。
+   ------------------------------------------------------------ */
+.doc04 .compare .box{background:var(--white);border:1px solid var(--rule);padding:0;overflow:hidden;}
+.doc04 .compare .box h4{margin:0;padding:11px 16px;font-size:.92em;font-weight:600;color:#fff;letter-spacing:.02em;}
+.doc04 .compare .box.old{background:var(--white);border-color:var(--old-line);}
+.doc04 .compare .box.old h4{background:var(--old);color:#fff;}
+.doc04 .compare .box.new{background:var(--white);border-color:var(--purple-line);}
+.doc04 .compare .box.new h4{background:var(--plum);color:#fff;}
+.doc04 .bs-visual{margin:16px 16px 0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--white);}
+.doc04 .bs-row + .bs-row{border-top:1px solid var(--rule);}
+.doc04 .bs-cell{padding:13px 14px;line-height:1.6;}
+.doc04 .bs-cell.asset{background:#faf9fc;color:var(--plum-deep);font-weight:600;border-right:1px solid var(--rule);}
+.doc04 .bs-cell.liab{background:#faf9fc;color:var(--plum-deep);font-weight:600;}
+.doc04 .bs-cell.off{
+  background:repeating-linear-gradient(135deg,#f4f2f7,#f4f2f7 6px,#eceaf2 6px,#eceaf2 12px);
+  color:var(--muted);font-style:normal;font-weight:400;
+}
+.doc04 .compare .box.new .bs-cell.asset,
+.doc04 .compare .box.new .bs-cell.liab{
+  background:var(--purple-soft);color:var(--plum-deep);box-shadow:inset 3px 0 0 var(--purple);
+}
+.doc04 .bs-title{font-size:.8em;color:var(--muted);text-align:left;padding:10px 16px 14px;line-height:1.7;}
+
+/* ------------------------------------------------------------
+   チェックボックスは装飾なので「チェック済み」で描く。
+   一覧に実務上の意味がない箇所（今すぐ着手する3つのこと）は箱自体を出さない。
+   ------------------------------------------------------------ */
+.doc04 .checklist .box{
+  background:var(--plum);border-color:var(--plum);position:relative;
+}
+.doc04 .checklist .box::after{
+  content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+}
+.doc04 .checklist.no-box .box{display:none;}
+.doc04 .checklist.no-box li{gap:0;}
+
+@media (max-width:720px){
+  .doc04 .wrap,
+.doc04 header.masthead{padding-left:20px;padding-right:20px;}
+  .doc04 nav.toc ol{columns:1;}
+  .doc04 header.masthead h1{font-size:1.55em;}
+  .doc04 .compare .box h4{padding:10px 14px;}
+  .doc04 .bs-visual{margin:12px 12px 0;}}
+@media print{
+  .doc04{background:#fff;font-size:11.5px;}
+  .doc04 .panel,
+.doc04 .card,
+.doc04 figure,
+.doc04 nav.toc{break-inside:avoid;}
+  .doc04 header.masthead{border-bottom:2px solid var(--plum);}}
+/* ======== 05_新旧比較_旧基準から新基準へ.html ======== */
+
+  /* ===== 会計コンサル・ハウススタイル（薄紫ベース） ===== */
+  .doc05{
+    --plum:#463a5e;          /* 見出し・濃い紫 */
+    --plum-deep:#332a47;
+    --purple:#7b6aa6;        /* アクセント紫 */
+    --purple-soft:#efebf6;   /* 淡い紫の面 */
+    --purple-line:#e0d9ee;
+    --lav-bg:#f7f5fb;        /* 背景ラベンダー */
+    --old:#8f8474;          /* 旧＝トープ（枯れた色） */
+    --old-soft:#f2efe9;
+    --old-line:#e3ddd0;
+    --ink:#2c2833;
+    --muted:#6f6880;
+    --white:#fff;
+    --rule:#e6e2ef;
+  }
+  .doc05 *{box-sizing:border-box;}
+  .doc05{scroll-behavior:smooth;}
+  .doc05{
+    margin:0;color:var(--ink);background:var(--lav-bg);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    line-height:1.9;font-size:16px;font-feature-settings:"palt";
+  }
+  .doc05 .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;}
+
+  /* ヘッダ：グラデ・絵文字を使わない落ち着いた版面 */
+  .doc05 header.masthead{
+    background:var(--white);
+    border-bottom:1px solid var(--rule);
+    padding:44px 32px 30px;
+  }
+  .doc05 .masthead .inner{max-width:1000px;margin:0 auto;}
+  .doc05 .eyebrow{
+    font-size:12px;letter-spacing:.22em;color:var(--purple);
+    font-weight:700;margin:0 0 14px;
+  }
+  .doc05 .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--purple);vertical-align:middle;margin-right:10px;}
+  .doc05 header.masthead h1{
+    font-size:2.05em;line-height:1.5;margin:0 0 14px;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;
+  }
+  .doc05 header.masthead .lead{font-size:1.02em;color:#4a4550;margin:0 0 20px;max-width:760px;}
+  .doc05 .meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.82em;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;}
+  .doc05 .meta-row b{color:var(--plum);font-weight:600;}
+
+  .doc05 .wrap{max-width:1000px;margin:0 auto;padding:0 32px 72px;}
+
+  /* 目次 */
+  .doc05 nav.toc{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:34px 0 46px;padding:22px 28px;}
+  .doc05 nav.toc .t{font-size:1.2em;letter-spacing:.08em;color:var(--plum-deep);font-weight:800;margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid var(--purple);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .doc05 nav.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;}
+  .doc05 nav.toc li{margin:0 0 9px;font-size:.9em;break-inside:avoid;}
+  .doc05 nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+  .doc05 nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+  .doc05 nav.toc .n{color:var(--purple);font-weight:700;margin-right:8px;font-family:"Hiragino Mincho ProN",serif;}
+
+  .doc05 section{margin:0 0 54px;scroll-margin-top:18px;}
+  .doc05 .sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--plum);padding-bottom:10px;margin:0 0 22px;}
+  .doc05 .sec-head .no{font-family:"Hiragino Mincho ProN",serif;font-size:1.5em;color:var(--purple);font-weight:600;line-height:1;}
+  .doc05 .sec-head h2{font-size:1.34em;margin:0;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;}
+
+  .doc05 h3{color:var(--plum);font-size:1.06em;margin:26px 0 10px;font-weight:600;}
+  .doc05 p{margin:0 0 14px;}
+  .doc05 strong,
+.doc05 b{color:var(--plum-deep);}
+
+  /* 本文カード（薄い罫線・角丸控えめ） */
+  .doc05 .panel{background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:22px 26px;margin:0 0 18px;}
+  .doc05 .panel.tint{background:var(--purple-soft);border-color:var(--purple-line);}
+
+  /* Apple-to-Apple 対照（論点ごとに旧→新を同じ行で突き合わせ） */
+  .doc05 .att{border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:#fff;margin:20px 0 14px;}
+  .doc05 .att-grid{display:grid;grid-template-columns:150px 1fr 30px 1fr;}
+  .doc05 .att-grid > div{padding:13px 16px;border-bottom:1px solid var(--rule);font-size:.9em;line-height:1.7;}
+  .doc05 .att-grid .hd{font-weight:700;font-size:.82em;letter-spacing:.04em;border-bottom:2px solid var(--purple);background:#fbfafd;}
+  .doc05 .att-grid .hd.h-topic{color:var(--plum);}
+  .doc05 .att-grid .hd.h-old{color:#6c6252;}
+  .doc05 .att-grid .hd.h-new{color:var(--plum);}
+  .doc05 .att-grid .hd.h-arrow{background:#fbfafd;}
+  .doc05 .att-grid .topic{font-weight:600;color:var(--plum-deep);background:#faf9fc;}
+  .doc05 .att-grid .old{background:var(--old-soft);color:#5b5343;}
+  .doc05 .att-grid .new{background:var(--purple-soft);color:#3f3856;}
+  .doc05 .att-grid .arrow{display:flex;align-items:center;justify-content:center;color:var(--purple);font-weight:700;background:#fff;}
+  .doc05 .att-grid > div:nth-last-child(-n+4){border-bottom:none;}
+  .doc05 .att-grid .new strong{color:var(--plum-deep);}
+  @media (max-width:720px){
+    .doc05 .att-grid{grid-template-columns:1fr;}
+    .doc05 .att-grid .hd{display:none;}
+    .doc05 .att-grid .arrow{display:none;}
+    .doc05 .att-grid .topic{background:var(--plum);color:#fff;font-weight:700;border-bottom:none;}
+    .doc05 .att-grid .old{border-left:4px solid var(--old);}
+    .doc05 .att-grid .new{border-left:4px solid var(--purple);}
+    .doc05 .att-grid .old::before{content:"旧　";color:#8f8474;font-weight:700;font-size:.85em;}
+    .doc05 .att-grid .new::before{content:"新　";color:var(--purple);font-weight:700;font-size:.85em;}
+    .doc05 .att-grid > div:nth-last-child(-n+4){border-bottom:1px solid var(--rule);}}
+
+  /* 新旧2カラム */
+  .doc05 .vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0;}
+  .doc05 .vs .col{border-radius:5px;padding:20px 22px;border:1px solid;}
+  .doc05 .vs .old{background:var(--old-soft);border-color:var(--old-line);}
+  .doc05 .vs .new{background:var(--purple-soft);border-color:var(--purple-line);}
+  .doc05 .vs h4{margin:0 0 6px;font-size:.96em;letter-spacing:.02em;}
+  .doc05 .vs .old h4{color:#6c6252;}
+  .doc05 .vs .new h4{color:var(--plum);}
+  .doc05 .vs .tagline{font-size:.76em;color:var(--muted);margin:0 0 12px;padding-bottom:8px;border-bottom:1px dashed;}
+  .doc05 .vs .old .tagline{border-color:var(--old-line);}
+  .doc05 .vs .new .tagline{border-color:var(--purple-line);}
+  .doc05 .vs ul{margin:0;padding-left:18px;font-size:.92em;}
+  .doc05 .vs li{margin:0 0 7px;}
+
+  /* テーブル：横罫のみの上品な表 */
+  .doc05 table{width:100%;border-collapse:collapse;font-size:.9em;margin:14px 0;background:var(--white);}
+  .doc05 caption{caption-side:top;text-align:left;font-size:.8em;color:var(--purple);font-weight:700;letter-spacing:.06em;margin-bottom:8px;}
+  .doc05 th,
+.doc05 td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--rule);}
+  .doc05 thead th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;font-size:.94em;background:transparent;}
+  .doc05 tbody th{font-weight:600;color:var(--plum-deep);width:22%;}
+  .doc05 td.old-cell{background:var(--old-soft);}
+  .doc05 td.new-cell{background:var(--purple-soft);}
+  .doc05 tr:last-child td,
+.doc05 tr:last-child th{border-bottom:1px solid var(--rule);}
+
+  /* 図表 */
+  .doc05 figure{margin:22px 0;background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:20px 22px 14px;}
+  .doc05 figure svg{display:block;width:100%;height:auto;}
+  .doc05 figcaption{font-size:.82em;color:var(--muted);margin-top:10px;border-top:1px solid var(--rule);padding-top:9px;}
+  .doc05 figcaption .lbl{color:var(--purple);font-weight:700;letter-spacing:.06em;margin-right:8px;}
+
+  .doc05 .note{background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;padding:12px 18px;font-size:.88em;color:#4a4256;margin:16px 0;}
+  .doc05 .src{font-size:.78em;color:var(--muted);margin-top:8px;}
+  .doc05 .src::before{content:"出典 ";color:var(--purple);font-weight:700;}
+
+  .doc05 .pill{display:inline-block;font-size:.72em;padding:2px 10px;border-radius:3px;letter-spacing:.04em;vertical-align:middle;}
+  .doc05 .pill.new{background:var(--purple);color:#fff;}
+  .doc05 .pill.old{background:var(--old);color:#fff;}
+
+  .doc05 footer{border-top:1px solid var(--rule);padding:26px 32px 46px;color:var(--muted);font-size:.8em;}
+  .doc05 footer .inner{max-width:1000px;margin:0 auto;}
+  .doc05 .backtop{color:var(--purple);text-decoration:none;font-size:.82em;}
+
+  @media (max-width:720px){
+    .doc05 .wrap,
+.doc05 header.masthead{padding-left:20px;padding-right:20px;}
+    .doc05 nav.toc ol{columns:1;}
+    .doc05 .vs{grid-template-columns:1fr;}
+    .doc05 header.masthead h1{font-size:1.55em;}
+    .doc05 tbody th{width:auto;}}
+  @media print{
+    .doc05{background:#fff;font-size:11.5px;}
+    .doc05 .panel,
+.doc05 figure,
+.doc05 nav.toc{break-inside:avoid;}
+    .doc05 header.masthead{border-bottom:2px solid var(--plum);}
+    .doc05 .backtop{display:none;}}
+</style>
+</head>
+<body id="top">
+<header class="app-head"><div class="inner">
+<p class="eyebrow">企業会計基準第34号「リースに関する会計基準」／同適用指針第33号</p>
+<h1>新リース会計基準 全編統合版</h1>
+<p class="lead">基準の解説（わかりやすい版／詳細版）・会社提示用手順書・IFRS第16号との相違点・新旧比較を、下のタブで切り替えて読めます。</p>
+</div></header>
+<nav class="tabbar" role="tablist" aria-label="資料の切替"><div class="inner">
+  <button type="button" role="tab" id="tab-t1" data-target="t1" aria-selected="false" aria-controls="t1">基準の解説<span class="sub">わかりやすい版／詳細版</span></button>
+  <button type="button" role="tab" id="tab-t2" data-target="t2" aria-selected="false" aria-controls="t2">会社提示用手順書<span class="sub">移行スケジュールと依頼物</span></button>
+  <button type="button" role="tab" id="tab-t3" data-target="t3" aria-selected="false" aria-controls="t3">IFRS第16号との相違点<span class="sub">第34号との差異</span></button>
+  <button type="button" role="tab" id="tab-t4" data-target="t4" aria-selected="false" aria-controls="t4">新旧比較<span class="sub">旧第13号から新第34号へ</span></button>
+</div></nav>
+<div class="levelbar"><div class="inner"><span class="lbl">表示</span><div class="seg"><button type="button" data-level="simple" aria-selected="true">簡単版</button><button type="button" data-level="detail" aria-selected="false">詳細版</button></div></div></div>
+<section class="docpanel" id="t1" role="tabpanel" aria-labelledby="tab-t1" tabindex="-1">
+<div class="subpanel doc01" id="doc01" data-level="simple">
+<a id="d01-top"></a>
+<header class="masthead">
+  <div class="inner">
+    <p class="eyebrow">ACCOUNTING STANDARDS BRIEF ／ 新リース会計基準</p>
+    <h1 class="mincho">新リース会計基準 わかりやすい版<br>― 何が・いつから・何をすべきか ―</h1>
+    <p class="lead">何が変わるのか／いつからか／今すぐ何をすべきか　最短で理解するための概要資料</p>
+    <div class="meta-row">
+      <span><b>対象</b> 経理部門・管理職（まず全体像をつかむ）</span>
+      <span><b>新基準</b> 第34号／適用指針第33号（2024-09-13、2025-04-23修正）</span>
+      <span><b>強制適用</b> 12月決算＝2028年12月期から</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="t">目次</div>
+  <ol>
+    <li><a href="#d01-summary"><span class="n">01</span>3行サマリ</a></li>
+    <li><a href="#d01-timeline"><span class="n">02</span>適用時期タイムライン</a></li>
+    <li><a href="#d01-change"><span class="n">03</span>何が変わるのか（新旧比較）</a></li>
+    <li><a href="#d01-phases"><span class="n">04</span>移行4フェーズの全体像</a></li>
+    <li><a href="#d01-action"><span class="n">05</span>今すぐ着手する3つのこと</a></li>
+    <li><a href="#d01-glossary"><span class="n">06</span>用語ミニ辞典</a></li>
+  </ol>
+</nav>
+
+<div class="card accent" style="margin-bottom:32px;">
+  <p style="margin:0;"><b>本資料の前提：</b><br>本資料は、当社が上場会社であり新リース会計基準の強制適用対象であること（強制適用初年度＝2028年12月期）を前提としています。</p>
+</div>
+
+<section id="d01-summary">
+  <div class="sec-head"><span class="no">01</span><h2 class="mincho">3行サマリ</h2></div>
+  <ol class="summary-list" style="list-style:none;padding:0;">
+    <li><span class="num">1</span><div><b>すべてのリース（賃貸借契約）が、原則として貸借対照表に資産・負債として計上されます。</b><br>これまで費用処理だけで済んでいた賃貸借（オペレーティング・リース）も対象になります。</div></li>
+    <li><span class="num">2</span><div><b>12月決算の会社は、2028年12月期が強制適用の初年度です。</b><br>早期適用は2026年12月期から選択できます。</div></li>
+    <li><span class="num">3</span><div><b>今のうちに「どんな契約があるか」の棚卸しを始める必要があります。</b><br>社内で賃貸借・リースと意識していない契約（サービス契約等）にもリースが隠れていることがあります。</div></li>
+  </ol>
+</section>
+
+<section id="d01-timeline">
+  <div class="sec-head"><span class="no">02</span><h2 class="mincho">適用時期タイムライン（12月決算の場合）</h2></div>
+  <div class="card">
+    <p>基準は<b>2027年4月1日以後に開始する事業年度</b>から原則適用されます。<br>12月決算の会社は事業年度が1月1日開始のため、2027年12月期（2027/1/1開始）はこの基準日より前に始まっており<b>対象外</b>です。<br>次の2028年12月期（2028/1/1開始）から強制適用となります。</p>
+    <div class="tl-wrap-mobile">
+    <div class="timeline">
+      <div class="timeline-track" style="min-width:640px;">
+        <div class="progress"></div>
+        <div class="tl-label above" style="left:0%;"><div class="date">2024/9/13</div><div class="desc">基準公表（ASBJ）</div></div>
+        <div class="tl-point" style="left:0%;"></div>
+
+        <div class="tl-point teal" style="left:33%;"></div>
+        <div class="tl-label below" style="left:33%;"><div class="date">2026年12月期〜</div><div class="desc">早期適用<br>選択可能</div></div>
+
+        <div class="tl-point" style="left:70%;"></div>
+        <div class="tl-label above" style="left:70%;"><div class="date">2027年12月期</div><div class="desc">対象外<br>（4/1より前開始）</div></div>
+
+        <div class="tl-point accent" style="left:100%;"></div>
+        <div class="tl-label below" style="left:100%;"><div class="date">2028年12月期</div><div class="desc"><b>強制適用の初年度</b></div></div>
+      </div>
+    </div>
+    </div>
+    <div class="warn"><b>2028年12月期が強制適用の初年度</b>です（早期適用のみ2026年12月期から可能）。</div>
+  </div>
+</section>
+
+<section id="d01-change">
+  <div class="sec-head"><span class="no">03</span><h2 class="mincho">何が変わるのか（新旧比較）</h2></div>
+  <div class="card">
+    <p>これまでは「ファイナンス・リース」と「オペレーティング・リース」で扱いが分かれ、オペレーティング・リースは貸借対照表に出てきませんでした（オフバランス）。<br>新基準では、短期・少額の例外を除き、<b>すべてのリースを資産・負債として貸借対照表に計上（オンバランス）</b>します。</p>
+    <p class="note" style="margin-top:8px;">※この大きな変更は<b>借りる側（借手）</b>の話です。<br><b>貸す側（貸手）</b>の会計処理は従来のファイナンス／オペレーティングの区分が維持され、大きな変更はありません。<br>以下は借手側の説明です。</p>
+    <figure>
+    <!-- FIG-NARROW START (build.py) --><svg class="fig-narrow" viewBox="0 0 360 486" role="img" aria-label="オペレーティング・リースがオンバランス化される図（縦組み）">
+  <defs><marker id="d01-nah2" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7b6aa6"/></marker></defs>
+  <text x="180" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="#8a8070">旧：オペレーティング・リースはオフバランス</text>
+  <rect x="20" y="30" width="150" height="120" fill="#faf8f4" stroke="#e3ddd0"/>
+  <rect x="170" y="30" width="150" height="72" fill="#f5f2ec" stroke="#e3ddd0"/>
+  <rect x="170" y="102" width="150" height="48" fill="#efeae2" stroke="#e3ddd0"/>
+  <text x="95" y="96" text-anchor="middle" font-size="12" fill="#a89a82">資産</text>
+  <text x="245" y="72" text-anchor="middle" font-size="12" fill="#a89a82">負債</text>
+  <text x="245" y="132" text-anchor="middle" font-size="12" fill="#a89a82">純資産</text>
+  <rect x="20" y="162" width="300" height="38" rx="4" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.2"/>
+  <text x="170" y="180" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">オペレーティング・リース</text>
+  <text x="170" y="194" text-anchor="middle" font-size="9.5" fill="#5a4a78">（オフバランス・注記のみ）</text>
+  <path d="M170 210 L170 248" stroke="#7b6aa6" stroke-width="3" fill="none" marker-end="url(#d01-nah2)"/>
+  <text x="180" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#7b6aa6">従来のオペレーティング・リース（オフバランス）を</text>
+  <text x="180" y="284" text-anchor="middle" font-size="11" font-weight="700" fill="#7b6aa6">オンバランス化</text>
+  <text x="180" y="308" text-anchor="middle" font-size="12" font-weight="700" fill="#463a5e">新：使用権資産・リース負債を計上</text>
+  <rect x="20" y="320" width="150" height="110" fill="#faf8f4" stroke="#e3ddd0"/>
+  <rect x="170" y="320" width="150" height="66" fill="#f5f2ec" stroke="#e3ddd0"/>
+  <rect x="170" y="426" width="150" height="48" fill="#efeae2" stroke="#e3ddd0"/>
+  <rect x="20" y="430" width="150" height="44" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.4"/>
+  <rect x="170" y="386" width="150" height="40" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.4"/>
+  <text x="95" y="380" text-anchor="middle" font-size="12" fill="#6c6252">資産</text>
+  <text x="95" y="458" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">使用権資産</text>
+  <text x="245" y="358" text-anchor="middle" font-size="12" fill="#6c6252">負債</text>
+  <text x="245" y="411" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">リース負債</text>
+  <text x="245" y="456" text-anchor="middle" font-size="12" fill="#6c6252">純資産</text>
+</svg><!-- FIG-NARROW END -->
+    <svg class="fig-wide" viewBox="0 0 900 300" role="img" aria-label="オペレーティング・リースがオンバランス化される図">
+      <defs><marker id="d01-ah2" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7b6aa6"/></marker></defs>
+      <!-- 旧BS（左） -->
+      <text x="160" y="32" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8a8070">旧：オペレーティング・リースはオフバランス</text>
+      <rect x="60" y="50" width="100" height="150" fill="#faf8f4" stroke="#e3ddd0"/>
+      <rect x="160" y="50" width="100" height="90" fill="#f5f2ec" stroke="#e3ddd0"/>
+      <rect x="160" y="140" width="100" height="60" fill="#efeae2" stroke="#e3ddd0"/>
+      <text x="110" y="130" text-anchor="middle" font-size="12" fill="#a89a82">資産</text>
+      <text x="210" y="99" text-anchor="middle" font-size="12" fill="#a89a82">負債</text>
+      <text x="210" y="174" text-anchor="middle" font-size="12" fill="#a89a82">純資産</text>
+      <!-- 旧のオペレーティング・リース＝変更箇所として紫で強調 -->
+      <rect x="60" y="212" width="200" height="34" rx="4" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.2"/>
+      <text x="160" y="228" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">オペレーティング・リース</text>
+      <text x="160" y="242" text-anchor="middle" font-size="9.5" fill="#5a4a78">（オフバランス・注記のみ）</text>
+      <!-- 中央：矢印＋ラベル -->
+      <text x="450" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#7b6aa6">従来のオペレーティング・リース</text>
+      <text x="450" y="137" text-anchor="middle" font-size="12" font-weight="700" fill="#7b6aa6">（オフバランス）をオンバランス化</text>
+      <path d="M300 168 L 620 168" stroke="#7b6aa6" stroke-width="3" fill="none" marker-end="url(#d01-ah2)"/>
+      <!-- 新BS（右）：先に淡色ボックス、最後に紫ボックスを重ねて全周の枠線を出す -->
+      <text x="740" y="32" text-anchor="middle" font-size="13.5" font-weight="700" fill="#463a5e">新：使用権資産・リース負債を計上</text>
+      <rect x="640" y="50" width="100" height="150" fill="#faf8f4" stroke="#e3ddd0"/>
+      <rect x="740" y="50" width="100" height="90" fill="#f5f2ec" stroke="#e3ddd0"/>
+      <rect x="740" y="192" width="100" height="60" fill="#efeae2" stroke="#e3ddd0"/>
+      <rect x="640" y="200" width="100" height="52" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.4"/>
+      <rect x="740" y="140" width="100" height="52" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.4"/>
+      <text x="690" y="130" text-anchor="middle" font-size="12" fill="#6c6252">資産</text>
+      <text x="690" y="230" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">使用権資産</text>
+      <text x="790" y="99" text-anchor="middle" font-size="12" fill="#6c6252">負債</text>
+      <text x="790" y="170" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">リース負債</text>
+      <text x="790" y="226" text-anchor="middle" font-size="12" fill="#6c6252">純資産</text>
+    </svg>
+    <figcaption><span class="lbl">図表1</span><strong style="color:#7b6aa6;">紫色</strong>が、従来オフバランスだったリースを新たに計上する部分（使用権資産・リース負債）。総資産・総負債が増え、ROA・自己資本比率に影響する。</figcaption>
+  </figure>
+    <p class="src">企業会計基準第34号 第49項（使用権資産の表示）・第50項（リース負債の表示）</p>
+    <div class="note">P/Lへの影響イメージ：これまで定額の「賃借料」だった費用が、「減価償却費＋支払利息」に置き換わります。<br>利息は残高に応じて計算されるため、契約の前半は費用が多め、後半は少なめになる傾向があります（総額は変わりません）。</div>
+  </div>
+</section>
+
+<section id="d01-phases">
+  <div class="sec-head"><span class="no">04</span><h2 class="mincho">移行4フェーズの全体像</h2></div>
+  <div class="card">
+    <p>大手監査法人各社（EY・KPMG・PwC・デロイト トーマツ）が共通して示している移行プロセスは、おおむね次の4段階です。</p>
+    <div class="phases">
+      <div class="phase">
+        <span class="phnum">Phase 1</span>
+        <h4>事前検討・影響度調査</h4>
+        <p>どんな契約があるかの棚卸し、資産・負債・損益への概算影響の把握</p>
+      </div>
+      <div class="phase">
+        <span class="phnum">Phase 2</span>
+        <h4>方針決定・体制構築</h4>
+        <p>会計方針・簡便処理の金額基準・割引率方針を決定（最も重要な段階）</p>
+      </div>
+      <div class="phase">
+        <span class="phnum">Phase 3</span>
+        <h4>準備・試算（ドライラン）</h4>
+        <p>リース台帳の整備、本番前の試算、会計システムへの登録方法の確立</p>
+      </div>
+      <div class="phase">
+        <span class="phnum">Phase 4</span>
+        <h4>本番適用</h4>
+        <p>期首の経過措置適用、決算・注記対応、税務申告調整</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d01-action">
+  <div class="sec-head"><span class="no">05</span><h2 class="mincho">今すぐ着手する3つのこと</h2></div>
+  <div class="card teal">
+    <ul class="checklist no-box">
+      <li><span class="box"></span><div><b>① 契約の棚卸し</b>：<br>不動産の賃貸借だけでなく、コピー機・車両・機械等のリース、さらに「サービス契約」に見える契約の中にもリースが潜んでいないか、全社的に洗い出す。</div></li>
+      <li><span class="box"></span><div><b>② 会計方針・体制の準備</b>：<br>経理部門を中心に、少額・短期リースの金額基準や割引率方針など会計方針の検討を始め、契約管理部署との情報収集フローを整える。</div></li>
+      <li><span class="box"></span><div><b>③ 早期適用するかどうかの検討</b>：<br>2026年12月期からの早期適用を選ぶか、原則どおり2028年12月期からにするかを早めに方向づける。</div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="d01-glossary">
+  <div class="sec-head"><span class="no">06</span><h2 class="mincho">用語ミニ辞典</h2></div>
+  <table>
+    <tr><th style="width:26%;">用語</th><th>意味</th></tr>
+    <tr><td>使用権資産</td><td>リース契約で「使う権利」を得た資産のこと。貸借対照表の固定資産に計上される新しい勘定科目。</td></tr>
+    <tr><td>リース負債</td><td>将来支払うリース料を今の価値に割り引いて計上する負債。</td></tr>
+    <tr><td>オンバランス／オフバランス</td><td>貸借対照表に載る（オン）か載らない（オフ）か。新基準では原則すべてオンバランス。</td></tr>
+    <tr><td>短期リース</td><td>リース期間が12か月以内の契約。簡便的に、資産・負債を計上せず費用処理できる。</td></tr>
+    <tr><td>少額リース</td><td>金額が小さいリース。目安として新品時の価額300万円以下、またはIFRS由来の概ね5,000米ドル以下の基準があり、社内規程での金額基準の明文化が必要。</td></tr>
+    <tr><td>割引率</td><td>将来のリース料を現在価値に割り引くための利率。リースの内在利率、それが分からない場合は借手の追加借入利率を使う。</td></tr>
+    <tr><td>経過措置</td><td>新基準へ移行する初年度に選べる、実務負担を軽くするための簡便的な計算方法の選択肢。</td></tr>
+    <tr><td>会計システムでの実務運用</td><td>リース台帳（表計算等）で計算した金額を、会計システム（当社はfreeeを使用）の固定資産（使用権資産）・負債勘定（リース債務）に登録し、毎期振替伝票で計上する運用を想定。</td></tr>
+  </table>
+  <div class="note">補足情報：PCAOB（米国公開企業会計監視委員会）は監査人を監督する機関であり、会計基準そのものを制定する主体ではありません。<br>本基準はASBJ（企業会計基準委員会）が制定した日本基準です。</div>
+</section>
+
+</div>
+
+<footer>
+  <div class="inner">
+    <p>本資料は企業会計基準第34号「リースに関する会計基準」・企業会計基準適用指針第33号（ASBJ、2024年9月13日公表、2025年4月23日修正）及び大手監査法人4社・JICPA・リース事業協会の公開資料に基づき作成した概要資料です。実際の会計処理・税務判断にあたっては、契約内容を踏まえた個別確認が必要です。</p>
+    <p>作成：公認会計士事務所（中村）　2026-09-24</p>
+  </div>
+</footer>
+</div>
+<div class="subpanel doc02" id="doc02" data-level="detail">
+<a id="d02-top"></a>
+<header class="masthead">
+  <div class="inner">
+    <p class="eyebrow">ACCOUNTING STANDARDS BRIEF ／ 新リース会計基準</p>
+    <h1 class="mincho">新リース会計基準 詳細版<br>― 第34号の実務論点を総覧する ―</h1>
+    <p class="lead">基準・適用指針の体系から借手の会計処理、簡便処理、経過措置、税務、会計システムへの計上実務まで実務論点を総覧</p>
+    <div class="meta-row">
+      <span><b>対象</b> 経理実務・公認会計士（論点の総覧）</span>
+      <span><b>新基準</b> 第34号／適用指針第33号（2024-09-13、2025-04-23修正）</span>
+      <span><b>強制適用</b> 12月決算＝2028年12月期から</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="t">目次</div>
+  <ol>
+    <li><a href="#d02-s1"><span class="n">01</span>基準・適用指針の体系</a></li>
+    <li><a href="#d02-s2"><span class="n">02</span>適用時期・早期適用</a></li>
+    <li><a href="#d02-s4"><span class="n">03</span>リースの識別</a></li>
+    <li><a href="#d02-s5"><span class="n">04</span>借手の会計処理（当初・事後測定）</a></li>
+    <li><a href="#d02-s6"><span class="n">05</span>割引率</a></li>
+    <li><a href="#d02-s7"><span class="n">06</span>リース期間の決定</a></li>
+    <li><a href="#d02-s8"><span class="n">07</span>短期・少額リースの簡便処理</a></li>
+    <li><a href="#d02-s9"><span class="n">08</span>表示・開示</a></li>
+    <li><a href="#d02-s10"><span class="n">09</span>貸手の会計処理</a></li>
+    <li><a href="#d02-s11"><span class="n">10</span>経過措置と期首利益剰余金</a></li>
+    <li><a href="#d02-s12"><span class="n">11</span>税務（法人税・消費税）</a></li>
+    <li><a href="#d02-s13"><span class="n">12</span>大手4法人資料の使いどころ</a></li>
+    <li><a href="#d02-s14"><span class="n">13</span>会計システムへの計上実務</a></li>
+    <li><a href="#d02-s15"><span class="n">14</span>移行4フェーズと10共通論点</a></li>
+    <li><a href="#d02-s16"><span class="n">15</span>出典一覧</a></li>
+  </ol>
+</nav>
+
+<div class="card accent" style="margin-bottom:32px;">
+  <p style="margin:0;"><b>本資料の前提：</b><br>本資料は、当社が上場会社であり新リース会計基準の強制適用対象であること（強制適用初年度＝2028年12月期）を前提としています。</p>
+</div>
+
+<section id="d02-s1">
+  <div class="sec-head"><span class="no">01</span><h2 class="mincho">基準・適用指針の体系</h2></div>
+  <div class="card">
+    <table>
+      <tr><th style="width:30%;">文書</th><th>内容</th></tr>
+      <tr><td>企業会計基準第34号「リースに関する会計基準」</td><td>会計処理・開示の本体基準。2024年9月13日公表、2025年4月23日に軽微修正（「借手」「貸手」定義の「企業」→「者」、実質変更なし）。</td></tr>
+      <tr><td>企業会計基準適用指針第33号「リースに関する会計基準の適用指針」</td><td>基準の具体的な適用方法・数値例を定める指針。設例集を含む。</td></tr>
+      <tr><td>適用指針第33号 設例</td><td>リースの識別・リース期間判定等の実務適用例（設例8：普通借家契約等における借手のリース期間、等）。</td></tr>
+    </table>
+    <h4>廃止される旧基準</h4>
+    <p>新基準第59項により、以下が本基準の公表に伴い適用終了。</p>
+    <ul>
+      <li>企業会計基準第13号「リース取引に関する会計基準」</li>
+      <li>企業会計基準適用指針第16号「リース取引に関する会計基準の適用指針」</li>
+      <li>実務対応報告第31号「リース手法を活用した先端設備等投資支援スキームにおける借手の会計処理等に関する実務上の取扱い」</li>
+      <li>移管指針第3号（連結財務諸表におけるリース取引の会計処理及び開示に関する実務指針からの移管分）</li>
+    </ul>
+    <h4>適用範囲（基準第34号 第3項）</h4>
+    <p>次の(1)〜(3)を除き、リースに関する会計処理・開示に適用される。</p>
+    <ol>
+      <li>実務対応報告第35号の適用範囲（公共施設等運営権等）に該当する場合</li>
+      <li>収益認識会計基準（企業会計基準第29号）の範囲に含まれる、貸手による知的財産のライセンスの供与</li>
+      <li>鉱物、石油、天然ガス及び類似の非再生型資源を探査する又は使用する権利の取得</li>
+    </ol>
+    <h4>JICPA側の対応</h4>
+    <p>JICPAは新リース基準に特化した独自の実務指針は発行していない。<br>会計制度委員会研究報告第12号、業種別委員会実務指針第19号・53号・65号、監査・保証実務委員会実務指針第90号の用語整合（「リース取引」→「リース」、「リース資産」→「使用権資産」、「リース債務」→「リース負債」）等の改正を実施（2024年9月13日）。</p>
+    <div class="src">ASBJ 企業会計基準第34号・適用指針第33号（2024/9/13公表、2025/4/23修正）／JICPA 2024/9/13公表文書</div>
+  </div>
+</section>
+
+<section id="d02-s2">
+  <div class="sec-head"><span class="no">02</span><h2 class="mincho">適用時期・早期適用</h2></div>
+  <div class="card">
+    <p><b>原則適用：2027年4月1日以後開始する連結会計年度及び事業年度の期首から。</b><br>
+    <b>早期適用：2025年4月1日以後開始する連結会計年度及び事業年度の期首から可能。</b></p>
+    <p>12月決算会社への当てはめ：</p>
+    <table>
+      <tr><th>事業年度</th><th>開始日</th><th>判定</th></tr>
+      <tr><td>2026年12月期</td><td>2026/1/1</td><td>早期適用が可能な最初の期</td></tr>
+      <tr><td>2027年12月期</td><td>2027/1/1</td><td>2027/4/1より前開始のため<b>対象外</b>（原則適用は不可）</td></tr>
+      <tr><td>2028年12月期</td><td>2028/1/1</td><td><b>強制適用の初年度</b>（原則適用がここから始まる）</td></tr>
+    </table>
+    <div class="tl-wrap-mobile">
+      <div class="timeline-track" style="min-width:600px;">
+        <div class="progress"></div>
+        <div class="tl-label above" style="left:0%;"><div class="date">2024/9/13</div><div class="desc">基準公表</div></div>
+        <div class="tl-point" style="left:0%;"></div>
+        <div class="tl-point teal" style="left:33%;"></div>
+        <div class="tl-label below" style="left:33%;"><div class="date">2026年12月期〜</div><div class="desc">早期適用可</div></div>
+        <div class="tl-point" style="left:70%;"></div>
+        <div class="tl-label above" style="left:70%;"><div class="date">2027年12月期</div><div class="desc">対象外</div></div>
+        <div class="tl-point accent" style="left:100%;"></div>
+        <div class="tl-label below" style="left:100%;"><div class="date">2028年12月期</div><div class="desc">強制適用初年度</div></div>
+      </div>
+    </div>
+    <div class="warn"><b>誤記注意</b>：<br>「12月決算は2027年12月期から」との記載は誤り。<br>基準本文「2027年4月1日以後開始する連結会計年度及び事業年度の期首から適用する」に基づき、必ず<b>2028年12月期が強制適用の初年度</b>として扱うこと（一部の解説記事で誤記が確認されているため要注意）。</div>
+    <div class="note">早期適用にあたっては「当該会計基準の内容を十分に理解した上で、会計方針の選択及び適用を一貫して行う必要がある」（基準BC69(1)）。<br>公表から原則適用まで約2年半の準備期間が設けられた（基準第58項）。</div>
+    <div class="src">企業会計基準第34号 第58項／ASBJ公式ページ（topics_id=157）</div>
+  </div>
+</section>
+
+<section id="d02-s4">
+  <div class="sec-head"><span class="no">03</span><h2 class="mincho">リースの識別</h2></div>
+  <div class="card">
+    <p>従来リースと認識していなかった契約（サービス契約・業務委託契約・電力/燃料供給契約・賃借契約等）にも、次の2要件を満たせば「リースを含む」と判定される。</p>
+    <h4>判定ステップ（適用指針第33号 第5項〜第16項）</h4>
+    <div class="flow">
+      <div class="flow-box q">Step1：契約に「特定された資産」が含まれているか？<br><span style="font-size:0.82em;">通常は契約に明記。<br>サプライヤーが資産を代替する実質的な能力・経済的利益を有する場合は特定資産に該当しない。</span></div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-box q">Step2-1：顧客が資産の使用から生じる経済的利益のほとんどすべてを享受する権利を有するか？</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-box q">Step2-2：顧客が資産の使用方法を指図する権利を有するか？</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-box result">Step1〜2-2をすべて満たす → 「リースを含む契約」＝新基準の適用対象</div>
+    </div>
+    <p>旧基準（第13号）ではこの「リースの識別」の定めが明確にされておらず、新基準で新たに導入された考え方（IFRS第16号の考え方を踏まえて体系化）。</p>
+    <div class="tip"><b>実務の起点</b>：<br>全社的な契約棚卸しが移行の第一歩。<br>特に管理部署が分散しがちな不動産賃借・車両・什器・OA機器のほか、業務委託・サービス契約の中にもリースが潜んでいないか確認する。</div>
+    <div class="src">企業会計基準第34号 第25項・第26項／適用指針第33号 第5項〜第16項</div>
+  </div>
+</section>
+
+<section id="d02-s5">
+  <div class="sec-head"><span class="no">04</span><h2 class="mincho">借手の会計処理（当初・事後測定）</h2></div>
+  <div class="card">
+    <p>短期・少額の例外を除き、すべてのリースについて<b>単一モデル</b>で使用権資産とリース負債をB/Sに計上する。<br>旧基準のファイナンス・リース／オペレーティング・リースの2区分による会計処理の相違は、借手側では廃止された。</p>
+    <h4>当初測定</h4>
+    <table>
+      <tr><th style="width:30%;">項目</th><th>算定方法</th></tr>
+      <tr><td>リース負債</td><td>残リース料を割引率で現在価値に割り引いた金額</td></tr>
+      <tr><td>使用権資産</td><td>リース負債の額＋前払リース料＋当初直接費用＋原状回復コスト見積り等</td></tr>
+    </table>
+    <h4>事後測定</h4>
+    <table>
+      <tr><th style="width:30%;">項目</th><th>会計処理</th></tr>
+      <tr><td>使用権資産</td><td>原則として減価償却（原則リース期間にわたり定額等で償却）</td></tr>
+      <tr><td>リース負債</td><td>利息法により、①利息費用の計上（残高×割引率）、②リース料支払いによる元本の減少　の2要素で事後測定</td></tr>
+    </table>
+    <p>P/L上は「減価償却費」＋「支払利息」の合計が費用計上される。<br>利息は残高に対して計算されるため契約前半に多く計上される逓減型のパターンとなる（旧オペレーティング・リースの定額賃借料計上とは異なる）。</p>
+    <h4>支払条件変更時の取扱い</h4>
+    <p>リース期間中に支払条件が変更される場合、リース負債の見直しを実施（基準第40項）。<br>延長・解約オプション行使に伴うリース負債の調整規定もあり（基準第39項）。</p>
+    <div class="src">企業会計基準第34号 III-3 借手のリース（第33項〜）／BC39〜BC46</div>
+  </div>
+</section>
+
+<section id="d02-s6">
+  <div class="sec-head"><span class="no">05</span><h2 class="mincho">割引率</h2></div>
+  <div class="card">
+    <table>
+      <tr><th style="width:20%;">優先順位</th><th>割引率</th><th>備考</th></tr>
+      <tr><td>① 第一優先</td><td>貸手の計算利子率（内在利率に相当）</td><td>リース料等から逆算される利率。知り得る場合はこれを用いる</td></tr>
+      <tr><td>② 次点</td><td>借手の追加借入利子率（増分借入利率）</td><td>①が容易に入手困難な場合に使用</td></tr>
+    </table>
+    <p>旧基準では割引率の定義が曖昧であったが、新基準ではこの優先順位が明確化された。</p>
+    <div class="note">実務上、①内在利率はリース会社側の内部情報であり借手が容易に入手できないことが多く、②増分借入利率を用いるケースが実務上は多いと想定される。<br>割引率の決定方針は会社としてあらかじめ規程化しておくことが望ましい。</div>
+    <div class="src">企業会計基準適用指針第33号 第37項（割引率）／企業会計基準第34号 第35項は借手のリース料の構成を規定</div>
+  </div>
+</section>
+
+<section id="d02-s7">
+  <div class="sec-head"><span class="no">06</span><h2 class="mincho">リース期間の決定</h2></div>
+  <div class="card">
+    <p><b>リース期間＝解約不能期間＋「行使が合理的に確実」な延長オプション期間−「行使が合理的に確実」な解約オプション。</b></p>
+    <p>「実質的に行使される可能性」は、延長・解約オプション行使の経済的インセンティブの有無で判断する。<br>旧基準に比べ、判断の幅が広がり期間が長期化しやすい傾向がある。</p>
+    <h4>判断のポイント（適用指針第17項ほか）</h4>
+    <ul>
+      <li>非取消期間＝リース契約上、借手が破棄できない期間</li>
+      <li>延長オプション：行使が実質的に確実であると判断される場合、リース期間に含める</li>
+      <li>解約オプション：行使が合理的に確実でない場合、非取消期間のみを含める</li>
+    </ul>
+    <p>設例8-1〜8-5（適用指針第33号 設例）に、普通借家契約・各種オプション条件下での判断例が示されている。</p>
+    <div class="src">企業会計基準第34号 第31項（借手のリース期間。第32項は貸手）／適用指針第33号 第17項／設例8</div>
+  </div>
+</section>
+
+<section id="d02-s8">
+  <div class="sec-head"><span class="no">07</span><h2 class="mincho">短期・少額リースの簡便処理</h2></div>
+  <div class="card accent">
+    <h4>短期リース（適用指針第33号 第20項。定義は第4項(2)）</h4>
+    <p>リース期間が<b>12か月以内</b>（購入オプションを含まない）のリース → 使用権資産・リース負債を計上せず、リース料を費用として認識する簡便処理を選択できる。</p>
+    <h4>少額リース（適用指針第33号 第22項）</h4>
+    <p>基準・適用指針には一律の固定金額基準は明示されていない。<br>実務上、次の2つの金額目安が使い分けられている（出典：KPMG「ココが知りたい！新リース会計基準Q&A」第2回）。</p>
+    <table>
+      <tr><th style="width:20%;">基準</th><th>目安金額</th><th>出所</th></tr>
+      <tr><td>(a)</td><td>新品時の原資産価額が<b>300万円以下</b></td><td>旧適用指針第16号由来の基準を、新基準でも簡便的取扱いとして許容</td></tr>
+      <tr><td>(b)</td><td>新品時の原資産価額が概ね<b>5,000米ドル以下</b></td><td>IFRS第16号由来の少額リース基準</td></tr>
+    </table>
+    <p>(a)(b)は使い分け可能とされる（KPMG Q&A第2回）。<br><b>いずれを採用するか、または併用するかを社内規程で明文化することが必須。</b></p>
+    <div class="warn">基準本文に一律の固定金額の定めはなく、金額基準を定めない場合、各契約ごとに「重要性」を個別判断する実務負担が発生する。<br>移行準備の初期段階で社内規程化を完了させることを推奨。</div>
+    <div class="src">適用指針第33号 第20項（短期リース）・第22項（少額リース）・BC145/BC146</div>
+  </div>
+</section>
+
+<section id="d02-s9">
+  <div class="sec-head"><span class="no">08</span><h2 class="mincho">表示・開示</h2></div>
+  <div class="card">
+    <h4>貸借対照表での表示</h4>
+    <table>
+      <tr><th style="width:30%;">科目</th><th>表示区分</th></tr>
+      <tr><td>使用権資産</td><td>固定資産の部に独立掲記（または注記）</td></tr>
+      <tr><td>リース負債</td><td>流動負債・固定負債に区分して表示（基準第50項。使用権資産の表示は第49項）</td></tr>
+    </table>
+    <h4>注記事項（従来より大幅増）</h4>
+    <ul>
+      <li>会計方針に関する情報（リース特有の取扱い）</li>
+      <li>リース料の種類別内訳（固定部分・変動部分等）</li>
+      <li>リース期間及び延長・解約オプションの内容</li>
+      <li>当期及び翌期以降における使用権資産・リース負債の金額（満期分析を含む）</li>
+      <li>リースの種類別内訳（ファイナンス・リース、オペレーティング・リース等、主に貸手側）</li>
+    </ul>
+    <p>連結財務諸表作成会社は、個別財務諸表側でも別途リースの表示・注記が求められる（基準BC160〜BC162）。</p>
+    <div class="tip">注記に必要な集計項目（満期分析、リース種類別内訳等）は決算直前に慌てて作るのではなく、リース台帳の設計段階から出力できる形にしておくと効率的。</div>
+    <div class="src">企業会計基準第34号 IV. 開示（第55項、BC58・BC59）／適用指針第33号 BC137〜BC162</div>
+  </div>
+</section>
+
+<section id="d02-s10">
+  <div class="sec-head"><span class="no">09</span><h2 class="mincho">貸手の会計処理</h2></div>
+  <div class="card">
+    <p>貸手側は借手側ほどの大きな変更はなく、基本的に現行の枠組み（ファイナンス・リース／オペレーティング・リースの2区分）を維持しつつ、収益認識基準等との整合を図るための一部見直しが行われている。</p>
+    <table>
+      <tr><th style="width:30%;">分類</th><th>会計処理の概要</th></tr>
+      <tr><td>ファイナンス・リース</td><td>リース料の現在価値でリース投資資産を測定。見積残存価額との差額は利息収入として認識。</td></tr>
+      <tr><td>オペレーティング・リース</td><td>利息費用の計上はなく、リース料をそのまま収益として認識。</td></tr>
+    </table>
+    <p>サブリース取引（中間的貸手の例外的取扱い）、セール・アンド・リースバック取引（金融取引としての処理要件）についても個別の定めがある（デロイト トーマツ解説第2回参照）。</p>
+    <div class="src">企業会計基準第34号 III-4 貸手のリース（第43項）／デロイト トーマツ 解説シリーズ第2回</div>
+  </div>
+</section>
+
+<section id="d02-s11">
+  <div class="sec-head"><span class="no">10</span><h2 class="mincho">経過措置と期首利益剰余金への影響</h2></div>
+  <div class="card">
+    <p>適用初年度の期首において、複数の簡便法から選択が可能。</p>
+    <ul>
+      <li>現行ファイナンス・リースの帳簿価額をそのまま引き継ぐ方法</li>
+      <li>現行オペレーティング・リースについて、残リース料の現在価値で使用権資産・リース負債を新規計上する方法</li>
+      <li>リースの識別についても、遡及的に全契約を再判定する方法／期首時点で判定する簡便法、のいずれかを選択可能（適用指針第119項）</li>
+    </ul>
+    <div class="warn">経過措置の組み合わせ次第で<b>適用初年度期首の利益剰余金</b>が変動する。<br>損益計算書への今後の影響額も考慮したうえで、どの組み合わせを選ぶかは会社として意思決定し、ポジションペーパー（論点検討メモ）として文書化することが望ましい。</div>
+    <p>旧基準（企業会計基準第13号）適用開始前のリース取扱いについても、会計基準第25項・第26項及び適用指針第5項〜第8項を適用して契約にリースが含まれているか否かを判断する経過措置が定められている（適用指針第113項〜第117項）。</p>
+    <div class="src">適用指針第33号 V. 適用時期等（BC163〜BC165）</div>
+  </div>
+</section>
+
+<section id="d02-s12">
+  <div class="sec-head"><span class="no">11</span><h2 class="mincho">税務（法人税・消費税）</h2></div>
+  <div class="card">
+    <p>会計基準の改正に合わせ、税制も改正されている。<br>会計と税務の差異は申告調整で対応する。</p>
+    <h4>法人税</h4>
+    <ul>
+      <li>リース期間定額法へ統一</li>
+      <li>残価保証額控除の廃止</li>
+      <li>オペレーティング・リースの債務確定基準の明文化</li>
+      <li>（貸手）割賦基準（延払基準の特例）の廃止と経過措置（従前処理継続／一括処理／5年均等取崩の選択）</li>
+    </ul>
+    <h4>消費税</h4>
+    <ul>
+      <li>リース取引の資産譲渡・貸付・金銭貸付の判定</li>
+      <li>リース部分と非リース部分の取扱い（2025年12月19日公表のQ&Aで整理）</li>
+    </ul>
+    <div class="warn">会計上は使用権資産・リース負債を計上しても、税務上の損金算入時期・方法は別途の定めに従うため、必ず<b>別表での申告調整</b>が必要になる。<br>会計処理の設計時点から税務担当・顧問税理士と連携すること。</div>
+    <div class="src">デロイト トーマツ税理士法人「新リース会計基準に対応する税制改正」全3回（2025年10-12月、借手・貸手・消費税）</div>
+  </div>
+</section>
+
+<section id="d02-s13">
+  <div class="sec-head"><span class="no">12</span><h2 class="mincho">大手4法人資料の使いどころ</h2></div>
+  <div class="card">
+    <table>
+      <tr><th style="width:16%;">法人</th><th>特に使える資料</th><th>用途</th></tr>
+      <tr>
+        <td>KPMGあずさ</td>
+        <td>「新リース基準の概要と適用プロジェクトにおける留意点」セミナー資料（49頁、2024年11月）<br>「今知っておきたい新リース会計基準」KPMG Insight Vol.70（2025年1月）</td>
+        <td>最も実務的。ロードマップ（2025/3期〜2028/3期のPhase1-3ガントチャート）、リースシステム3分類（A:ERPモジュール／B:固定資産システム／C:スタンドアロン）、契約情報収集プロセスの3方式比較、財務諸表・経営指標への影響図（図表3）、少額リース300万円/5,000米ドル基準の使い分け（Q&A第2回）</td>
+      </tr>
+      <tr>
+        <td>PwC Japan</td>
+        <td>PwC's View 54-03「新リース会計基準の適用に向けた準備およびスケジュール」（2025年3月）</td>
+        <td>4フェーズのスケジュール構成が簡潔。表計算ベースの「スピード導入キット」の存在（先着20社・480万円税別、参考情報）</td>
+      </tr>
+      <tr>
+        <td>EY新日本</td>
+        <td>「リースに関する会計基準等のポイント／新リース基準への対応サポート」PDF（2024年9月）</td>
+        <td>課題別の対応策整理表、4フェーズ図、対応実績カテゴリ（本社ビル賃借・店舗テナント・燃料輸送契約・転リース等）</td>
+      </tr>
+      <tr>
+        <td>デロイト トーマツ</td>
+        <td>「新リース会計基準における経過措置」（2026年1月）、税制改正全3回（2025年10-12月）</td>
+        <td>経過措置の組み合わせパターンの実務整理、税務申告調整の独自解説（無償PDFは確認できず、Web記事中心）</td>
+      </tr>
+    </table>
+    <div class="note">リース事業協会の資料（「新リース会計基準について－借手側の会計処理－」等）は要点把握に有用だが、<b>会員会社以外による無断転載を禁止</b>する著作権注記があるため、本資料含め要約＋出典URL明記に留めている。</div>
+    
+  </div>
+</section>
+
+<section id="d02-s14">
+  <div class="sec-head"><span class="no">13</span><h2 class="mincho">会計システムへの計上実務</h2></div>
+  <div class="card teal">
+    <p>リース台帳で算定した使用権資産・リース負債の金額を、会計システム（当社はfreeeを使用）へ登録・計上する運用を基本とする。</p>
+    <h4>現実的な運用フロー</h4>
+    <ol>
+      <li>リース台帳（表計算ソフト、またはPwCスピード導入キットのような専用ツール）で当初測定（使用権資産・リース負債の当初計上額）・償却スケジュール・利息スケジュールを計算する。</li>
+      <li>使用権資産を会計システムの「固定資産」台帳に登録し、減価償却を管理する。</li>
+      <li>リース負債を負債勘定（例：リース債務）として会計システム上で管理する。</li>
+      <li>毎期の減価償却費・支払利息・元本返済額を振替伝票で計上する。</li>
+      <li>注記用の残高・満期分析はリース台帳から集計する。</li>
+    </ol>
+    <div class="tip">会計システム側で自動化できる機能がないか、移行プロジェクトの初期段階（Phase 1〜2）で確認しておくと、台帳との二重管理の負担を軽減できる。</div>
+    
+  </div>
+</section>
+
+<section id="d02-s15">
+  <div class="sec-head"><span class="no">14</span><h2 class="mincho">移行4フェーズと10共通論点</h2></div>
+  <div class="card">
+    <div class="phases">
+      <div class="phase"><span class="phnum">Phase 1</span><h4>事前検討・影響度調査</h4><p>契約棚卸し、概算影響額（資産・負債・P/L・指標）の把握、GAAP差異分析</p></div>
+      <div class="phase"><span class="phnum">Phase 2</span><h4>方針決定・体制構築</h4><p>会計方針・注記方針・簡便処理の金額基準・割引率方針・リース期間判定ガイドラインの決定、ポジションペーパー作成（最重要フェーズ）</p></div>
+      <div class="phase"><span class="phnum">Phase 3</span><h4>準備・ドライラン</h4><p>台帳/システム整備、試算（ドライラン）、内部統制整備</p></div>
+      <div class="phase"><span class="phnum">Phase 4</span><h4>本番適用</h4><p>期首経過措置適用、決算・注記、監査対応</p></div>
+    </div>
+    <h4>大手4法人横断の10共通論点</h4>
+    <ol>
+      <li>契約の網羅的把握（リースの識別の起点）</li>
+      <li>リース期間の見積り（延長・解約オプションの合理的確実性判定）</li>
+      <li>少額・短期リースの金額基準の社内規程化</li>
+      <li>会計方針・ポジションペーパーの作成</li>
+      <li>経過措置の組み合わせ選択（期首利益剰余金への影響を含む）</li>
+      <li>業務プロセスの再設計（経理部門単独では完結しない）</li>
+      <li>リース管理システムの選定（A:ERPモジュール／B:固定資産システム／C:スタンドアロン）</li>
+      <li>AI-OCR・生成AIの活用によるデータ移行工数の削減</li>
+      <li>財務指標（ROA/ROIC/EBITDA等）への影響を踏まえた社内外説明</li>
+      <li>タイムラインの逆算とドライラン（試行）の実施</li>
+    </ol>
+    
+  </div>
+</section>
+
+<section id="d02-s16">
+  <div class="sec-head"><span class="no">15</span><h2 class="mincho">出典一覧</h2></div>
+  <div class="card">
+    <ul>
+      <li>企業会計基準第34号「リースに関する会計基準」（ASBJ、2024年9月13日公表）</li>
+      <li>企業会計基準適用指針第33号「リースに関する会計基準の適用指針」＋設例（ASBJ、2024年9月13日公表）</li>
+      <li>企業会計基準第34号等の修正について（ASBJ、2025年4月23日公表）</li>
+      <li>JICPA 企業会計基準第34号公表に伴う実務指針等の改正（2024年9月13日）</li>
+      <li>公益社団法人リース事業協会「新リース会計基準について－借手側の会計処理－」（2024年12月）、「新リース会計基準と税制＜借手側＞」（2025年7月）※会員外無断転載禁止のため要約引用</li>
+      <li>EY新日本有限責任監査法人「リースに関する会計基準等のポイント／新リース基準への対応サポート」ほか（2024年9月〜）</li>
+      <li>有限責任 あずさ監査法人（KPMG Japan）「新リース基準の概要と適用プロジェクトにおける留意点」セミナー資料、「今知っておきたい新リース会計基準」KPMG Insight Vol.70、Q&A連載全4回ほか</li>
+      <li>PwC Japan有限責任監査法人 PwC's View 第54号 54-01/02/03ほか</li>
+      <li>有限責任監査法人トーマツ（デロイト トーマツ）解説シリーズ、経過措置記事、税制改正全3回ほか</li>
+    </ul>
+    <div class="note">補足情報：PCAOB（米国公開企業会計監視委員会）は監査人・監査法人を監督する機関であり、会計基準（accounting standards）を制定する機関ではない。<br>本基準（企業会計基準第34号）はASBJが制定した日本基準であり、PCAOBは制定に関与していない。</div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="inner">
+    <p>本資料は企業会計基準第34号「リースに関する会計基準」・企業会計基準適用指針第33号（ASBJ、2024年9月13日公表、2025年4月23日修正）及び大手監査法人4社・JICPA・リース事業協会の公開資料に基づき作成した実務論点整理資料です。実際の会計処理・税務判断にあたっては、契約内容を踏まえた個別確認が必要です。</p>
+    <p>作成：公認会計士事務所（中村）　2026-09-24</p>
+  </div>
+</footer>
+</div>
+</section>
+<section class="docpanel" id="t2" role="tabpanel" aria-labelledby="tab-t2" tabindex="-1">
+<div class="subpanel doc03" id="doc03">
+<a id="d03-top"></a>
+<header class="masthead">
+  <div class="inner">
+    <p class="eyebrow">ACCOUNTING STANDARDS BRIEF ／ 新リース会計基準</p>
+    <h1 class="mincho">新リース会計基準 移行手順書<br>― 2028年12月期に向けた実行ステップ ―</h1>
+    <p class="lead">2028年12月期（強制適用初年度）に向けて、公認会計士（中村）が貴社とともに進める実行ステップ</p>
+    <div class="meta-row">
+      <span><b>対象</b> 貴社経理部門（移行の実行手順）</span>
+      <span><b>新基準</b> 第34号／適用指針第33号（2024-09-13、2025-04-23修正）</span>
+      <span><b>強制適用</b> 12月決算＝2028年12月期から</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="t">目次</div>
+  <ol>
+    <li><a href="#d03-howto"><span class="n">01</span>本手順書の使い方</a></li>
+    <li><a href="#d03-schedule"><span class="n">02</span>全体スケジュール</a></li>
+    <li><a href="#d03-step1"><span class="n">03</span>ステップ1：契約棚卸し</a></li>
+    <li><a href="#d03-step2"><span class="n">04</span>ステップ2：リース識別判定</a></li>
+    <li><a href="#d03-step3"><span class="n">05</span>ステップ3：会計方針の決定</a></li>
+    <li><a href="#d03-step4"><span class="n">06</span>ステップ4：リース台帳作成と会計システムへの登録設定</a></li>
+    <li><a href="#d03-step5"><span class="n">07</span>ステップ5：経過措置の選択と期首仕訳</a></li>
+    <li><a href="#d03-step6"><span class="n">08</span>ステップ6：ドライラン</a></li>
+    <li><a href="#d03-step7"><span class="n">09</span>ステップ7：本番適用・注記・税務調整</a></li>
+    <li data-level="detail"><a href="#d03-requests"><span class="n">10</span>会社への依頼物リスト</a></li>
+    <li data-level="detail"><a href="#d03-hearing"><span class="n">11</span>社内調査（ヒアリング）質問リスト</a></li>
+    <li><a href="#d03-faq"><span class="n">12</span>よくある質問</a></li>
+  </ol>
+</nav>
+
+<div class="card accent" style="margin-bottom:32px;">
+  <p style="margin:0;"><b>本資料の前提：</b><br>本資料は、当社が上場会社であり新リース会計基準の強制適用対象であること（強制適用初年度＝2028年12月期）を前提としています。</p>
+</div>
+
+<section id="d03-howto">
+  <div class="sec-head"><span class="no">01</span><h2 class="mincho">本手順書の使い方</h2></div>
+  <div class="card teal">
+    <p>本手順書は、新リース会計基準（企業会計基準第34号）への移行を、公認会計士（中村）が貴社の実務を支援しながら進めるための実行ステップです。<br>ステップ1からステップ7まで順に進めます。<br>各ステップには「目的」「中村（会計士）の作業」「会社にお願いする資料・作業」「完了条件」を明記しています。</p>
+    <p>貴社にご協力いただきたい点は各ステップの「会社にお願いする資料・作業」欄をご覧ください。<br>ご不明点は各ステップ末尾の連絡先までお問い合わせください。</p>
+  </div>
+</section>
+
+<section id="d03-schedule">
+  <div class="sec-head"><span class="no">02</span><h2 class="mincho">全体スケジュール（2028年12月期を初年度として逆算）</h2></div>
+  <div class="card">
+    <p>貴社が2028年12月期（2028年1月1日開始）から強制適用となることを前提に、期首（2028年1月1日）から逆算したスケジュール例です。<br>早期適用（2026年12月期から可能）を選択する場合は、全体を約2年前倒しする必要があります。</p>
+    <div class="gantt">
+      <table>
+        <tr>
+          <th style="width:22%;">フェーズ／ステップ</th>
+          <th class="qtr">〜2026年前半</th>
+          <th class="qtr">2026年後半</th>
+          <th class="qtr">2027年前半</th>
+          <th class="qtr">2027年後半</th>
+          <th class="qtr">2028年1月〜</th>
+        </tr>
+        <tr>
+          <td>ステップ1：契約棚卸し</td>
+          <td class="bar-cell"><div class="bar p0">実施</div></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+        </tr>
+        <tr>
+          <td>ステップ2-3：識別判定・方針決定</td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"><div class="bar p1">実施</div></td>
+          <td class="bar-cell"><div class="bar p1">継続</div></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+        </tr>
+        <tr>
+          <td>ステップ4：台帳・会計システム設定</td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"><div class="bar p2">実施</div></td>
+          <td class="bar-cell"><div class="bar p2">継続</div></td>
+          <td class="bar-cell"></td>
+        </tr>
+        <tr>
+          <td>ステップ5-6：経過措置選択・ドライラン</td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"><div class="bar p3">実施</div></td>
+          <td class="bar-cell"></td>
+        </tr>
+        <tr>
+          <td>ステップ7：本番適用</td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"></td>
+          <td class="bar-cell"><div class="bar p4">開始</div></td>
+        </tr>
+      </table>
+    </div>
+    <div class="note">上表は目安のスケジュール感であり、具体的な月・期限は貴社との協議のうえ確定します。<br>早期適用（2026年12月期〜）を選ぶ場合は準備期間が大幅に短くなるため、早期適用の要否はできるだけ早い段階（ステップ1）で意思決定してください。</div>
+  </div>
+</section>
+
+<section id="d03-step1">
+  <div class="sec-head"><span class="no">03</span><h2 class="mincho">ステップ1：契約棚卸し（社内調査）</h2></div>
+  <div class="step">
+    <div class="step-body">
+      <p>どの部署に、どのようなリース契約・賃貸借契約・サービス契約があるかを全社的に洗い出します。</p>
+      <div class="step-grid">
+        <div class="step-block">
+          <h4>目的</h4>
+          <p>新基準の対象となりうる契約を網羅的に把握する（移行実務の起点）。</p>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>中村（会計士）の作業</h4>
+          <ul>
+            <li>契約リスト雛形（下記項目）の作成・提供</li>
+            <li>各部署からの回答をとりまとめ、リース候補契約を一覧化</li>
+          </ul>
+        </div>
+        <div class="step-block">
+          <h4>会社にお願いする資料・作業</h4>
+          <ul>
+            <li>各部署（総務・経理・店舗・工場・物流等）での契約棚卸しへの協力</li>
+            <li>下記「社内調査（ヒアリング）質問リスト」への回答</li>
+            <li>契約書原本または写しの提供（可能な範囲で）</li>
+          </ul>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>契約リスト雛形の項目一覧</h4>
+          <ul>
+            <li>契約名／管理番号</li>
+            <li>契約相手（貸手）</li>
+            <li>対象資産（不動産・車両・機械・OA機器等）</li>
+            <li>契約期間（開始日・終了日）</li>
+            <li>延長・解約オプションの有無と内容</li>
+            <li>月額・年額の支払額</li>
+            <li>管理部署・契約担当者</li>
+            <li>現行の会計処理（賃借料処理／リース資産計上等）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-complete" data-level="detail">
+        <h4>完了条件</h4>
+        <ul class="checklist">
+          <li><span class="box"></span>全部署からの契約棚卸し回答が揃っている</li>
+          <li><span class="box"></span>契約リスト（雛形項目すべて記入）が完成している</li>
+          <li><span class="box"></span>不動産賃貸借以外の契約（サービス契約等）についても確認済みである</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d03-step2">
+  <div class="sec-head"><span class="no">04</span><h2 class="mincho">ステップ2：リース識別判定</h2></div>
+  <div class="step">
+    <div class="step-body">
+      <p>ステップ1で洗い出した契約1件ごとに「リースを含む契約」に該当するかを判定します。</p>
+      <div class="step-grid">
+        <div class="step-block">
+          <h4>目的</h4>
+          <p>各契約が新基準上の「リース」に該当するかを判定し、対象契約を確定する。</p>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>中村（会計士）の作業</h4>
+          <ul>
+            <li>「特定された資産」の有無、「使用支配権の移転」の有無を契約ごとに判定</li>
+            <li>判定結果を一覧化し、対象・非対象を明確に区分</li>
+          </ul>
+        </div>
+        <div class="step-block">
+          <h4>会社にお願いする資料・作業</h4>
+          <ul>
+            <li>契約書の詳細条項（代替可能性の有無、使用方法の指図権の所在等）に関する質問への回答</li>
+            <li>不明点がある契約相手先への確認協力</li>
+          </ul>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>備考</h4>
+          <p>従来「賃貸借」と意識していなかったサービス契約等にもリースが含まれる場合があります（詳細版資料 4章参照）。</p>
+        </div>
+      </div>
+      <div class="step-complete" data-level="detail">
+        <h4>完了条件</h4>
+        <ul class="checklist">
+          <li><span class="box"></span>全契約についてリース該当・非該当の判定が完了している</li>
+          <li><span class="box"></span>判定根拠が文書化されている</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d03-step3">
+  <div class="sec-head"><span class="no">05</span><h2 class="mincho">ステップ3：会計方針・簡便基準・割引率の決定</h2></div>
+  <div class="step">
+    <div class="step-body">
+      <p>移行にあたり会社として決定すべき事項を確定します。<br>最も重要なステップです。</p>
+      <div class="step-grid">
+        <div class="step-block">
+          <h4>目的</h4>
+          <p>少額・短期リースの金額基準、割引率の方針、リース期間判定の考え方等、会社としての会計方針を決定する。</p>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>中村（会計士）の作業</h4>
+          <ul>
+            <li>決定事項の選択肢と影響（財務諸表・税務への影響）を提示</li>
+            <li>方針決定の議事メモ（ポジションペーパー）を作成</li>
+          </ul>
+        </div>
+        <div class="step-block">
+          <h4>会社にお願いする資料・作業</h4>
+          <ul>
+            <li>経営層・経理責任者による方針決定事項チェックリストへの承認</li>
+          </ul>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>決定事項チェックリスト</h4>
+          <ul class="checklist">
+            <li><span class="box"></span>少額リースの金額基準（300万円基準／5,000米ドル基準／併用）</li>
+            <li><span class="box"></span>短期リース（12か月以内）の費用処理を採用するか</li>
+            <li><span class="box"></span>割引率の方針（内在利率が入手できない場合の増分借入利率の算定方法）</li>
+            <li><span class="box"></span>延長・解約オプションの「合理的に確実」の判定ガイドライン</li>
+            <li><span class="box"></span>使用権資産の減価償却方法・期間</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-complete" data-level="detail">
+        <h4>完了条件</h4>
+        <ul class="checklist">
+          <li><span class="box"></span>決定事項チェックリストが全項目承認済みである</li>
+          <li><span class="box"></span>ポジションペーパーが文書化され保存されている</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d03-step4">
+  <div class="sec-head"><span class="no">06</span><h2 class="mincho">ステップ4：リース台帳作成と会計システムへの登録設定（当社はfreeeを使用）</h2></div>
+  <div class="step">
+    <div class="step-body">
+      <p>対象契約について、使用権資産・リース負債の当初測定額と償却・利息スケジュールを計算し、会計システムへの登録方法を確立します。</p>
+      <div class="step-grid">
+        <div class="step-block">
+          <h4>目的</h4>
+          <p>リース台帳（表計算等）で計算した金額を、会計システムの固定資産（使用権資産）・負債勘定（リース債務）に反映できる状態にする。</p>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>中村（会計士）の作業</h4>
+          <ul>
+            <li>リース台帳（表計算）の作成、当初測定額・償却表・利息表の算定</li>
+            <li>会計システムへの固定資産登録方法・振替伝票フォーマットの設計</li>
+            <li>会計システムの機能（使用権資産の自動計算機能の有無等）を確認</li>
+          </ul>
+        </div>
+        <div class="step-block">
+          <h4>会社にお願いする資料・作業</h4>
+          <ul>
+            <li>会計システムの現行勘定科目設定内容の共有（アクセス権限付与等）</li>
+            <li>台帳作成に必要な契約条件の追加確認（金利情報等）への協力</li>
+          </ul>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>備考</h4>
+          <p>リース台帳（表計算／専用ツール）で計算した金額を、会計システムに登録する運用を基本とします。</p>
+        </div>
+      </div>
+      <div class="step-complete" data-level="detail">
+        <h4>完了条件</h4>
+        <ul class="checklist">
+          <li><span class="box"></span>全対象契約のリース台帳（当初測定・償却・利息スケジュール）が完成している</li>
+          <li><span class="box"></span>会計システムの固定資産台帳・負債勘定への登録方法が確立している</li>
+          <li><span class="box"></span>振替伝票フォーマット（減価償却費・支払利息・元本返済）が確定している</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d03-step5">
+  <div class="sec-head"><span class="no">07</span><h2 class="mincho">ステップ5：経過措置の選択と期首仕訳</h2></div>
+  <div class="step">
+    <div class="step-body">
+      <p>適用初年度期首に選択する経過措置（簡便法）を決定し、期首仕訳を作成します。</p>
+      <div class="step-grid">
+        <div class="step-block">
+          <h4>目的</h4>
+          <p>経過措置の組み合わせを決定し、適用初年度期首の使用権資産・リース負債・利益剰余金への影響額を確定する。</p>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>中村（会計士）の作業</h4>
+          <ul>
+            <li>経過措置の選択肢（帳簿価額引継ぎ／現在価値での新規計上等）ごとの影響額を試算</li>
+            <li>期首仕訳案の作成</li>
+          </ul>
+        </div>
+        <div class="step-block">
+          <h4>会社にお願いする資料・作業</h4>
+          <ul>
+            <li>経営層による経過措置選択の承認</li>
+          </ul>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>備考</h4>
+          <p>選択の組み合わせにより期首利益剰余金が変動するため、複数パターンの影響額を比較したうえで決定します。</p>
+        </div>
+      </div>
+      <div class="step-complete" data-level="detail">
+        <h4>完了条件</h4>
+        <ul class="checklist">
+          <li><span class="box"></span>経過措置の選択（組み合わせ）が確定している</li>
+          <li><span class="box"></span>期首仕訳案が経営層の承認を得ている</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d03-step6">
+  <div class="sec-head"><span class="no">08</span><h2 class="mincho">ステップ6：ドライラン</h2></div>
+  <div class="step">
+    <div class="step-body">
+      <p>本番適用前に、実際の数値を使って一度試算（ドライラン）を行い、問題点を洗い出します。</p>
+      <div class="step-grid">
+        <div class="step-block">
+          <h4>目的</h4>
+          <p>本番適用前に台帳・仕訳・開示資料の作成プロセスを一通り試行し、不備を事前に発見・修正する。</p>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>中村（会計士）の作業</h4>
+          <ul>
+            <li>期首仕訳・期中仕訳の試算実施</li>
+            <li>注記に必要な集計（満期分析等）の試作</li>
+            <li>問題点の洗い出しと改善提案</li>
+          </ul>
+        </div>
+        <div class="step-block">
+          <h4>会社にお願いする資料・作業</h4>
+          <ul>
+            <li>ドライラン結果のレビュー・フィードバック</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-complete" data-level="detail">
+        <h4>完了条件</h4>
+        <ul class="checklist">
+          <li><span class="box"></span>ドライランでの仕訳・集計に重大な問題がない</li>
+          <li><span class="box"></span>発見された課題への対応が完了している</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d03-step7">
+  <div class="sec-head"><span class="no">09</span><h2 class="mincho">ステップ7：本番適用・注記・税務調整</h2></div>
+  <div class="step">
+    <div class="step-body">
+      <p>適用初年度の決算において、本番の会計処理・開示・税務申告調整を行います。</p>
+      <div class="step-grid">
+        <div class="step-block">
+          <h4>目的</h4>
+          <p>新基準に基づく決算・注記を確定し、法人税・消費税の申告調整を適切に行う。</p>
+        </div>
+        <div class="step-block" data-level="detail">
+          <h4>中村（会計士）の作業</h4>
+          <ul>
+            <li>期首仕訳・期中仕訳の本番反映</li>
+            <li>注記事項の作成</li>
+            <li>税務申告調整（別表対応）の実施または顧問税理士との連携</li>
+          </ul>
+        </div>
+        <div class="step-block">
+          <h4>会社にお願いする資料・作業</h4>
+          <ul>
+            <li>決算資料の最終確認・承認</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-complete" data-level="detail">
+        <h4>完了条件</h4>
+        <ul class="checklist">
+          <li><span class="box"></span>本番の決算・注記が完成している</li>
+          <li><span class="box"></span>税務申告調整（別表）が完了している</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d03-requests" data-level="detail">
+  <div class="sec-head"><span class="no">10</span><h2 class="mincho">会社への依頼物リスト（総括）</h2></div>
+  <div class="card accent">
+    <ul class="checklist">
+      <li><span class="box"></span>全部署の契約棚卸し回答（契約リスト雛形記入）</li>
+      <li><span class="box"></span>契約書原本または写し</li>
+      <li><span class="box"></span>契約条件の追加確認（金利情報、代替可能性、使用方法の指図権の所在等）</li>
+      <li><span class="box"></span>会計システムの現行勘定科目設定内容・アクセス権限</li>
+      <li><span class="box"></span>各決定事項（少額基準・割引率方針・経過措置選択等）への経営層承認</li>
+      <li><span class="box"></span>ドライラン結果のレビュー・フィードバック</li>
+      <li><span class="box"></span>決算資料の最終確認</li>
+    </ul>
+  </div>
+</section>
+
+<section id="d03-hearing" data-level="detail">
+  <div class="sec-head"><span class="no">11</span><h2 class="mincho">社内調査（ヒアリング）質問リスト</h2></div>
+  <div class="card">
+    <p>ステップ1の契約棚卸しで、各部署へのヒアリングに使用する質問例です。</p>
+    <table>
+      <tr><th style="width:6%;">No.</th><th>質問</th></tr>
+      <tr><td>1</td><td>貴部署で契約している「賃貸借」「リース」と呼べる契約はありますか（不動産・車両・機械・OA機器・什器等）。</td></tr>
+      <tr><td>2</td><td>「サービス契約」「業務委託契約」の中に、特定の設備・車両・機器を独占的に使用する契約はありますか（例：専用車両による輸送委託、専用設備での製造委託等）。</td></tr>
+      <tr><td>3</td><td>各契約の契約期間（開始日・終了日）、更新の有無を教えてください。</td></tr>
+      <tr><td>4</td><td>契約に延長オプション・解約オプションはありますか。それを行使する予定・見込みはありますか。</td></tr>
+      <tr><td>5</td><td>月額・年額の支払額はいくらですか（変動費用がある場合はその内容も）。</td></tr>
+      <tr><td>6</td><td>契約の相手方（貸手）は、対象資産を別の資産に差し替える権利を持っていますか（代替可能性）。</td></tr>
+      <tr><td>7</td><td>資産の使い方（稼働時間・使用場所・使用方法等）を決めているのは貴社ですか、それとも契約相手ですか。</td></tr>
+      <tr><td>8</td><td>現在、その契約はどのように会計処理されていますか（賃借料として費用処理、リース資産として計上、その他）。</td></tr>
+      <tr><td>9</td><td>契約の管理担当者・管理部署はどこですか。</td></tr>
+      <tr><td>10</td><td>今後、新たに契約する予定のリース・賃貸借はありますか。</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="d03-faq">
+  <div class="sec-head"><span class="no">12</span><h2 class="mincho">よくある質問</h2></div>
+  <div class="card">
+    <h4>Q. 2027年12月期から対応が必要ですか。</h4>
+    <p>A. いいえ。<br>12月決算の場合、原則適用の強制適用初年度は<b>2028年12月期</b>です。<br>2027年12月期（2027年1月1日開始）は基準の適用開始日（2027年4月1日）より前に始まるため対象外です。<br>早期適用を選ぶ場合のみ2026年12月期から可能です。</p>
+    <h4>Q. 賃貸オフィスの家賃も対象になりますか。</h4>
+    <p>A. 対象になる可能性が高いです。<br>新基準では短期（12か月以内）・少額（社内規程で定める金額基準以下）を除き、原則すべての賃貸借がB/Sに資産・負債として計上されます。</p>
+    <h4>Q. 会計システムで自動計算できますか。</h4>
+    <p>A. 当面はリース台帳（表計算等）で当初測定額・償却スケジュール・利息スケジュールを計算し、会計システム（当社はfreeeを使用）へ登録・振替伝票で計上する運用を想定しています。</p>
+    <h4>Q. 税金の計算も変わりますか。</h4>
+    <p>A. はい。<br>法人税ではリース期間定額法への統一等、消費税でもリース取引の判定に関する取扱いが整理されています。<br>会計と税務の差異は申告調整で対応します。</p>
+    <h4>補足情報</h4>
+    <p style="font-size:0.85em;color:var(--gray);">本基準はASBJ（企業会計基準委員会）が制定した日本基準です。<br>PCAOB（米国公開企業会計監視委員会）は監査人を監督する機関であり、会計基準の制定主体ではありません。</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="inner">
+    <p>本手順書は企業会計基準第34号「リースに関する会計基準」・企業会計基準適用指針第33号（ASBJ、2024年9月13日公表、2025年4月23日修正）及び大手監査法人4社・JICPA・リース事業協会の公開資料に基づき作成しています。実際の適用要否・会計処理・税務判断は貴社の状況に応じて個別に確認します。</p>
+    <p>作成：公認会計士事務所（中村）　2026-09-24</p>
+  </div>
+</footer>
+</div>
+</section>
+<section class="docpanel" id="t3" role="tabpanel" aria-labelledby="tab-t3" tabindex="-1">
+<div class="subpanel doc04" id="doc04">
+<a id="d04-top"></a>
+<header class="masthead">
+  <div class="inner">
+    <p class="eyebrow">ACCOUNTING STANDARDS BRIEF ／ 新リース会計基準</p>
+    <h1 class="mincho">新リース会計基準とIFRS第16号の相違点<br>― 差異のみを一次資料で整理する ―</h1>
+    <p class="lead">共通点の詳述は行わず、差異のみを一次資料（ASBJ結論の背景・IFRS財団・大手監査法人公開資料）に基づき整理</p>
+    <div class="meta-row">
+      <span><b>対象</b> IFRS任意適用企業・連結実務（差異の確認）</span>
+      <span><b>新基準</b> 第34号／適用指針第33号（2024-09-13、2025-04-23修正）</span>
+      <span><b>強制適用</b> 12月決算＝2028年12月期から</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="t">目次</div>
+  <ol>
+    <li><a href="#d04-premise"><span class="n">01</span>大前提（BC13の設計方針）</a></li>
+    <li><a href="#d04-top5"><span class="n">02</span>最も重要な差異 TOP5</a></li>
+    <li data-level="detail"><a href="#d04-s1"><span class="n">03</span>借手の会計処理</a></li>
+    <li data-level="detail"><a href="#d04-s2"><span class="n">04</span>少額リースの免除基準</a></li>
+    <li data-level="detail"><a href="#d04-s3"><span class="n">05</span>短期リースの取扱い</a></li>
+    <li data-level="detail"><a href="#d04-s4"><span class="n">06</span>リースの識別・期間・変動リース料・割引率</a></li>
+    <li data-level="detail"><a href="#d04-s5"><span class="n">07</span>セール・アンド・リースバック</a></li>
+    <li data-level="detail"><a href="#d04-s6"><span class="n">08</span>サブリース</a></li>
+    <li data-level="detail"><a href="#d04-s7"><span class="n">09</span>表示・開示</a></li>
+    <li data-level="detail"><a href="#d04-s8"><span class="n">10</span>貸手の会計処理</a></li>
+    <li data-level="detail"><a href="#d04-s9"><span class="n">11</span>日本固有の論点</a></li>
+    <li data-level="detail"><a href="#d04-s10"><span class="n">12</span>適用時期・遡及方法</a></li>
+    <li data-level="detail"><a href="#d04-sources"><span class="n">13</span>出典一覧</a></li>
+    <li><a href="#d04-nodiff"><span class="n">14</span>差異なしと確認された論点</a></li>
+  </ol>
+</nav>
+
+<section id="d04-premise">
+  <div class="sec-head"><span class="no">01</span><h2 class="mincho">大前提：BC13の設計方針</h2></div>
+  <div class="card accent">
+    <p><b>企業会計基準第34号 結論の背景 BC13</b>より：</p>
+    <blockquote style="margin:10px 0;padding:10px 16px;background:var(--navy-light);border-radius:8px;font-size:0.92em;color:#25313e;">
+      「借手の会計処理に関してIFRS第16号と整合性を図る程度については、IFRS第16号のすべての定めを取り入れるのではなく、主要な定めの内容のみを取り入れることにより、簡素で利便性が高く、かつ、IFRSを任意適用して連結財務諸表を作成している企業がIFRS第16号の定めを個別財務諸表に用いても、基本的に修正が不要となる会計基準とする」
+    </blockquote>
+    <p>この設計方針ゆえ、<b>借手の基本モデルは実質的に同一</b>だが、以下の6点で明確な差異が生じている。</p>
+    <ol>
+      <li>代替的取扱い・簡便的取扱いの選択肢</li>
+      <li>貸手の会計処理（現行基準ほぼ踏襲）</li>
+      <li>セール・アンド・リースバック（米国基準ベース）</li>
+      <li>サブリースの例外規定</li>
+      <li>開示の一部</li>
+      <li>経過措置</li>
+    </ol>
+    <div class="src">企業会計基準第34号 結論の背景 BC13</div>
+  </div>
+</section>
+
+<section id="d04-top5">
+  <div class="sec-head"><span class="no">02</span><h2 class="mincho">最も重要な差異 TOP5</h2></div>
+  <div class="top5">
+    <div class="top5-card">
+      <div class="top5-num">1</div>
+      <div>
+        <h4>セール・アンド・リースバック <span class="badge danger">最重要</span></h4>
+        <p>第34号はIFRS16ではなく<b>米国基準Topic 842をベースに設計</b>。<br>「フルペイアウトのリースか否か」で売却損益の全額即時認識か金融取引処理かを判定する点が、IFRS16の資産譲渡時の部分損益繰延モデルと根本的に異なる。<br><b>IFRS任意適用企業でも個別財務諸表でIFRS16流の処理を選択適用することは認められず</b>、修正仕訳が必要（ASBJ結論の背景 BC91-95で明言）。</p>
+      </div>
+    </div>
+    <div class="top5-card">
+      <div class="top5-num">2</div>
+      <div>
+        <h4>少額リースの金額基準が二本立て</h4>
+        <p>IFRS16は「新品時概ね5,000米ドル以下」という単一の目安（固定の数値基準ではない）。<br>第34号適用指針は①<b>300万円以下（契約1件あたり、旧第16号由来）</b>と②<b>新品時概ね5,000米ドル以下（IFRS16と同様）</b>の<b>いずれかを選択適用</b>できる（BC41-45）。<br>判定対象期間も「借手のリース期間」else「契約期間」を選択可（BC44）。</p>
+      </div>
+    </div>
+    <div class="top5-card">
+      <div class="top5-num">3</div>
+      <div>
+        <h4>少額リースの開示要否</h4>
+        <p>IFRS16はパラグラフ53(d)で少額リース費用の開示を要求。<br>第34号適用指針は「金額的重要性が乏しい」ことを理由に<b>少額リースに係る費用の開示を求めない</b>（短期リース費用の開示は両基準とも必要）（BC146）。</p>
+      </div>
+    </div>
+    <div class="top5-card">
+      <div class="top5-num">4</div>
+      <div>
+        <h4>サブリースの例外的取扱い（IFRS16に存在しない）</h4>
+        <p>「中間的な貸手がヘッドリースに対してリスクを負わない場合」の特例と「転リース取引」の特例を<b>IFRS16にはない日本独自の任意規定</b>として新設。<br>適用は任意（BC125-126, BC135-136）。<br>また、サブリースしている場合でもヘッドリースに<b>少額リースの簡便的取扱いを適用できる</b>（IFRS16はこれを禁じている）（BC136）。</p>
+      </div>
+    </div>
+    <div class="top5-card">
+      <div class="top5-num">5</div>
+      <div>
+        <h4>適用時期・早期適用設計の違い</h4>
+        <p>IFRS16は原則適用2019年1月。<br>第34号は<b>原則適用2027年4月1日以後開始事業年度</b>（早期適用は2025年4月1日以後開始事業年度から可）。<br>公表から原則適用まで約2年半という長期リードタイムは「IFRS16の適用時期（2019年1月）に鑑み実務を国際的水準に近づける必要があった」ことが理由としてBC69に明記（IFRS16自体の適用日そのものは差異ではないが、日本の導入タイムラインの設計根拠としてIFRS16が直接参照されている点が特徴）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d04-s1" data-level="detail">
+  <div class="sec-head"><span class="no">03</span><h2 class="mincho">借手の会計処理（基本モデルは共通、細部の代替的取扱いに差異）</h2></div>
+  <div class="card">
+    <table>
+      <tr><th>項目</th><th>IFRS第16号</th><th>日本 第34号／適用指針第33号</th><th>出典</th></tr>
+      <tr><td>基本モデル</td><td>単一モデル（全リースで使用権資産・リース負債を計上）</td><td>同左（単一モデル、BC39でIFRS16と整合させる旨明記）。差異なし（参考記載）</td><td>第34号BC39／PwC's View Vol.54 p.17</td></tr>
+      <tr><td>リース契約条件変更時に使用する割引率</td><td>状況ごとに「変更前の割引率」「変更後の割引率」のいずれを使うかを詳細に規定</td><td><b>詳細規定を取り入れず</b>、簡素な定めに留めた（開発方針＝簡素化を優先）。実務上は自社で合理的な取扱いを設計する必要</td><td>適用指針33号BC76</td></tr>
+      <tr><td>変動リース料（指数・レート連動）の将来変動の見積り</td><td>開発時の議論では将来変動を見積るべきとの考え方も示されたが、最終的にはリース開始日時点のレートで固定</td><td>IFRS16と同様の定めを採用（差異なし）</td><td>適用指針33号BC46-49</td></tr>
+      <tr><td>無形固定資産（ソフトウェア等）への適用</td><td>借手による無形資産へのリース会計基準の適用は要求されていない（任意）</td><td>同様に<b>任意</b>（旧第13号の実務を変えないため）＝差異なし</td><td>第34号BC18</td></tr>
+      <tr><td>借地権・普通借地権の権利金等</td><td><b>概念自体が存在しない</b>（日本固有の借地借家法上の論点）</td><td>使用権資産に含めて表示。従来償却していなかった場合は<b>償却しない方法を選択できる代替的取扱い</b>を設けた。ただし定期借地権は償却必須（詳細は9章）</td><td>適用指針33号BC168-169</td></tr>
+      <tr><td>事務所等の不動産賃貸借契約・自動車リース・サブリース型賃貸住宅事業・定期傭船契約の識別</td><td>リースの定義に基づき判定</td><td>業界団体等から「サービス性が強い」としてIFRS16と異なる取扱いを求める意見が出たが、<b>審議の結果、IFRS16と異なる取扱いは設けなかった</b>（差異なし）。ただし定期傭船契約のIFRS16設例は「基準の求める判断と誤解されるおそれ」から不採用</td><td>第34号BC31</td></tr>
+    </table>
+    <div class="tip">実務ではIFRS16と同じ判定基準を使うが、設例レベルの参照可否には差がある点に留意。</div>
+  </div>
+</section>
+
+<section id="d04-s2" data-level="detail">
+  <div class="sec-head"><span class="no">04</span><h2 class="mincho">少額リースの免除基準</h2></div>
+  <div class="card accent">
+    <table>
+      <tr><th>項目</th><th>IFRS16</th><th>第34号</th><th>出典</th></tr>
+      <tr><td>金額の目安</td><td>新品時「概ね5,000米ドル程度」（IFRS16結論の根拠に記載された開発当時2015年の目安。基準本文に固定数値なし）</td><td>①300万円以下（契約1件あたり、旧適用指針第16号由来）／②新品時概ね5,000米ドル以下（IFRS16と同様）の<b>いずれかを選択適用</b>（企業単位で選択、契約ごとの選択は不可）</td><td>IFRS16結論の根拠（IASB, 2016）／適用指針33号BC41-45</td></tr>
+      <tr><td>判定基準の性質の違い</td><td>数値基準というより「新品時の価値」に着目した定性的目安</td><td>①は明確な300万円という定量基準、②はIFRS16準拠の定性的目安。ASBJ自身も「適用単位の定め方・数値・条件が異なるため、どちらが広範か一概にいえない」と結論の背景で述べている</td><td>適用指針33号BC41</td></tr>
+      <tr><td>サブリースしている場合のヘッドリースへの適用可否</td><td><b>ヘッドリースには少額リースの簡便的取扱いを適用できない</b></td><td>実務負担を理由に<b>この制限を採用せず</b>、サブリースしていてもヘッドリースに少額リース簡便的取扱いを適用可能</td><td>適用指針33号BC136</td></tr>
+      <tr><td>費用の開示</td><td>開示必須（IFRS16.53(d)）</td><td><b>開示不要</b>（重要性が乏しいことを理由に明示的に開示対象から除外）</td><td>適用指針33号BC146</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="d04-s3" data-level="detail">
+  <div class="sec-head"><span class="no">05</span><h2 class="mincho">短期リースの取扱い</h2></div>
+  <div class="card">
+    <ul>
+      <li>12か月以内（購入オプションなし）という<b>閾値自体はIFRS16・第34号で同一</b>。</li>
+      <li>ただし、リース期間の算定方法（延長・解約オプションの「合理的に確実」判定を含む）が両基準とも共通のロジックであるため、判定結果として現行日本基準（第13号）より短期リースに該当しにくくなる点は共通の変化であり、IFRS16との差異ではない。</li>
+      <li>短期リース費用の開示はIFRS16・第34号ともに要求（差異なし）。<br>ただし「短期かつ少額」に該当するリースは、日本基準では短期リース費用の注記に含めないことを選択できる（開示コスト・便益を考慮した日本独自の緩和、IFRS16に同等の明文規定なし）。</li>
+    </ul>
+    <div class="src">適用指針33号BC37-38, BC147</div>
+  </div>
+</section>
+
+<section id="d04-s4" data-level="detail">
+  <div class="sec-head"><span class="no">06</span><h2 class="mincho">リースの識別・リース期間・変動リース料・割引率</h2></div>
+  <div class="card">
+    <table>
+      <tr><th>項目</th><th>差異の有無</th><th>内容</th><th>出典</th></tr>
+      <tr><td>リースの識別の判定ロジック（特定資産＋使用支配権）</td><td><b>差異なし</b></td><td>基本的にIFRS16の定めを踏襲。細則的ガイダンス・設例は「取捨選択」して導入</td><td>第34号BC22, BC30</td></tr>
+      <tr><td>リース期間の決定（延長・解約オプションの「合理的に確実」性）</td><td><b>差異なし</b></td><td>IFRS16の考え方と整合的に定めた</td><td>第34号BC34-36</td></tr>
+      <tr><td>リースを構成する部分／構成しない部分の区分（非リース構成部分の合算選択）</td><td><b>差異なし</b></td><td>IFRS16と同様の実務上の便法（構成部分をまとめてリースとして処理する選択のみ認め、非リースとしてまとめる処理は不可という制約も同一）</td><td>第34号BC32-33</td></tr>
+      <tr><td>変動リース料の取扱い</td><td><b>差異なし</b></td><td>指数・レート連動の将来変動を見積らない取扱いをIFRS16と整合させた</td><td>適用指針33号BC46-49</td></tr>
+      <tr><td>割引率の基本的な優先順位（リースの計算利子率→増分借入利率）</td><td><b>差異なし</b></td><td>用語は「貸手の計算利子率」だが概念はIFRS16の「リースの計算利子率」と同義</td><td>適用指針33号BC66</td></tr>
+      <tr><td><b>契約条件変更時に使用する割引率のルール</b></td><td><b>差異あり</b></td><td>IFRS16は状況ごとに詳細規定。第34号は簡素化のため詳細規定を非採用</td><td>適用指針33号BC76（再掲）</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="d04-s5" data-level="detail">
+  <div class="sec-head"><span class="no">07</span><h2 class="mincho">セール・アンド・リースバックの差異（最重要差異の詳細）</h2></div>
+  <div class="card danger">
+    <table>
+      <tr><th>項目</th><th>IFRS16</th><th>第34号（Topic 842ベース）</th></tr>
+      <tr><td>設計の参照基準</td><td>IFRS16本体（IFRS15の収益認識要件で売却該当性を判定）</td><td><b>米国会計基準Topic 842を参考に設計</b>（IFRS16ではない）</td></tr>
+      <tr><td>売却該当性の判定</td><td>資産の譲渡がIFRS15の収益認識要件（一時点での支配移転）を満たすかどうかで判定</td><td>収益認識会計基準等により売却に該当するか否かに加え、<b>「フルペイアウトのリースか否か」</b>（借手が経済的利益のほとんどすべてを享受し、コストのほとんどすべてを負担するか）を判定基準として追加</td></tr>
+      <tr><td>会計処理（売却に該当する場合）</td><td>買手に移転した権利部分の損益は即時認識、売手が引き続き保有する権利部分（リースバック相当）の損益は<b>繰り延べる</b>（部分認識モデル）</td><td>売却該当かつフルペイアウトに該当しない場合、<b>譲渡損益を全額即時認識</b>（Topic 842の考え方を採用。損益の按分・繰延という概念を採用しない）</td></tr>
+      <tr><td>フルペイアウトに該当する場合</td><td>該当概念なし</td><td>資産の譲渡は売却に該当しないものとみなし、<b>金融取引として会計処理</b>（譲渡損益を認識しない）</td></tr>
+      <tr><td>IFRS任意適用企業への配慮</td><td>—</td><td><b>IFRS16と同様の会計処理を選択適用することを認めない</b>（BC93-95で意図的に却下。「収益認識会計基準等との整合性を優先させる会計上の考え方の相違によるもの」と明記）</td></tr>
+      <tr><td>開示</td><td>IFRS16.53の一般開示に準ずる</td><td>売却損益の内訳、フルペイアウトに該当し金融取引処理した場合の資産の内容等、<b>日本独自の開示を追加要求</b>（開示で情報を補う設計）</td></tr>
+    </table>
+    <div class="warn"><b>実務上の含意</b>：<br>IFRS任意適用の連結子会社であっても、セール・アンド・リースバック取引については<b>個別財務諸表で追加の修正仕訳が必要</b>になる、数少ない明示的な非整合領域。<br>M&A・不動産流動化を検討する会社は特に要注意。</div>
+    <div class="src">適用指針33号 結論の背景 BC82-BC95（ASBJ、2024年9月公表分。2025年4月23日の軽微修正では本質的変更なし）／PwC's View Vol.54 p.17-18／KPMG Insight Vol.70 p.5</div>
+  </div>
+</section>
+
+<section id="d04-s6" data-level="detail">
+  <div class="sec-head"><span class="no">08</span><h2 class="mincho">サブリースの差異</h2></div>
+  <div class="card">
+    <table>
+      <tr><th>項目</th><th>IFRS16</th><th>第34号適用指針</th></tr>
+      <tr><td>中間的な貸手のリース分類の参照対象</td><td>ヘッドリースの<b>使用権資産</b>を参照して分類（Topic 842はヘッドリースの原資産を参照する点でIFRS16と異なる）</td><td><b>IFRS16と同様に使用権資産を参照</b>（差異なし）</td></tr>
+      <tr><td>ヘッドリースに対してリスクを負わない場合の例外処理</td><td><b>規定なし</b>（例外を設けていない）</td><td><b>日本独自の任意規定を新設</b>（3要件をすべて満たす場合、オフバランスで純額の収益のみ計上できる）</td></tr>
+      <tr><td>転リース取引の特例</td><td><b>規定なし</b></td><td>現行の企業会計基準第13号の定めを踏襲し、<b>IFRS16にない任意の特例</b>として存続（貸借対照表にリース投資資産・リース負債を計上しつつ、損益計算書は転リース差益の純額表示）</td></tr>
+      <tr><td>サブリースしている場合の少額リース簡便的取扱いの可否</td><td>ヘッドリースには<b>適用不可</b></td><td><b>適用可</b>（実務負担軽減を優先）</td></tr>
+    </table>
+    <div class="src">適用指針33号 結論の背景 BC123-BC136</div>
+  </div>
+</section>
+
+<section id="d04-s7" data-level="detail">
+  <div class="sec-head"><span class="no">09</span><h2 class="mincho">表示・開示の差異</h2></div>
+  <div class="card">
+    <table>
+      <tr><th>項目</th><th>IFRS16</th><th>第34号／適用指針33号</th><th>出典</th></tr>
+      <tr><td>開示の基本設計思想</td><td>開示目的（財務諸表利用者のニーズ）を起点に、定性的・定量的情報の例を多数提示する詳細主義</td><td>「開示目的を達成するために必要な情報」という同じ設計思想を採用しつつ、<b>IFRS16の詳細ガイダンスの一部は取捨選択</b></td><td>適用指針33号BC137</td></tr>
+      <tr><td>少額リース費用の開示</td><td>必須（IFRS16.53(d)）</td><td><b>不要</b>（2章参照）</td><td>適用指針33号BC146</td></tr>
+      <tr><td>短期かつ少額リースの費用開示への算入</td><td>明文の除外規定なし</td><td>短期リース費用の注記から<b>除外を選択可</b>（開示コスト・便益を考慮した緩和）</td><td>適用指針33号BC147</td></tr>
+      <tr><td>貸手のリース債権の構成要素（リース料債権部分／受取利息相当額）の開示</td><td>要求あり</td><td>現行第13号にはなかった開示を<b>新設</b>（IFRS16と整合的にする形で拡充）</td><td>適用指針33号BC155</td></tr>
+      <tr><td>加重平均割引率（借手の追加借入利子率）の開示</td><td>要求あり</td><td>同様に要求（差異なし）</td><td>適用指針33号 第109項近辺（BC159文脈）</td></tr>
+      <tr><td>個別財務諸表（単体）における注記</td><td><b>概念自体が存在しない</b>（IFRSは連結財務諸表のみに適用され、日本の「個別財務諸表」という制度自体がIFRSの対象外）</td><td>連結財務諸表を作成している場合の<b>個別財務諸表においても別途、表示・注記が要求される</b>（金融商品取引法上の実務要請）</td><td>適用指針33号BC160-162</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="d04-s8" data-level="detail">
+  <div class="sec-head"><span class="no">10</span><h2 class="mincho">貸手の会計処理の差異</h2></div>
+  <div class="card">
+    <p>貸手側は「IFRS16及びTopic 842ともに抜本的な改正が行われていない」ことを理由に、<b>基本的に現行の企業会計基準第13号を踏襲</b>する設計であり、そもそも「IFRS16と整合させる」という開発方針の対象外（BC13）。<br>したがって借手ほど大きな差異はないが、以下の点で日本独自の定めが残る。</p>
+    <table>
+      <tr><th>項目</th><th>IFRS16の位置づけ</th><th>第34号／適用指針33号</th><th>出典</th></tr>
+      <tr><td>貸手のリース分類（ファイナンス・リース／オペレーティング・リースの二分法）</td><td><b>廃止されていない</b>が、IFRS16自体は貸手側の分類モデルを実質維持（借手側のみ単一モデル化）。この点は共通なので差異ではない</td><td>現行の第13号の二分法を踏襲（差異なし）</td><td>KPMG Insight Vol.70 p.2</td></tr>
+      <tr><td>ファイナンス・リース第2法（リース料受取時に売上高・売上原価を計上）</td><td>該当する概念なし（IFRS16は現在価値ベースで売上高・リース投資資産を計上する枠組みのみ）</td><td><b>廃止</b>。収益認識会計基準との整合性を理由に、実質的に第3法（利息相当額のみ配分）に類似した処理へ統一。リース業において例外的に認められていた割賦基準も廃止</td><td>KPMG Insight Vol.70 p.5, 図表2</td></tr>
+      <tr><td>オペレーティング・リースの収益認識（フリーレント期間の扱い）</td><td>定額法での計上が前提（収益認識の一般原則）</td><td>従来「明確な定めなし」だったのを、<b>フリーレント期間等を含む対象期間を通じて原則定額法</b>と明確化（収益認識会計基準との整合性を意図）</td><td>KPMG Insight Vol.70 p.5</td></tr>
+      <tr><td>知的財産のライセンスの供与の適用範囲</td><td>貸手による知的財産のライセンスの供与は範囲外（原則）</td><td><b>製造・販売以外を事業とする貸手（リース会社等）については、任意で本会計基準の適用を認める</b>（IFRS16にはない選択肢）</td><td>第34号BC17（※適用指針第71項(2)）</td></tr>
+      <tr><td>その他の無形固定資産のリース（貸手側）</td><td>適用を任意とする定めが<b>ない</b>（一律範囲外の整理）</td><td>「広範に行われていない」ことと現行実務の継続を理由に、<b>適用を任意</b>とした（IFRS16より一段緩い）</td><td>第34号BC18</td></tr>
+      <tr><td>貸手のリース期間</td><td>借手のリース期間と同様の考え方で決定するのが基本</td><td><b>借手のリース期間と同様に決定する方法</b>と、<b>現行基準の解約不能期間ベースの方法</b>のいずれも選択可（IFRS16は前者のみが基本）</td><td>KPMG Insight Vol.70 p.4</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="d04-s9" data-level="detail">
+  <div class="sec-head"><span class="no">11</span><h2 class="mincho">日本固有の論点（IFRS16に対応概念がない、または借地借家法等の国内法制に由来）</h2></div>
+  <div class="card teal">
+    <ul>
+      <li><b>借地権・普通借地権の権利金等の会計処理</b>：<br>IFRS16には対応する概念がなく、日本の借地借家法（旧借地権・普通借地権・定期借地権の区分）に由来する固有論点。<br>使用権資産に含めて表示しつつ、旧借地権・普通借地権は「従来償却してこなかった場合は償却しない方法を選択できる」代替的取扱いを新設（定期借地権は償却必須）（適用指針33号BC168-169）。</li>
+      <li><b>普通借家契約・定期借家契約の延長オプション判定</b>：<br>借地借家法上、普通借家は正当事由がない限り更新される制度的性質があるため、延長オプション行使の「合理的確実性」の判断が定期借家と大きく異なる。<br>この判断基準自体はIFRS16と同一ロジックだが、<b>日本の借地借家法を前提にした設例（設例8）をIFRS16にはない形で追加</b>して実務上の判断の難しさに対応（第34号BC31、適用指針の設例）。</li>
+      <li><b>建設協力金等の差入預託保証金</b>：<br>日本の不動産賃貸借実務に特有の論点。<br>金融商品実務指針上の取扱いとの整合を図りつつ、経過措置として適用前の会計処理の継続を認める（適用指針33号BC170）。</li>
+      <li><b>個別財務諸表（単体）における表示・注記の要求</b>：<br>IFRSは連結財務諸表にのみ適用されるため、そもそも日本の「個別財務諸表」に相当する概念がIFRS16側に存在しない。<br>金融商品取引法に基づく個別開示の要請から、連結と個別の両方で表示・注記を求める点は制度上不可避の日本固有事項（適用指針33号BC160-162）。</li>
+      <li><b>経過措置全般</b>：<br>IFRS任意適用企業（またはその連結子会社）が個別財務諸表に第34号を適用する場合、実務負担軽減のため<b>IFRS16の経過措置又はIFRS第1号の免除規定を適用することが認められる</b>。<br>ただし、セール・アンド・リースバックについては第34号がIFRS16と異なる定めを置いているため、この経過措置を使う場合でも<b>日本独自の規定（適用指針第126項）の適用が必要</b>（第34号BC172）。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="d04-s10" data-level="detail">
+  <div class="sec-head"><span class="no">12</span><h2 class="mincho">適用時期・遡及方法の差異</h2></div>
+  <div class="card">
+    <table>
+      <tr><th>項目</th><th>IFRS16</th><th>第34号</th></tr>
+      <tr><td>原則適用</td><td>2019年1月1日以後開始する事業年度</td><td><b>2027年4月1日以後開始する連結会計年度及び事業年度</b>（早期適用は2025年4月1日以後開始事業年度から可）</td></tr>
+      <tr><td>公表から原則適用までのリードタイム</td><td>2016年1月公表→2019年1月適用＝約3年</td><td>2024年9月公表→2027年4月適用＝<b>約2年半</b>。ASBJはこの長さの根拠として「IFRS16の原則適用が2019年1月であったこと」を明示的に引用し、<b>国際的な実務水準に日本の実務を合わせる必要性</b>を理由の一つに挙げている（BC69(2)）</td></tr>
+      <tr><td>リースの識別に関する経過措置</td><td>実務上の便法として「契約がリースを含むか否かを見直さない」選択を容認（従前基準との差異が限定的なため）</td><td><b>IFRS16とは異なる経過措置</b>を採用。第34号は「これまで第13号で会計処理されていなかった契約にリースが含まれると判断される場合がある」という日本固有の背景を踏まえ、①前期末時点で第13号を適用しているリース取引は見直し不要、②適用初年度期首時点で存在する第13号非適用契約は期首時点の事実関係で判定、のいずれか（または両方）を選択できる独自設計（BC165-166で「IFRS第16号とは異なる経過措置を取り入れることとした」と明言）</td></tr>
+      <tr><td>遡及方法の基本形</td><td>修正遡及アプローチ（比較年度は遡及せず、累積的影響額を適用初年度期首の利益剰余金に加減）を含む複数の経過措置を提供</td><td>同様に、比較年度への遡及を求めず<b>累積的影響額を適用初年度期首の利益剰余金に加減する方法</b>を許容。IFRS16の経過措置を「我が国の会計基準を基礎とした場合に関連すると考えられる範囲で」<b>可能な限り取り入れつつ、一部修正</b>（第13号からの移行であることを踏まえた技術的調整）（BC164）</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="d04-sources" data-level="detail">
+  <div class="sec-head"><span class="no">13</span><h2 class="mincho">出典一覧</h2></div>
+  <div class="card">
+    <h4>一次資料（ASBJ）</h4>
+    <ul>
+      <li>企業会計基準第34号「リースに関する会計基準」（2024年9月13日公表、2025年4月23日軽微修正反映版）結論の背景 BC7-BC69（特にBC13, BC17-19, BC22, BC30-36, BC39-45, BC59, BC69）</li>
+      <li>企業会計基準適用指針第33号「リースに関する会計基準の適用指針」結論の背景 BC37-BC172（特にBC37-49, BC66, BC76-77, BC82-95, BC123-136, BC137-162, BC163-172）</li>
+      <li>ASBJウェブサイト（公表ページ・PDF一次配布元）
+        <ul>
+          <li>基準本文PDF：https://www.asb-j.jp/jp/wp-content/uploads/sites/4/lease_20240913_02.pdf</li>
+          <li>適用指針本文PDF：https://www.asb-j.jp/jp/wp-content/uploads/sites/4/lease_20240913_04.pdf</li>
+          <li>適用指針33号と旧第16号等との比較PDF：https://www.asb-j.jp/jp/wp-content/uploads/sites/4/lease_20240913_05.pdf</li>
+          <li>公表ページ：https://www.asb-j.jp/jp/accounting_standards/y2024/2024-0913.html</li>
+          <li>2025年4月23日修正のお知らせ：https://www.asb-j.jp/jp/news_release/407019.html</li>
+        </ul>
+      </li>
+    </ul>
+    <h4>IFRS（一次・準一次）</h4>
+    <ul>
+      <li>IFRS財団 IFRS16 "Leases"（2016年1月公表）本文及び結論の根拠（少額資産の5,000米ドル目安、開示要求53項等）：https://www.ifrs.org/content/dam/ifrs/publications/pdf-standards/english/2021/issued/part-a/ifrs-16-leases.pdf</li>
+      <li>IRIS Software Group, "What is the IFRS 16 Exemption for Low Value Assets?"：https://www.iris.co.uk/blog/misc/ifrs-16-reliefs-small-ticket-asset-exemption-ifrs-16-example/</li>
+    </ul>
+    <h4>大手監査法人資料（準一次）</h4>
+    <ul>
+      <li>PwC Japan有限責任監査法人「新リース会計基準の個別論点検討：リースの識別、リース期間、サブリース、IFRSとの差異」PwC's View Vol.54（2025年2月）稲田丈朗氏執筆（p.17-18「4 IFRS第16号「リース」との差異」に差異一覧あり）</li>
+      <li>あずさ監査法人「今知っておきたい『新リース会計基準』」KPMG Insight Vol.70（2025年1月）秋本祐哉氏執筆（p.4「8. IFRS第16号との関係」、図表2貸手比較表）</li>
+    </ul>
+    <h4>参考（二次・確認補助）</h4>
+    <ul>
+      <li>TOKIUM「IFRS16とは？新リース会計基準（日本基準）との違い」：https://www.keihi.com/column/51953/</li>
+      <li>TKC WEBコラム 第7回「IFRS16号と日本基準の主な相違点」：https://www.tkc.jp/consolidate/webcolumn/023894/</li>
+    </ul>
+  </div>
+</section>
+
+<section id="d04-nodiff">
+  <div class="sec-head"><span class="no">14</span><h2 class="mincho">付記：本調査で「差異なし」と確認できた主要論点（誤解防止のための明記）</h2></div>
+  <div class="card teal">
+    <p>以下は業界からIFRS16と異なる取扱いを求める意見が出たものの、ASBJの審議の結果<b>あえて差異を設けなかった</b>論点。<br>「差異があるはず」という思い込みでの誤記を防ぐため記録する。</p>
+    <ul class="checklist">
+      <li><span class="box"></span>リースの識別の基本判定ロジック（特定資産＋使用支配権の2要件）</li>
+      <li><span class="box"></span>事務所賃貸借・自動車リース・サブリース型賃貸住宅・定期傭船契約の識別における特別な緩和（要望はあったが不採用、BC31）</li>
+      <li><span class="box"></span>リース期間の決定における延長・解約オプションの「合理的に確実」判定の基本ロジック</li>
+      <li><span class="box"></span>変動リース料（指数・レート連動）の将来変動を見積らない取扱い</li>
+      <li><span class="box"></span>リースを構成する部分／構成しない部分の区分における非リース部分の合算選択（借手のみ・一方向のみ可という制約を含め同一）</li>
+      <li><span class="box"></span>短期リースの12か月閾値そのもの</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="inner">
+    <p>本資料は企業会計基準第34号「リースに関する会計基準」・企業会計基準適用指針第33号（ASBJ、2024年9月13日公表、2025年4月23日修正）結論の背景、IFRS財団 IFRS第16号、及びPwC Japan・あずさ監査法人（KPMG）の公開資料に基づき、<b>差異のみ</b>を抽出・整理した資料です。共通点・詳細な実務手順は「詳細版」を参照してください。</p>
+    <p>作成：公認会計士事務所（中村）　2026-09-24</p>
+  </div>
+</footer>
+</div>
+</section>
+<section class="docpanel" id="t4" role="tabpanel" aria-labelledby="tab-t4" tabindex="-1">
+<div class="subpanel doc05" id="doc05">
+<a id="d05-top"></a>
+<header class="masthead">
+  <div class="inner">
+    <p class="eyebrow">ACCOUNTING STANDARDS BRIEF ／ 新リース会計基準</p>
+    <h1 class="mincho">リース会計基準 新旧比較<br>― 第13号から第34号へ、何がどう変わるのか ―</h1>
+    <p class="lead">企業会計基準第13号（旧基準）と、2024年9月に公表された第34号（新基準）の差異を、借手の会計処理を中心に1ページにまとめた資料です。<br>旧基準の資料は新旧対照表でまとめています。</p>
+    <div class="meta-row">
+      <span><b>対象</b> 借手中心（貸手は補記）</span>
+      <span><b>新基準</b> 第34号／適用指針第33号（2024-09-13、2025-04-23修正）</span>
+      <span><b>強制適用</b> 12月決算＝2028年12月期から</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="t">目次</div>
+  <ol>
+    <li><a href="#d05-s1"><span class="n">01</span>新旧対照表</a></li>
+    <li><a href="#d05-s2"><span class="n">02</span>会計モデルの転換（2区分→単一）</a></li>
+    <li><a href="#d05-s3"><span class="n">03</span>貸借対照表はこう変わる</a></li>
+    <li><a href="#d05-s4"><span class="n">04</span>損益計算書の費用パターン</a></li>
+    <li data-level="detail"><a href="#d05-s6"><span class="n">05</span>適用終了する旧基準と時期</a></li>
+    <li data-level="detail"><a href="#d05-s7"><span class="n">06</span>貸手の扱い（補記）</a></li>
+  </ol>
+</nav>
+
+<!-- 01 -->
+<section id="d05-s1">
+  <div class="sec-head"><span class="no">01</span><h2 class="mincho">新旧対照表</h2></div>
+  <p>最大の変化は、これまで貸借対照表に載せなくてよかった<strong>オペレーティング・リース（賃貸借処理）が、原則すべて資産・負債として計上（オンバランス）される</strong>ことです。<br>借手の主要論点について、主な変更点は以下のとおりです。</p>
+  <div class="att">
+    <div class="att-grid">
+      <div class="hd h-topic">論点</div>
+      <div class="hd h-old">旧・第13号／第16号（〜適用終了）</div>
+      <div class="hd h-arrow"></div>
+      <div class="hd h-new">新・第34号／第33号（2028年12月期〜強制）</div>
+
+      <div class="topic">会計モデル</div>
+      <div class="old">ファイナンス・リース／オペレーティング・リースの<strong>2区分</strong></div>
+      <div class="arrow">→</div>
+      <div class="new">借手は<strong>単一モデル</strong>（短期・少額を除き全てのリースをオンバランス）</div>
+
+      <div class="topic">オンバランス／オフバランス</div>
+      <div class="old">オペレーティング・リースは<strong>オフバランス</strong>（賃借料を費用計上のみ）</div>
+      <div class="arrow">→</div>
+      <div class="new"><strong>使用権資産</strong>（固定資産）＋<strong>リース負債</strong>（流動／固定）を計上</div>
+
+      <div class="topic">リースの識別</div>
+      <div class="old">明文の判定規定<strong>なし</strong></div>
+      <div class="arrow">→</div>
+      <div class="new">「特定された資産＋使用支配権の移転」で識別（<strong>新設</strong>）</div>
+
+      <div class="topic">P/L（損益）</div>
+      <div class="old">オペレーティング・リースは賃借料（定額）／ファイナンス・リースは減価償却＋利息</div>
+      <div class="arrow">→</div>
+      <div class="new">減価償却費＋支払利息（<strong>ファイナンス・リースの方式に統一</strong>）</div>
+
+      <div class="topic">短期・少額</div>
+      <div class="old">判定基準が不明確（少額300万円は旧第16号にあり）</div>
+      <div class="arrow">→</div>
+      <div class="new">短期＝12か月以内／少額＝<strong>300万円 or 5,000米ドル</strong>の簡便処理（<strong>社内規程化が必須</strong>）</div>
+
+      <div class="topic">割引率</div>
+      <div class="old">定めが曖昧</div>
+      <div class="arrow">→</div>
+      <div class="new">原則、<strong>貸手の計算利子率</strong>（不明な場合は、<strong>借手の追加借入利子率</strong>）</div>
+
+      <div class="topic">リース期間</div>
+      <div class="old">延長・解約オプションの扱いが曖昧</div>
+      <div class="arrow">→</div>
+      <div class="new">延長・解約オプションの<strong>行使が「合理的に確実」かどうか</strong>で判定</div>
+
+      <div class="topic">表示・開示</div>
+      <div class="old">限定的</div>
+      <div class="arrow">→</div>
+      <div class="new">注記を拡充：<strong>会計方針</strong>（リースの判断・簡便処理の採用方針）／<strong>リース費用の内訳</strong>（減価償却費・支払利息等）／リース負債の<strong>満期分析</strong>（返済時期別の残高）</div>
+    </div>
+  </div>
+  <div class="note">少額リースの金額基準（300万円 or 5,000米ドル）は基準本文に一律の定めがなく、<strong>いずれを採るか社内規程で明文化することが必須</strong>です。</div>
+  <p class="src">企業会計基準第34号／適用指針第33号（第20項＝短期・第22項＝少額・第37項＝割引率）</p>
+</section>
+
+<!-- 02 -->
+<section id="d05-s2">
+  <div class="sec-head"><span class="no">02</span><h2 class="mincho">会計モデルの転換（2区分 → 単一）</h2></div>
+  <p>旧基準は「所有に近いか（ファイナンス）／賃借に近いか（オペレーティング）」で二分し、扱いを変えていました。<br>新基準では借手について、この区分をやめ、<strong>どのリースも「資産を使う権利を買った」ものとして一様に会計処理</strong>します。</p>
+  <figure>
+    
+    
+    
+    
+    
+    
+    <!-- FIG-NARROW START (build.py) --><svg class="fig-narrow" viewBox="0 0 360 342" role="img" aria-label="2区分モデルから単一モデルへの転換図（縦組み）">
+  <defs><marker id="d05-nah1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#7b6aa6"/></marker></defs>
+  <text x="180" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#6c6252">旧・第13号：2区分モデル</text>
+  <rect x="10" y="32" width="340" height="58" rx="4" fill="#f2efe9" stroke="#e3ddd0"/>
+  <text x="180" y="56" text-anchor="middle" font-size="12.5" fill="#6c6252" font-weight="700">ファイナンス・リース</text>
+  <text x="180" y="77" text-anchor="middle" font-size="11" fill="#8a8070">→ 資産・負債を計上（オンバランス）</text>
+  <rect x="10" y="98" width="340" height="58" rx="4" fill="#f2efe9" stroke="#e3ddd0"/>
+  <text x="180" y="122" text-anchor="middle" font-size="12.5" fill="#6c6252" font-weight="700">オペレーティング・リース</text>
+  <text x="180" y="143" text-anchor="middle" font-size="11" fill="#8a8070">→ 賃借料を費用（オフバランス）</text>
+  <path d="M180 166 L180 198" stroke="#7b6aa6" stroke-width="2.4" fill="none" marker-end="url(#d05-nah1)"/>
+  <text x="194" y="186" font-size="11" fill="#7b6aa6" font-weight="700">単一化</text>
+  <text x="180" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#463a5e">新・第34号：単一モデル（借手）</text>
+  <rect x="10" y="234" width="340" height="98" rx="5" fill="#efebf6" stroke="#e0d9ee"/>
+  <text x="180" y="262" text-anchor="middle" font-size="13" fill="#463a5e" font-weight="700">すべてのリース</text>
+  <text x="180" y="286" text-anchor="middle" font-size="11.5" fill="#5c5470">使用権資産（固定資産）＋ リース負債</text>
+  <text x="180" y="310" text-anchor="middle" font-size="11" fill="#7b6aa6">＊短期リース・少額リースは簡便処理で除外可</text>
+</svg><!-- FIG-NARROW END -->
+    <svg class="fig-wide" viewBox="0 0 900 300" role="img" aria-label="2区分モデルから単一モデルへの転換図">
+      <!-- 旧：2区分 -->
+      <text x="150" y="34" text-anchor="middle" font-size="15" font-weight="700" fill="#6c6252">旧・第13号：2区分モデル</text>
+      <rect x="40" y="56" width="220" height="70" rx="4" fill="#f2efe9" stroke="#e3ddd0"/>
+      <text x="150" y="86" text-anchor="middle" font-size="13" fill="#6c6252" font-weight="700">ファイナンス・リース</text>
+      <text x="150" y="108" text-anchor="middle" font-size="11.5" fill="#8a8070">→ 資産・負債を計上（オンバランス）</text>
+      <rect x="40" y="140" width="220" height="70" rx="4" fill="#f2efe9" stroke="#e3ddd0"/>
+      <text x="150" y="170" text-anchor="middle" font-size="13" fill="#6c6252" font-weight="700">オペレーティング・リース</text>
+      <text x="150" y="192" text-anchor="middle" font-size="11.5" fill="#8a8070">→ 賃借料を費用（オフバランス）</text>
+      <!-- 矢印 -->
+      <g stroke="#7b6aa6" stroke-width="2.4" fill="none">
+        <path d="M300 133 L 360 133" marker-end="url(#d05-ah)"/>
+      </g>
+      <defs><marker id="d05-ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#7b6aa6"/></marker></defs>
+      <text x="330" y="120" text-anchor="middle" font-size="11" fill="#7b6aa6" font-weight="700">単一化</text>
+      <!-- 新：単一 -->
+      <text x="620" y="34" text-anchor="middle" font-size="15" font-weight="700" fill="#463a5e">新・第34号：単一モデル（借手）</text>
+      <rect x="410" y="78" width="420" height="120" rx="5" fill="#efebf6" stroke="#e0d9ee"/>
+      <text x="620" y="118" text-anchor="middle" font-size="14" fill="#463a5e" font-weight="700">すべてのリース</text>
+      <text x="620" y="146" text-anchor="middle" font-size="12" fill="#5c5470">使用権資産（固定資産）＋ リース負債</text>
+      <text x="620" y="170" text-anchor="middle" font-size="11.5" fill="#7b6aa6">＊短期リース・少額リースは簡便処理で除外可</text>
+    </svg>
+    <figcaption><span class="lbl">図表1</span>借手の会計モデルの転換。<br>貸手は従来どおり2区分を維持する（第07節）。</figcaption>
+  </figure>
+</section>
+
+<!-- 03 -->
+<section id="d05-s3">
+  <div class="sec-head"><span class="no">03</span><h2 class="mincho">貸借対照表はこう変わる</h2></div>
+  <p>これまで注記にとどまっていた賃貸借契約が、<strong>使用権資産（資産）とリース負債（負債）として両建てで計上</strong>されます。<br>総資産・総負債が増え、自己資本比率やROAなどの指標に影響します。</p>
+  <figure>
+    
+    
+    
+    
+    
+    
+    <!-- FIG-NARROW START (build.py) --><svg class="fig-narrow" viewBox="0 0 360 486" role="img" aria-label="オペレーティング・リースがオンバランス化される図（縦組み）">
+  <defs><marker id="d05-nah2" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7b6aa6"/></marker></defs>
+  <text x="180" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="#8a8070">旧：オペレーティング・リースはオフバランス</text>
+  <rect x="20" y="30" width="150" height="120" fill="#faf8f4" stroke="#e3ddd0"/>
+  <rect x="170" y="30" width="150" height="72" fill="#f5f2ec" stroke="#e3ddd0"/>
+  <rect x="170" y="102" width="150" height="48" fill="#efeae2" stroke="#e3ddd0"/>
+  <text x="95" y="96" text-anchor="middle" font-size="12" fill="#a89a82">資産</text>
+  <text x="245" y="72" text-anchor="middle" font-size="12" fill="#a89a82">負債</text>
+  <text x="245" y="132" text-anchor="middle" font-size="12" fill="#a89a82">純資産</text>
+  <rect x="20" y="162" width="300" height="38" rx="4" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.2"/>
+  <text x="170" y="180" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">オペレーティング・リース</text>
+  <text x="170" y="194" text-anchor="middle" font-size="9.5" fill="#5a4a78">（オフバランス・注記のみ）</text>
+  <path d="M170 210 L170 248" stroke="#7b6aa6" stroke-width="3" fill="none" marker-end="url(#d05-nah2)"/>
+  <text x="180" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#7b6aa6">従来のオペレーティング・リース（オフバランス）を</text>
+  <text x="180" y="284" text-anchor="middle" font-size="11" font-weight="700" fill="#7b6aa6">オンバランス化</text>
+  <text x="180" y="308" text-anchor="middle" font-size="12" font-weight="700" fill="#463a5e">新：使用権資産・リース負債を計上</text>
+  <rect x="20" y="320" width="150" height="110" fill="#faf8f4" stroke="#e3ddd0"/>
+  <rect x="170" y="320" width="150" height="66" fill="#f5f2ec" stroke="#e3ddd0"/>
+  <rect x="170" y="426" width="150" height="48" fill="#efeae2" stroke="#e3ddd0"/>
+  <rect x="20" y="430" width="150" height="44" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.4"/>
+  <rect x="170" y="386" width="150" height="40" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.4"/>
+  <text x="95" y="380" text-anchor="middle" font-size="12" fill="#6c6252">資産</text>
+  <text x="95" y="458" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">使用権資産</text>
+  <text x="245" y="358" text-anchor="middle" font-size="12" fill="#6c6252">負債</text>
+  <text x="245" y="411" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">リース負債</text>
+  <text x="245" y="456" text-anchor="middle" font-size="12" fill="#6c6252">純資産</text>
+</svg><!-- FIG-NARROW END -->
+    <svg class="fig-wide" viewBox="0 0 900 300" role="img" aria-label="オペレーティング・リースがオンバランス化される図">
+      <defs><marker id="d05-ah2" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7b6aa6"/></marker></defs>
+      <!-- 旧BS（左） -->
+      <text x="160" y="32" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8a8070">旧：オペレーティング・リースはオフバランス</text>
+      <rect x="60" y="50" width="100" height="150" fill="#faf8f4" stroke="#e3ddd0"/>
+      <rect x="160" y="50" width="100" height="90" fill="#f5f2ec" stroke="#e3ddd0"/>
+      <rect x="160" y="140" width="100" height="60" fill="#efeae2" stroke="#e3ddd0"/>
+      <text x="110" y="130" text-anchor="middle" font-size="12" fill="#a89a82">資産</text>
+      <text x="210" y="99" text-anchor="middle" font-size="12" fill="#a89a82">負債</text>
+      <text x="210" y="174" text-anchor="middle" font-size="12" fill="#a89a82">純資産</text>
+      <!-- 旧のオペレーティング・リース＝変更箇所として紫で強調 -->
+      <rect x="60" y="212" width="200" height="34" rx="4" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.2"/>
+      <text x="160" y="228" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">オペレーティング・リース</text>
+      <text x="160" y="242" text-anchor="middle" font-size="9.5" fill="#5a4a78">（オフバランス・注記のみ）</text>
+      <!-- 中央：矢印＋ラベル -->
+      <text x="450" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#7b6aa6">従来のオペレーティング・リース</text>
+      <text x="450" y="137" text-anchor="middle" font-size="12" font-weight="700" fill="#7b6aa6">（オフバランス）をオンバランス化</text>
+      <path d="M300 168 L 620 168" stroke="#7b6aa6" stroke-width="3" fill="none" marker-end="url(#d05-ah2)"/>
+      <!-- 新BS（右）：先に淡色ボックス、最後に紫ボックスを重ねて全周の枠線を出す -->
+      <text x="740" y="32" text-anchor="middle" font-size="13.5" font-weight="700" fill="#463a5e">新：使用権資産・リース負債を計上</text>
+      <rect x="640" y="50" width="100" height="150" fill="#faf8f4" stroke="#e3ddd0"/>
+      <rect x="740" y="50" width="100" height="90" fill="#f5f2ec" stroke="#e3ddd0"/>
+      <rect x="740" y="192" width="100" height="60" fill="#efeae2" stroke="#e3ddd0"/>
+      <rect x="640" y="200" width="100" height="52" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.4"/>
+      <rect x="740" y="140" width="100" height="52" fill="#d7c9ee" stroke="#6f5b9e" stroke-width="2.4"/>
+      <text x="690" y="130" text-anchor="middle" font-size="12" fill="#6c6252">資産</text>
+      <text x="690" y="230" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">使用権資産</text>
+      <text x="790" y="99" text-anchor="middle" font-size="12" fill="#6c6252">負債</text>
+      <text x="790" y="170" text-anchor="middle" font-size="11" fill="#3a2f55" font-weight="700">リース負債</text>
+      <text x="790" y="226" text-anchor="middle" font-size="12" fill="#6c6252">純資産</text>
+    </svg>
+    <figcaption><span class="lbl">図表2</span><strong style="color:#7b6aa6;">紫色</strong>が、従来オフバランスだったリースを新たに計上する部分（使用権資産・リース負債）。<br>総資産・総負債が増え、ROA・自己資本比率に影響する。</figcaption>
+  </figure>
+  <p class="src">企業会計基準第34号 第49項（使用権資産の表示）・第50項（リース負債の表示）</p>
+</section>
+
+<!-- 04 -->
+<section id="d05-s4">
+  <div class="sec-head"><span class="no">04</span><h2 class="mincho">損益計算書の費用パターン</h2></div>
+  <p>旧基準は費用を毎期均等に計上していましたが、新基準では<strong>リース初期に損益影響が大きくなり、徐々に低減していきます</strong>（費用の総額は同じ）。</p>
+  <figure>
+    
+    
+    
+    
+    
+    
+    <!-- FIG-NARROW START (build.py) --><svg class="fig-narrow" viewBox="0 0 360 250" role="img" aria-label="賃借料の定額計上と新基準の逓減型費用の比較グラフ（縦組み）">
+  <line x1="44" y1="200" x2="344" y2="200" stroke="#c9c2d6" stroke-width="1.5"/>
+  <line x1="44" y1="40" x2="44" y2="200" stroke="#c9c2d6" stroke-width="1.5"/>
+  <text x="40" y="36" text-anchor="end" font-size="11" fill="#6f6880">費用</text>
+  <text x="344" y="220" text-anchor="end" font-size="11" fill="#6f6880">期間 →</text>
+  <line x1="44" y1="140" x2="320" y2="140" stroke="#8f8474" stroke-width="2.4" stroke-dasharray="7 5"/>
+  <text x="320" y="132" text-anchor="end" font-size="11" fill="#8f8474" font-weight="700">旧：定額の賃借料</text>
+  <polyline points="44,78 113,96 182,116 251,138 320,160" fill="none" stroke="#7b6aa6" stroke-width="2.8"/>
+  <text x="52" y="58" font-size="11" fill="#7b6aa6" font-weight="700">新：減価償却費＋支払利息（逓減型）</text>
+  <circle cx="44" cy="78" r="3.5" fill="#7b6aa6"/><text x="54" y="96" font-size="10.5" fill="#7b6aa6">当初は多い</text>
+  <circle cx="320" cy="160" r="3.5" fill="#7b6aa6"/><text x="320" y="178" text-anchor="end" font-size="10.5" fill="#7b6aa6">後半は少ない</text>
+</svg><!-- FIG-NARROW END -->
+    <svg class="fig-wide" viewBox="0 0 900 280" role="img" aria-label="賃借料の定額計上と新基準の逓減型費用の比較グラフ">
+      <line x1="70" y1="220" x2="840" y2="220" stroke="#c9c2d6" stroke-width="1.5"/>
+      <line x1="70" y1="40" x2="70" y2="220" stroke="#c9c2d6" stroke-width="1.5"/>
+      <text x="60" y="46" text-anchor="end" font-size="11" fill="#6f6880">費用</text>
+      <text x="840" y="240" text-anchor="end" font-size="11" fill="#6f6880">期間 →</text>
+      <!-- 旧：定額（点線水平） -->
+      <line x1="70" y1="150" x2="820" y2="150" stroke="#8f8474" stroke-width="2.4" stroke-dasharray="7 5"/>
+      <text x="826" y="150" font-size="11.5" fill="#8f8474" font-weight="700">旧：定額の賃借料</text>
+      <!-- 新：逓減（減価償却定額＋利息逓減 → 合計は右下がり） -->
+      <polyline points="70,95 220,112 370,130 520,150 670,170 820,190" fill="none" stroke="#7b6aa6" stroke-width="2.8"/>
+      <text x="230" y="86" font-size="11.5" fill="#7b6aa6" font-weight="700">新：減価償却費＋支払利息（逓減型）</text>
+      <!-- データラベル（両端） -->
+      <circle cx="70" cy="95" r="3.5" fill="#7b6aa6"/><text x="78" y="90" font-size="10.5" fill="#7b6aa6">当初は多い</text>
+      <circle cx="820" cy="190" r="3.5" fill="#7b6aa6"/><text x="812" y="207" text-anchor="end" font-size="10.5" fill="#7b6aa6">後半は少ない</text>
+    </svg>
+    <figcaption><span class="lbl">図表3</span>費用の総額は両者で同じだが、新基準は期の前半に費用が偏る（利息が残高比例のため）。</figcaption>
+  </figure>
+  <p class="src">企業会計基準第34号（借手の事後測定：使用権資産の減価償却＋リース負債の利息法）</p>
+</section>
+
+<!-- 05 -->
+<section id="d05-s6" data-level="detail">
+  <div class="sec-head"><span class="no">05</span><h2 class="mincho">適用終了する旧基準と時期</h2></div>
+  <p>新基準（第34号）の適用により、次の旧基準は<strong>適用終了</strong>します（第34号第59項）。</p>
+  <table>
+    <caption>適用終了となる旧基準</caption>
+    <thead><tr><th>区分</th><th>基準名</th><th>扱い</th></tr></thead>
+    <tbody>
+      <tr><th>会計基準</th><td>企業会計基準第13号「リース取引に関する会計基準」</td><td class="old-cell">適用終了</td></tr>
+      <tr><th>適用指針</th><td>企業会計基準適用指針第16号「リース取引に関する会計基準の適用指針」</td><td class="old-cell">適用終了</td></tr>
+      <tr><th>実務対応報告</th><td>実務対応報告第31号「リース手法を活用した先端設備等投資支援スキーム…」</td><td class="old-cell">廃止</td></tr>
+    </tbody>
+  </table>
+  <figure>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- TL-MINI START (build.py) --><div class="tl-mini" aria-hidden="true"><div class="it"><span class="d">2024/9/13</span><span class="s">第34号 公表</span></div><div class="it"><span class="d">2026年12月期</span><span class="s">早期適用が可能に</span></div><div class="it on"><span class="d">2028年12月期</span><span class="s">強制適用の初年度</span></div><div class="it"><span class="s">旧基準は参照用に残置</span></div></div><!-- TL-MINI END -->
+    <svg class="has-mini" viewBox="0 0 900 150" role="img" aria-label="12月決算会社の適用時期タイムライン">
+      <line x1="60" y1="80" x2="840" y2="80" stroke="#d8d1e6" stroke-width="4"/>
+      <line x1="60" y1="80" x2="600" y2="80" stroke="#7b6aa6" stroke-width="4"/>
+      <!-- points -->
+      <circle cx="150" cy="80" r="8" fill="#fff" stroke="#8f8474" stroke-width="4"/>
+      <text x="150" y="52" text-anchor="middle" font-size="12" font-weight="700" fill="#6c6252">2024/9/13</text>
+      <text x="150" y="112" text-anchor="middle" font-size="11" fill="#8a8070">第34号 公表</text>
+      <circle cx="400" cy="80" r="8" fill="#fff" stroke="#7b6aa6" stroke-width="4"/>
+      <text x="400" y="52" text-anchor="middle" font-size="12" font-weight="700" fill="#463a5e">2026年12月期</text>
+      <text x="400" y="112" text-anchor="middle" font-size="11" fill="#7b6aa6">早期適用が可能に</text>
+      <circle cx="600" cy="80" r="9" fill="#7b6aa6" stroke="#463a5e" stroke-width="3"/>
+      <text x="600" y="52" text-anchor="middle" font-size="12.5" font-weight="700" fill="#463a5e">2028年12月期</text>
+      <text x="600" y="112" text-anchor="middle" font-size="11.5" fill="#463a5e" font-weight="700">強制適用の初年度</text>
+      <circle cx="770" cy="80" r="7" fill="#f2efe9" stroke="#b7ab97" stroke-width="3"/>
+      <text x="770" y="112" text-anchor="middle" font-size="10.5" fill="#8a8070">旧基準は参照用に残置</text>
+    </svg>
+    <figcaption><span class="lbl">図表4</span>12月決算会社の時間軸。<br>原則適用は「<strong style="text-decoration:underline;text-underline-offset:3px;">2027年4月1日以後開始する</strong>事業年度」＝2028年12月期が初年度。</figcaption>
+  </figure>
+</section>
+
+<!-- 06 -->
+<section id="d05-s7" data-level="detail">
+  <div class="sec-head"><span class="no">06</span><h2 class="mincho">貸手の扱い（補記）</h2></div>
+  <p>ここまでは<strong>借手</strong>の変更です。<br><strong>貸手</strong>は、ファイナンス・リースとオペレーティング・リースの区分を<strong>従来どおり維持</strong>し、借手ほどの抜本的な変更はありません。<br>ただし収益認識会計基準との整合の観点から、リース／非リースの区分など一部の見直しがあります。</p>
+  
+  <p style="margin-top:22px;"><a class="backtop" href="#d05-top">▲ 目次に戻る</a></p>
+</section>
+
+</div>
+
+<footer>
+  <div class="inner">
+    <p>本資料は新旧比較の理解を目的とした資料です。<br>数値・図表は理解のためのイメージを含みます。<br>確定した事実は基準本文（企業会計基準第34号・適用指針第33号）に拠ります。</p>
+    <p>作成：公認会計士事務所（中村）　2026-09-24</p>
+  </div>
+</footer>
+</div>
+</section>
+<!-- DEVICE-ADAPTIVE JS START (build.py) -->
+<script>
+(function(){
+  'use strict';
+  var MOBILE = 720;
+
+  function wrapTables(root){
+    var tables = root.querySelectorAll('table');
+    Array.prototype.forEach.call(tables, function(t){
+      if(t.parentNode && t.parentNode.classList && t.parentNode.classList.contains('tbl-scroll')) return;
+      var box = document.createElement('div');
+      box.className = 'tbl-scroll';
+      var row = t.querySelector('tr');
+      var cols = 0;
+      if(row){
+        Array.prototype.forEach.call(row.children, function(c){
+          cols += (parseInt(c.getAttribute('colspan'),10) || 1);
+        });
+      }
+      if(cols >= 3) box.className += ' is-wide';
+      t.parentNode.insertBefore(box, t);
+      box.appendChild(t);
+    });
+  }
+
+  function wrapFigures(root){
+    // 年表(.timeline)は狭い画面では縦並びに組み替えるので包まない
+    var figs = root.querySelectorAll('figure > svg:not(.fig-narrow)');
+    Array.prototype.forEach.call(figs, function(f){
+      if(f.parentNode && f.parentNode.classList && f.parentNode.classList.contains('fig-scroll')) return;
+      var box = document.createElement('div');
+      box.className = 'fig-scroll';
+      f.parentNode.insertBefore(box, f);
+      box.appendChild(f);
+    });
+  }
+
+  function buildSide(wrap){
+    if(!wrap || wrap.classList.contains('has-side')) return;
+    var toc = null, kids = wrap.children, i;
+    for(i=0;i<kids.length;i++){
+      if(kids[i].tagName === 'NAV' && kids[i].classList.contains('toc')){ toc = kids[i]; break; }
+    }
+    if(!toc) return;
+    var main = document.createElement('main');
+    main.className = 'doc-body';
+    while(toc.nextSibling) main.appendChild(toc.nextSibling);
+    wrap.appendChild(main);
+    wrap.classList.add('has-side');
+  }
+
+  // 目次テキストが「1. 〜」形式のときは ol の連番マーカーを消す（二重番号の防止）
+  function tocMarker(toc){
+    if(!toc) return;
+    Array.prototype.forEach.call(toc.querySelectorAll('ol, ul'), function(list){
+      var links = list.querySelectorAll('a');
+      if(!links.length) return;
+      var numbered = 0;
+      Array.prototype.forEach.call(links, function(a){
+        if(/^\s*\d+\s*[.．、]/.test(a.textContent)) numbered++;
+      });
+      if(numbered / links.length >= 0.6) list.classList.add('no-marker');
+    });
+  }
+
+  function tocToggle(toc){
+    if(!toc || toc.querySelector('.toc-toggle')) return;
+    var head = toc.querySelector('h2, .t, .toc-title');
+    var list = toc.querySelector('ol, ul');
+    if(!head || !list) return;
+    var label = head.textContent.trim() || '目次';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'toc-toggle';
+    btn.innerHTML = '<span>' + label + '</span><span class="mark">▼</span>';
+    head.textContent = '';
+    head.appendChild(btn);
+    function sync(){
+      var closed = toc.classList.contains('is-collapsed');
+      btn.setAttribute('aria-expanded', closed ? 'false' : 'true');
+      btn.querySelector('.mark').textContent = closed ? '▼' : '▲';
+    }
+    btn.addEventListener('click', function(){
+      toc.classList.toggle('is-collapsed');
+      sync();
+    });
+    if(window.innerWidth <= MOBILE) toc.classList.add('is-collapsed');
+    sync();
+  }
+
+  function activeTracker(wrap){
+    var toc = wrap.querySelector('nav.toc');
+    if(!toc || !('IntersectionObserver' in window)) return;
+    var links = {}, targets = [];
+    Array.prototype.forEach.call(toc.querySelectorAll('a[href^="#"]'), function(a){
+      var id = a.getAttribute('href').slice(1);
+      if(!id) return;
+      var el = document.getElementById(id);
+      if(!el) return;
+      links[id] = a; targets.push(el);
+    });
+    if(!targets.length) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var a = links[e.target.id];
+        if(!a) return;
+        if(e.isIntersecting){
+          Array.prototype.forEach.call(toc.querySelectorAll('a.is-active'), function(x){ x.classList.remove('is-active'); });
+          a.classList.add('is-active');
+        }
+      });
+    }, {rootMargin:'-15% 0px -70% 0px', threshold:0});
+    targets.forEach(function(t){ io.observe(t); });
+  }
+
+  // 横スクロールが必要な表・図にだけ案内を出す
+  function scrollHints(){
+    var boxes = document.querySelectorAll('.fig-scroll, .tbl-scroll');
+    Array.prototype.forEach.call(boxes, function(box){
+      var prev = box.previousElementSibling;
+      var has = prev && prev.classList && prev.classList.contains('scroll-hint');
+      var need = (box.scrollWidth - box.clientWidth) > 8;
+      if(need && !has){
+        var h = document.createElement('p');
+        h.className = 'scroll-hint';
+        h.textContent = '← 横にスクロールできます →';
+        box.parentNode.insertBefore(h, box);
+      }else if(!need && has){
+        prev.parentNode.removeChild(prev);
+      }
+    });
+  }
+
+  function backToTop(){
+    if(document.getElementById('to-top')) return;
+    var b = document.createElement('button');
+    b.id = 'to-top'; b.type = 'button';
+    b.setAttribute('aria-label','先頭へ戻る');
+    b.textContent = '▲';
+    document.body.appendChild(b);
+    b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+    window.addEventListener('scroll', function(){
+      if(window.pageYOffset > 500) b.classList.add('show'); else b.classList.remove('show');
+    }, {passive:true});
+  }
+
+  window.__enhanceDoc = function(scope){
+    var wraps = scope.querySelectorAll('.wrap');
+    Array.prototype.forEach.call(wraps, function(w){
+      wrapTables(w);
+      wrapFigures(w);
+      buildSide(w);
+      tocMarker(w.querySelector('nav.toc'));
+      tocToggle(w.querySelector('nav.toc'));
+      activeTracker(w);
+    });
+  };
+
+  function init(){
+    window.__enhanceDoc(document);
+    backToTop();
+    scrollHints();
+    var t;
+    window.addEventListener('resize', function(){
+      clearTimeout(t);
+      t = setTimeout(scrollHints, 200);
+    });
+    window.__scrollHints = scrollHints;
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+<script>
+window.__DOC2TAB = {"doc01":"t1", "doc02":"t1", "doc03":"t2", "doc04":"t3", "doc05":"t4"};
+window.__DOC2LEVEL = {"doc01":"simple", "doc02":"detail"};
+</script>
+<script>
+(function(){
+  'use strict';
+  var TKEY = 'lease-merged-tab', LKEY = 'lease-merged-level';
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('nav.tabbar button'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.docpanel'));
+  var levelBtns = Array.prototype.slice.call(document.querySelectorAll('.levelbar button[data-level]'));
+  var DOC2TAB = window.__DOC2TAB || {};
+  var DOC2LEVEL = window.__DOC2LEVEL || {};
+
+  function isSimple(){ return document.body.classList.contains('level-simple'); }
+
+  // 簡単版では隠れる節があるので、見えている順に番号を振り直す
+  function renumber(){
+    var simple = isSimple();
+    Array.prototype.forEach.call(document.querySelectorAll('.subpanel'), function(p){
+      var n = 0;
+      Array.prototype.forEach.call(p.querySelectorAll('section'), function(s){
+        if(simple && s.getAttribute('data-level') === 'detail') return;
+        n++;
+        var no = s.querySelector('.sec-head .no');
+        if(no) no.textContent = ('0' + n).slice(-2);
+      });
+      var m = 0;
+      Array.prototype.forEach.call(p.querySelectorAll('nav.toc li'), function(li){
+        if(simple && li.getAttribute('data-level') === 'detail') return;
+        m++;
+        var sp = li.querySelector('.n');
+        if(sp) sp.textContent = ('0' + m).slice(-2);
+      });
+    });
+  }
+
+  // 簡単版／詳細版（全タブ共通。タブを移動しても維持する）
+  function setLevel(level, opts){
+    opts = opts || {};
+    var simple = (level !== 'detail');
+    document.body.classList.toggle('level-simple', simple);
+    document.body.classList.toggle('level-detail', !simple);
+    levelBtns.forEach(function(b){
+      b.setAttribute('aria-selected', b.getAttribute('data-level') === (simple ? 'simple' : 'detail') ? 'true' : 'false');
+    });
+    try{ localStorage.setItem(LKEY, simple ? 'simple' : 'detail'); }catch(e){}
+    renumber();
+    if(window.__scrollHints) setTimeout(window.__scrollHints, 0);
+    if(opts.top) window.scrollTo({top:0, behavior:'auto'});
+  }
+
+  // 狭い画面では選択中のタブが見えるようにタブバーを横スクロール
+  function centerTab(){
+    var bar = document.querySelector('nav.tabbar .inner');
+    if(!bar || bar.scrollWidth <= bar.clientWidth) return;
+    var cur = null;
+    tabs.forEach(function(t){ if(t.getAttribute('aria-selected') === 'true') cur = t; });
+    if(!cur) return;
+    bar.scrollLeft = Math.max(0, cur.offsetLeft - (bar.clientWidth - cur.offsetWidth) / 2);
+  }
+
+  function show(id, opts){
+    opts = opts || {};
+    var found = false;
+    panels.forEach(function(p){
+      var on = (p.id === id);
+      p.classList.toggle('is-active', on);
+      if(on) found = true;
+    });
+    if(!found) return false;
+    tabs.forEach(function(t){
+      t.setAttribute('aria-selected', t.getAttribute('data-target') === id ? 'true' : 'false');
+    });
+    centerTab();
+    try{ localStorage.setItem(TKEY, id); }catch(e){}
+    if(opts.hash !== false){
+      try{ history.replaceState(null, '', '#' + id); }catch(e){}
+    }
+    if(opts.top) window.scrollTo({top:0, behavior:'auto'});
+    if(window.__scrollHints) setTimeout(window.__scrollHints, 0);
+    return true;
+  }
+
+  // 文書idから「タブ（＋版）」を開く
+  function showDoc(docId, opts){
+    var tabId = DOC2TAB[docId];
+    if(!tabId) return false;
+    if(DOC2LEVEL[docId]) setLevel(DOC2LEVEL[docId], {});
+    return show(tabId, opts || {});
+  }
+
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ show(t.getAttribute('data-target'), {top:true}); });
+    t.addEventListener('keydown', function(e){
+      var d = (e.key === 'ArrowRight') ? 1 : (e.key === 'ArrowLeft') ? -1 : 0;
+      if(!d) return;
+      e.preventDefault();
+      var n = tabs[(i + d + tabs.length) % tabs.length];
+      n.focus(); show(n.getAttribute('data-target'), {top:true});
+    });
+  });
+
+  levelBtns.forEach(function(b){
+    b.addEventListener('click', function(){ setLevel(b.getAttribute('data-level'), {}); });
+  });
+
+  // 初期表示：保存してある版 → URLのハッシュ → 保存タブ → 先頭
+  var saved = null;
+  try{ saved = localStorage.getItem(LKEY); }catch(e){}
+  setLevel(saved === 'detail' ? 'detail' : 'simple', {});
+
+  var h = (location.hash || '').replace('#','');
+  var opened = false;
+  if(h){
+    if(/^doc\d\d$/.test(h)){
+      opened = showDoc(h, {hash:false});
+      if(opened) setTimeout(function(){ window.scrollTo(0,0); }, 0);
+    }else if(/^t\d+$/.test(h)){
+      opened = show(h, {hash:false});
+    }else{
+      var m = h.match(/^d(\d\d)-/);
+      if(m){
+        opened = showDoc('doc' + m[1], {hash:false});
+        if(opened){
+          window.addEventListener('load', function(){
+            var el = document.getElementById(h);
+            if(!el) return;
+            if(el.closest('[data-level="detail"]')) setLevel('detail', {});
+            setTimeout(function(){ el.scrollIntoView(); }, 120);
+          });
+        }
+      }
+    }
+  }
+  if(!opened){
+    var st = null;
+    try{ st = localStorage.getItem(TKEY); }catch(e){}
+    if(!(st && show(st, {hash:false}))) show(panels[0].id, {hash:false});
+  }
+
+  window.addEventListener('load', centerTab);
+  window.addEventListener('resize', centerTab);
+
+  // 別の資料・詳細節へのリンクは、タブと版を切り替えてから移動する
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if(!id) return;
+    var m = id.match(/^d(\d\d)-/);
+    if(!m) return;
+    var docId = 'doc' + m[1];
+    var el = document.getElementById(id);
+    var needLevel = el && el.closest('[data-level="detail"]') && isSimple();
+    var needTab = DOC2TAB[docId] && !document.getElementById(DOC2TAB[docId]).classList.contains('is-active');
+    if(!needLevel && !needTab) return;
+    e.preventDefault();
+    if(needTab) showDoc(docId, {});
+    if(needLevel) setLevel('detail', {});
+    if(el) setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'start'}); }, 30);
+  });
+})();
+</script>
+<!-- DEVICE-ADAPTIVE JS END -->
+</body>
+</html>

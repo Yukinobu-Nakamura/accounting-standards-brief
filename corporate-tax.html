@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法人税等会計基準 2026年改正 ― 経理部門向け解説</title>
+<style>
+  /* ===== 会計コンサル・ハウススタイル（薄紫ベース） ===== */
+  :root{
+    --plum:#463a5e;          /* 見出し・濃い紫 */
+    --plum-deep:#332a47;
+    --purple:#7b6aa6;        /* アクセント紫 */
+    --purple-soft:#efebf6;   /* 淡い紫の面 */
+    --purple-line:#e0d9ee;
+    --lav-bg:#f7f5fb;        /* 背景ラベンダー */
+    --old:#8f8474;          /* 旧＝トープ（枯れた色） */
+    --old-soft:#f2efe9;
+    --old-line:#e3ddd0;
+    --ink:#2c2833;
+    --muted:#6f6880;
+    --white:#fff;
+    --rule:#e6e2ef;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;color:var(--ink);background:var(--lav-bg);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    line-height:1.9;font-size:16px;font-feature-settings:"palt";
+  }
+  .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;}
+
+  /* ヘッダ：グラデ・絵文字を使わない落ち着いた版面 */
+  header.masthead{
+    background:var(--white);
+    border-bottom:1px solid var(--rule);
+    padding:44px 32px 30px;
+  }
+  .masthead .inner{max-width:1000px;margin:0 auto;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.22em;color:var(--purple);
+    font-weight:700;margin:0 0 14px;
+  }
+  .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--purple);vertical-align:middle;margin-right:10px;}
+  header.masthead h1{
+    font-size:2.05em;line-height:1.5;margin:0 0 14px;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;
+  }
+  header.masthead .lead{font-size:1.02em;color:#4a4550;margin:0 0 20px;max-width:760px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.82em;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;}
+  .meta-row b{color:var(--plum);font-weight:600;}
+
+  .wrap{max-width:1000px;margin:0 auto;padding:0 32px 72px;}
+
+  /* 目次 */
+  nav.toc{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:34px 0 46px;padding:22px 28px;}
+  nav.toc .t{font-size:.78em;letter-spacing:.18em;color:var(--purple);font-weight:700;margin:0 0 12px;}
+  nav.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;}
+  nav.toc li{margin:0 0 9px;font-size:.9em;break-inside:avoid;}
+  nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+  nav.toc a:hover{border-bottom-color:var(--purple);color:var(--plum);}
+  nav.toc .n{color:var(--purple);font-weight:700;margin-right:8px;font-family:"Hiragino Mincho ProN",serif;}
+
+  section{margin:0 0 54px;scroll-margin-top:18px;}
+  .sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--plum);padding-bottom:10px;margin:0 0 22px;}
+  .sec-head .no{font-family:"Hiragino Mincho ProN",serif;font-size:1.5em;color:var(--purple);font-weight:600;line-height:1;}
+  .sec-head h2{font-size:1.34em;margin:0;color:var(--plum-deep);font-weight:600;letter-spacing:.01em;}
+
+  h3{color:var(--plum);font-size:1.06em;margin:26px 0 10px;font-weight:600;}
+  p{margin:0 0 14px;}
+  strong,b{color:var(--plum-deep);}
+
+  /* 本文カード（薄い罫線・角丸控えめ） */
+  .panel{background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:22px 26px;margin:0 0 18px;}
+  .panel.tint{background:var(--purple-soft);border-color:var(--purple-line);}
+
+  /* 新旧2カラム */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0;}
+  .vs .col{border-radius:5px;padding:20px 22px;border:1px solid;}
+  .vs .old{background:var(--old-soft);border-color:var(--old-line);}
+  .vs .new{background:var(--purple-soft);border-color:var(--purple-line);}
+  .vs h4{margin:0 0 6px;font-size:.96em;letter-spacing:.02em;}
+  .vs .old h4{color:#6c6252;}
+  .vs .new h4{color:var(--plum);}
+  .vs .tagline{font-size:.76em;color:var(--muted);margin:0 0 12px;padding-bottom:8px;border-bottom:1px dashed;}
+  .vs .old .tagline{border-color:var(--old-line);}
+  .vs .new .tagline{border-color:var(--purple-line);}
+  .vs ul{margin:0;padding-left:18px;font-size:.92em;}
+  .vs li{margin:0 0 7px;}
+
+  /* テーブル：横罫のみの上品な表 */
+  table{width:100%;border-collapse:collapse;font-size:.9em;margin:14px 0;background:var(--white);}
+  caption{caption-side:top;text-align:left;font-size:.8em;color:var(--purple);font-weight:700;letter-spacing:.06em;margin-bottom:8px;}
+  th,td{text-align:left;vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--rule);}
+  thead th{color:var(--plum);border-bottom:2px solid var(--purple);font-weight:600;font-size:.94em;background:transparent;}
+  tbody th{font-weight:600;color:var(--plum-deep);width:22%;}
+  td.old-cell{background:var(--old-soft);}
+  td.new-cell{background:var(--purple-soft);}
+  tr:last-child td,tr:last-child th{border-bottom:1px solid var(--rule);}
+
+  /* 図表 */
+  figure{margin:22px 0;background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:20px 22px 14px;}
+  figure svg{display:block;width:100%;height:auto;}
+  figcaption{font-size:.82em;color:var(--muted);margin-top:10px;border-top:1px solid var(--rule);padding-top:9px;}
+  figcaption .lbl{color:var(--purple);font-weight:700;letter-spacing:.06em;margin-right:8px;}
+
+  .note{background:var(--purple-soft);border-left:3px solid var(--purple);border-radius:0 5px 5px 0;padding:12px 18px;font-size:.88em;color:#4a4256;margin:16px 0;}
+  .src{font-size:.78em;color:var(--muted);margin-top:8px;}
+  .src::before{content:"出典 ";color:var(--purple);font-weight:700;}
+
+  .pill{display:inline-block;font-size:.72em;padding:2px 10px;border-radius:3px;letter-spacing:.04em;vertical-align:middle;}
+  .pill.new{background:var(--purple);color:#fff;}
+  .pill.old{background:var(--old);color:#fff;}
+
+  ol.check{margin:0;padding-left:0;list-style:none;counter-reset:chk;}
+  ol.check li{counter-increment:chk;position:relative;padding:12px 0 12px 40px;border-bottom:1px solid var(--rule);font-size:.94em;}
+  ol.check li:last-child{border-bottom:none;}
+  ol.check li::before{content:counter(chk);position:absolute;left:0;top:11px;width:24px;height:24px;border-radius:50%;background:var(--purple-soft);color:var(--plum);font-size:.78em;font-weight:700;text-align:center;line-height:24px;border:1px solid var(--purple-line);}
+
+  ol.docs{margin:0;padding-left:0;list-style:none;counter-reset:doc;}
+  ol.docs li{counter-increment:doc;position:relative;padding:8px 0 8px 34px;font-size:.92em;}
+  ol.docs li::before{content:counter(doc);position:absolute;left:0;top:8px;color:var(--purple);font-weight:700;font-family:"Hiragino Mincho ProN",serif;}
+
+  footer{border-top:1px solid var(--rule);padding:26px 32px 46px;color:var(--muted);font-size:.8em;}
+  footer .inner{max-width:1000px;margin:0 auto;}
+  .backtop{color:var(--purple);text-decoration:none;font-size:.82em;}
+
+  @media (max-width:720px){
+    .wrap,header.masthead{padding-left:20px;padding-right:20px;}
+    nav.toc ol{columns:1;}
+    .vs{grid-template-columns:1fr;}
+    header.masthead h1{font-size:1.55em;}
+    tbody th{width:auto;}
+  }
+  @media print{
+    body{background:#fff;font-size:11.5px;}
+    .panel,figure,nav.toc{break-inside:avoid;}
+    header.masthead{border-bottom:2px solid var(--plum);}
+    .backtop{display:none;}
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==== DEVICE-ADAPTIVE LAYER START (build.py) ==== */
+/* ---- 共通（全デバイス） ---- */
+:root{--shell:1420px;}
+html{scroll-behavior:smooth;}
+nav.toc ol.no-marker,nav.toc ul.no-marker{list-style:none !important;padding-left:2px !important;}
+.doc-body{min-width:0;}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 4px;}
+.tbl-scroll>table{margin-top:8px;}
+/* 図解そのもの（SVG・タイムライン）は元ファイルの設計どおりに描画する。
+   ここで触るのは「置き場所と最大幅」だけで、図の中身・比率は変更しない。
+   タイムラインは外側の余白のみ確保（端のラベルが枠外に切れる／前後の文章に重なるのを防ぐ。
+   トラックの余白・ラベル幅・点の大きさは元のまま）。 */
+/* 年表は資料をまたいで同じ組み方にする（枠いっぱい・横スクロールなし）。
+   資料によって .timeline の有無が違うので、軸(.timeline-track)の余白で揃える。 */
+.tl-wrap-mobile{overflow:visible !important;}
+.timeline{padding:0 !important;}
+.timeline-track{min-width:0 !important;margin:112px 90px 104px !important;}
+.tl-mini{display:none;}
+figure svg.fig-narrow{display:none !important;}
+nav.toc a.is-active{color:var(--plum,#463a5e);font-weight:700;border-bottom-color:currentColor;}
+.scroll-hint{display:none;font-size:.76em;color:var(--muted,#6f6880);margin:8px 0 2px;letter-spacing:.04em;}
+@media (max-width:720px){.scroll-hint{display:block;}}
+.toc-toggle{display:none;}
+#to-top{
+  position:fixed;right:16px;bottom:16px;z-index:60;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--purple-line,#e0d9ee);background:rgba(255,255,255,.94);
+  color:var(--plum,#463a5e);font-size:16px;line-height:1;cursor:pointer;
+  box-shadow:0 2px 10px rgba(52,42,71,.16);
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+#to-top.show{opacity:1;pointer-events:auto;}
+
+/* ---- PC（横幅を使い切る：追従目次＋広い本文） ---- */
+@media (min-width:1080px){
+  body{font-size:17px;}
+  /* ヘッダ・フッタの内側幅を本文シェルと揃える（左端を一直線に） */
+  header.app-head{padding-left:0 !important;padding-right:0 !important;}
+  header.masthead:has(>.inner){padding-left:0 !important;padding-right:0 !important;}
+  footer:has(>.inner){padding-left:0 !important;padding-right:0 !important;}
+  header.masthead>.inner,header.app-head>.inner,footer>.inner{
+    max-width:var(--shell) !important;
+    padding-left:clamp(24px,2.6vw,48px);
+    padding-right:clamp(24px,2.6vw,48px);
+  }
+  .wrap.has-side{
+    max-width:var(--shell) !important;
+    padding-left:clamp(24px,2.6vw,48px) !important;
+    padding-right:clamp(24px,2.6vw,48px) !important;
+    display:grid;
+    grid-template-columns:clamp(208px,16vw,264px) minmax(0,1fr);
+    gap:clamp(28px,3vw,56px);
+    align-items:start;
+  }
+  .wrap.has-side>nav.toc{
+    position:sticky;top:16px;
+    grid-column:1;grid-row:1;
+    margin:30px 0 0 !important;
+    max-width:none !important;
+    padding:18px 18px 20px !important;
+    max-height:calc(100vh - 34px);
+    overflow-y:auto;overscroll-behavior:contain;
+  }
+  .wrap.has-side>nav.toc ol,
+  .wrap.has-side>nav.toc ul{columns:1 !important;-webkit-columns:1 !important;column-gap:0 !important;}
+  .wrap.has-side>nav.toc li{margin:0 0 6px !important;font-size:.84em;line-height:1.65;}
+  .wrap.has-side>nav.toc h2,
+  .wrap.has-side>nav.toc .t{font-size:.95em !important;margin:0 0 10px !important;padding-bottom:8px !important;}
+  .wrap.has-side>.doc-body{grid-column:2;grid-row:1;margin-top:30px;}
+  .doc-body>section:first-child{margin-top:0;}
+  .doc-body table{font-size:.92em;}
+  /* SVG図解は元の設計幅（900px）のまま引き伸ばさない。
+     年表はCSSで描いているので、枠いっぱいに伸ばして使う */
+  .doc-body figure{max-width:946px;}
+  .doc-body figure svg{max-width:900px;}
+}
+@media (min-width:1500px){
+  :root{--shell:1560px;}
+}
+
+/* ---- タブレット〜小型ノート ---- */
+@media (min-width:721px) and (max-width:1079px){
+  .wrap{max-width:none !important;padding-left:24px !important;padding-right:24px !important;}
+  nav.toc{max-width:none !important;margin-left:0 !important;margin-right:0 !important;}
+}
+
+/* ---- スマホ ---- */
+@media (max-width:720px){
+  body{font-size:15.5px;line-height:1.85;}
+  header.hero,header.masthead{padding-left:18px !important;padding-right:18px !important;padding-top:26px !important;}
+  header.hero h1,header.masthead h1{font-size:1.4em !important;}
+  header.hero p.sub,header.masthead .lead{font-size:.96em !important;}
+  .wrap{max-width:none !important;padding-left:14px !important;padding-right:14px !important;}
+  nav.toc{
+    max-width:none !important;margin:14px 0 26px !important;padding:14px 16px !important;border-radius:6px;
+  }
+  nav.toc ol,nav.toc ul{columns:1 !important;-webkit-columns:1 !important;padding-left:18px;}
+  nav.toc li{font-size:.92em;}
+  /* 目次は折り畳み（既定は閉じる） */
+  .toc-toggle{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    width:100%;background:none;border:0;padding:0;margin:0;cursor:pointer;
+    font:inherit;color:var(--purple,#7b6aa6);font-weight:700;text-align:left;
+  }
+  .toc-toggle .mark{font-size:.8em;color:var(--purple,#7b6aa6);}
+  nav.toc.is-collapsed>ol,nav.toc.is-collapsed>ul{display:none;}
+  section{margin-bottom:34px !important;}
+  .card,.panel,.box{padding:15px 15px !important;}
+  /* 列の多い表・図は横スクロール（つぶれ防止） */
+  /* 図は縮めて潰さず、元の比率のまま横スクロールで見せる */
+  .fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .fig-scroll>svg{min-width:640px;}
+  /* 年表は横スクロールさせず、画面内に収まる縦並びへ組み替える */
+  .tl-wrap-mobile{overflow:visible !important;}
+  .timeline{padding:2px 0 0 4px !important;}
+  .timeline-track{
+    min-width:0 !important;height:auto !important;background:none !important;
+    margin:0 !important;padding:2px 0 2px 20px !important;
+    border-left:2px solid var(--purple-line,#e0d9ee) !important;border-radius:0 !important;
+  }
+  .timeline-track .progress{display:none !important;}
+  .tl-point{display:none !important;}
+  .tl-label{
+    position:relative !important;left:auto !important;right:auto !important;
+    top:auto !important;bottom:auto !important;transform:none !important;
+    width:auto !important;text-align:left !important;padding:0 0 14px !important;
+  }
+  .tl-label::before{
+    content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+    background:#fff;border:3px solid var(--plum-deep,#332a47);
+  }
+  .tl-label:last-of-type{padding-bottom:0 !important;}
+  .tl-label .date{font-size:.95em;}
+  .tl-label .desc{font-size:.86em;}
+  /* 図版・年表は、スマホでは同じ内容の縦組み版に差し替える（横スクロールを作らない） */
+  figure svg.has-mini,figure svg.fig-wide{display:none !important;}
+  figure svg.fig-narrow{display:block !important;width:100%;height:auto;min-width:0 !important;}
+  .tl-mini{
+    display:block;margin:4px 0 2px;padding:2px 0 2px 20px;
+    border-left:2px solid var(--purple-line,#e0d9ee);
+  }
+  .tl-mini .it{position:relative;padding:0 0 14px;}
+  .tl-mini .it:last-child{padding-bottom:0;}
+  .tl-mini .it::before{
+    content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+    background:#fff;border:3px solid var(--plum-deep,#332a47);
+  }
+  .tl-mini .it.on::before{background:var(--plum,#463a5e);border-color:var(--plum,#463a5e);}
+  .tl-mini .d{
+    display:block;font-weight:700;color:var(--plum-deep,#332a47);font-size:.95em;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+  .tl-mini .s{display:block;font-size:.86em;color:var(--muted,#6f6880);line-height:1.6;}
+  .tl-mini .it.on .s{color:var(--plum,#463a5e);font-weight:700;}
+  .tbl-scroll{border:1px solid var(--rule,#e6e2ef);border-radius:6px;background:#fff;}
+  .tbl-scroll.is-wide>table{min-width:600px;}
+  .tbl-scroll table{margin-left:0;margin-right:0;}
+  th,td{padding:9px 10px !important;}
+  table{font-size:.88em !important;}
+  figure,svg{max-width:100%;}
+  footer{padding-left:16px !important;padding-right:16px !important;}
+}
+@media (max-width:420px){
+  body{font-size:15px;}
+  header.hero h1,header.masthead h1{font-size:1.26em !important;}
+  .wrap{padding-left:11px !important;padding-right:11px !important;}
+}
+
+/* ---- 印刷 ---- */
+@media print{
+  #to-top{display:none !important;}
+  .wrap.has-side{display:block !important;max-width:none !important;}
+  .wrap.has-side>nav.toc{position:static !important;max-height:none !important;}
+}
+/* ==== DEVICE-ADAPTIVE LAYER END ==== */
+</style>
+</head>
+<body id="top">
+
+<header class="masthead">
+  <div class="inner">
+    <p class="eyebrow">ACCOUNTING STANDARDS BRIEF ／ 法人税等会計基準 2026年改正</p>
+    <h1 class="mincho">法人税等会計基準 2026年改正<br>― 経理部門向け解説 ―</h1>
+    <p class="lead">2026年7月7日、ASBJ（企業会計基準委員会）は企業会計基準第27号を改正し、名称を「法人税、住民税及び事業税等に関する会計基準」から「法人税等に関する会計基準」に改めました。<br>最大の実務インパクトは<strong>住民税（均等割）の表示変更</strong>です。<br>納税額・申告そのものは変わりません。</p>
+    <div class="meta-row">
+      <span><b>強制適用</b> 2028年4月1日以後開始する事業年度から</span>
+      <span><b>早期適用</b> 2026年7月7日以後開始する事業年度から</span>
+      <span><b>基準</b> 改正企業会計基準第27号「法人税等に関する会計基準」</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="t">目次</div>
+  <ol>
+    <li><a href="#s1"><span class="n">01</span>結論サマリ</a></li>
+    <li><a href="#s2"><span class="n">02</span>何がどう変わったか（勘定科目・表示区分の新旧対照）</a></li>
+    <li><a href="#s3"><span class="n">03</span>B/S・C/Fの変更</a></li>
+    <li><a href="#s4"><span class="n">04</span>税効果会計への影響</a></li>
+    <li><a href="#s5"><span class="n">05</span>図解：均等割の"引っ越し"</a></li>
+    <li><a href="#s6"><span class="n">06</span>図解：P/Lへの影響</a></li>
+    <li><a href="#s7"><span class="n">07</span>なぜ改正されたのか（背景・経緯）</a></li>
+    <li><a href="#s8"><span class="n">08</span>いつから適用か（決算期別・経過措置）</a></li>
+    <li><a href="#s9"><span class="n">09</span>経理システム対応チェックリスト</a></li>
+    <li><a href="#s10"><span class="n">10</span>一次資料</a></li>
+  </ol>
+</nav>
+
+<!-- 01 -->
+<section id="s1">
+  <div class="sec-head"><span class="no">01</span><h2 class="mincho">結論サマリ</h2></div>
+  <div class="panel tint">
+    <p>2026年7月7日、ASBJは企業会計基準第27号を改正し、名称を<strong>「法人税、住民税及び事業税等に関する会計基準」→「法人税等に関する会計基準」</strong>に改めました。</p>
+    <p><strong>最大の実務インパクトは「住民税（均等割）」の表示変更</strong>です。<br>従来は税引前当期純利益の下の「法人税、住民税及び事業税」に含めていましたが、改正後は<strong>「法人税等」に含めず、「その内容に応じた適切な表示区分」（例：販管費の租税公課）に表示</strong>します。<br>この結果、<strong>税引前当期純利益が減り、販管費等に表示する場合は営業利益・経常利益も減ります（当期純利益は原則不変。<br>ただし製造原価に配分する場合は棚卸資産を通じた影響があり得る）</strong>。</p>
+    <p><strong>強制適用は2028年4月1日以後開始する事業年度</strong>（3月決算なら2029年3月期）からです。<br><strong>早期適用は公表日（2026年7月7日）以後開始する事業年度</strong>の期首から可能です。</p>
+  </div>
+  <div class="note">納税額（申告・納付）は変わりません。<br>変わるのは主として「P/L・B/S・C/F上のどこに・どの科目で表示するか」です。</div>
+</section>
+
+<!-- 02 -->
+<section id="s2">
+  <div class="sec-head"><span class="no">02</span><h2 class="mincho">何がどう変わったか（勘定科目・表示区分の新旧対照）</h2></div>
+  <table>
+    <caption>税金の種類別・表示区分の新旧対照</caption>
+    <thead><tr><th>税金</th><th>従来（2026年改正前）</th><th>改正後</th></tr></thead>
+    <tbody>
+      <tr>
+        <th>法人税・地方法人税・住民税(法人税割)・事業税(所得割)・特別法人事業税(基準法人所得割)</th>
+        <td class="old-cell">税引前当期純利益の次に「法人税、住民税及び事業税」</td>
+        <td class="new-cell">実質変更なし。<br>税引前当期純利益の次に「法人税等」などの適切な科目（「課税対象利益を基礎とする税金」として一括りに定義）</td>
+      </tr>
+      <tr>
+        <th>防衛特別法人税（新税・2026/4/1以後開始年度から課税）</th>
+        <td class="old-cell">改正前基準の列挙対象外。<br>実務対応報告第48号「防衛特別法人税の会計処理及び開示に関する当面の取扱い」（2026/2/27公表）で当面の対応</td>
+        <td class="new-cell">「課税対象利益を基礎とする税金」として改正基準の適用対象に。<br>本改正の適用により実務対応報告第48号は適用終了（改正基準第21-2項）</td>
+      </tr>
+      <tr>
+        <th>住民税（均等割）<span class="pill new" style="margin-left:6px;">最重要</span></th>
+        <td class="old-cell">「法人税、住民税及び事業税」に含めて税引前の次に表示</td>
+        <td class="new-cell"><strong>「法人税等」に含めない</strong>。<br>その内容に応じた適切な表示区分（例：販管費の租税公課）に表示</td>
+      </tr>
+      <tr>
+        <th>事業税（付加価値割・資本割）＝外形標準課税</th>
+        <td class="old-cell">原則として販管費（合理的配分により一部売上原価可）</td>
+        <td class="new-cell">「原則販管費」の縛りを廃止。<br>「法人税等」に含めず、その内容に応じた適切な表示区分に表示（基準は区分を限定していないため、従来どおり販管費とすることも妨げられないと考えられる＝本ノートの解釈）</td>
+      </tr>
+      <tr>
+        <th>受取利息・受取配当金等の源泉所得税等</th>
+        <td class="old-cell">税額控除の適用を受けない税額は原則営業外費用（重要性が乏しい場合は「法人税、住民税及び事業税」等に含める容認あり）</td>
+        <td class="new-cell">税額控除の対象となる税額：控除を選択→「法人税等」に含める／選択しない→「法人税等」に含めず適切な区分。<br>控除対象外の税額：「法人税等」に含めず適切な区分</td>
+      </tr>
+      <tr>
+        <th>外国の法令に従い納付する税金（課税対象利益を基礎としないもの）</th>
+        <td class="old-cell">内容に応じて適切な科目（外国子会社からの受取配当等の外国源泉税で控除不適用のものは「法人税、住民税及び事業税」等に含める）</td>
+        <td class="new-cell">控除対象＋控除選択→「法人税等」／それ以外→適切な区分。<br>ただし控除対象とならない税額のうち外国子会社配当益金不算入制度の適用を受ける配当に係る外国源泉税は「法人税等」に含める</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="src">改正企業会計基準第27号「法人税等に関する会計基準」（ASBJ 2026-07-07）</p>
+</section>
+
+<!-- 03 -->
+<section id="s3">
+  <div class="sec-head"><span class="no">03</span><h2 class="mincho">B/S・C/Fの変更</h2></div>
+  <table>
+    <caption>貸借対照表・キャッシュ・フロー計算書の変更点</caption>
+    <thead><tr><th>項目</th><th>従来</th><th>改正後</th></tr></thead>
+    <tbody>
+      <tr>
+        <th>B/S：均等割・付加価値割・資本割の未納付額</th>
+        <td class="old-cell">「未払法人税等」に含めて表示</td>
+        <td class="new-cell">「未払法人税等」以外の内容に応じた科目（例：未払税金）。<br>還付未受領額も「未収還付法人税等」以外の科目。<br>重要性が乏しい場合は従来どおり含めて表示可</td>
+      </tr>
+      <tr>
+        <th>B/S：課税対象利益を基礎とする税金のうち支払期限が1年超の未納付額</th>
+        <td class="old-cell">（流動負債「未払法人税等」の定めのみ）</td>
+        <td class="new-cell">新設：1年超は固定負債「長期未払法人税等」等に区分（改正基準第11項）</td>
+      </tr>
+      <tr>
+        <th>C/F：住民税（均等割）</th>
+        <td class="old-cell">「法人税等の支払額」に含める</td>
+        <td class="new-cell">営業CFには含まれるが「法人税等の支払額」に含めてはならない（付加価値割・資本割と同じ扱いに統一）</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 04 -->
+<section id="s4">
+  <div class="sec-head"><span class="no">04</span><h2 class="mincho">税効果会計への影響</h2></div>
+  <div class="panel">
+    <ul>
+      <li><strong>税効果の対象となる税金の範囲は従来と同じ</strong>です（改正税効果適用指針第91項が「変更を意図するものではない」と明記）。</li>
+      <li>法定実効税率の定義が「課税対象利益に対する法令上規定された税率に基づく税負担の比率」に汎用化され、具体的な算式・設例（適用指針の設例10・11、実務対応報告第42号の設例5）は<strong>補足文書</strong>（第9項、算定例は別紙1）に移されました。</li>
+      <li>補足文書の実効税率算式は<strong>防衛特別法人税を織り込んだ形</strong>に整理されています（別紙1の算定例では税率4.0%。<br><strong>課税標準計算上の基礎控除500万円は算式では考慮されていない</strong>＝補足文書第9項(注)）。</li>
+    </ul>
+  </div>
+  <div class="note">注意：防衛特別法人税の実効税率・税効果への反映は<strong>2026/4/1以後開始年度からの課税に伴い、2025年2月補足文書（税効果）・実務対応報告第48号（当期税金の処理・開示）に基づきすでに必要</strong>な対応であり、本改正の適用時期（2028/4/1〜）とは別の論点です。</div>
+</section>
+
+<!-- 05 -->
+<section id="s5">
+  <div class="sec-head"><span class="no">05</span><h2 class="mincho">図解：均等割の"引っ越し"</h2></div>
+  <p>改正前は、住民税（均等割）は「法人税、住民税及び事業税」という一つの箱に、利益に応じて課される税金（法人税・地方法人税・住民税法人税割・事業税所得割・特別法人事業税）とまとめて入っていました。<br>改正後は<strong>「法人税等」からは外れ</strong>、その内容に応じた適切な表示区分（例：販管費の租税公課）へ<strong>引っ越し</strong>ます。</p>
+  <figure>
+    
+    
+    
+    
+    
+    
+    <!-- FIG-NARROW START (build.py) --><svg class="fig-narrow" viewBox="0 0 360 462" role="img" aria-label="住民税均等割の表示区分の引っ越し図（縦組み）">
+  <defs><marker id="nah3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#7b6aa6"/></marker></defs>
+  <text x="180" y="18" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6c6252">改正前：「法人税、住民税及び事業税」に同居</text>
+  <rect x="10" y="28" width="340" height="170" rx="5" fill="#f2efe9" stroke="#e3ddd0"/>
+  <text x="180" y="52" text-anchor="middle" font-size="12" fill="#6c6252" font-weight="700">法人税、住民税及び事業税</text>
+  <rect x="24" y="64" width="312" height="24" rx="3" fill="#faf7f2" stroke="#e3ddd0"/>
+  <text x="180" y="80" text-anchor="middle" font-size="10.5" fill="#6c6252">法人税・地方法人税</text>
+  <rect x="24" y="92" width="312" height="24" rx="3" fill="#faf7f2" stroke="#e3ddd0"/>
+  <text x="180" y="108" text-anchor="middle" font-size="10.5" fill="#6c6252">住民税（法人税割）・事業税（所得割）</text>
+  <rect x="24" y="120" width="312" height="24" rx="3" fill="#faf7f2" stroke="#e3ddd0"/>
+  <text x="180" y="136" text-anchor="middle" font-size="10.5" fill="#6c6252">特別法人事業税</text>
+  <rect x="24" y="150" width="312" height="34" rx="3" fill="#efebf6" stroke="#7b6aa6" stroke-width="1.6"/>
+  <text x="180" y="171" text-anchor="middle" font-size="11.5" fill="#463a5e" font-weight="700">住民税（均等割）</text>
+  <path d="M180 206 L180 246" stroke="#7b6aa6" stroke-width="2.6" fill="none" marker-end="url(#nah3)"/>
+  <text x="194" y="230" font-size="11" fill="#7b6aa6" font-weight="700">引っ越し</text>
+  <text x="180" y="268" text-anchor="middle" font-size="11.5" font-weight="700" fill="#463a5e">改正後：「法人税等」と表示区分を分離</text>
+  <rect x="10" y="278" width="340" height="70" rx="5" fill="#f2efe9" stroke="#e3ddd0"/>
+  <text x="180" y="300" text-anchor="middle" font-size="12" fill="#6c6252" font-weight="700">法人税等</text>
+  <text x="180" y="320" text-anchor="middle" font-size="10" fill="#6c6252">法人税・地方法人税・住民税(法人税割)</text>
+  <text x="180" y="338" text-anchor="middle" font-size="10" fill="#6c6252">事業税(所得割)・特別法人事業税</text>
+  <rect x="10" y="360" width="340" height="88" rx="5" fill="#efebf6" stroke="#7b6aa6" stroke-width="1.6"/>
+  <text x="180" y="386" text-anchor="middle" font-size="12" fill="#463a5e" font-weight="700">その内容に応じた適切な表示区分</text>
+  <text x="180" y="408" text-anchor="middle" font-size="11" fill="#463a5e">例：販管費「租税公課」</text>
+  <text x="180" y="430" text-anchor="middle" font-size="10.5" fill="#7b6aa6">住民税（均等割）はここに表示</text>
+</svg><!-- FIG-NARROW END -->
+    <svg class="fig-wide" viewBox="0 0 900 300" role="img" aria-label="住民税均等割の表示区分の引っ越し図">
+      <text x="220" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#6c6252">改正前：「法人税、住民税及び事業税」に同居</text>
+      <rect x="60" y="50" width="320" height="190" rx="5" fill="#f2efe9" stroke="#e3ddd0"/>
+      <text x="220" y="76" text-anchor="middle" font-size="12.5" fill="#6c6252" font-weight="700">法人税、住民税及び事業税</text>
+      <rect x="80" y="90" width="280" height="26" rx="3" fill="#faf7f2" stroke="#e3ddd0"/>
+      <text x="220" y="107" text-anchor="middle" font-size="11" fill="#6c6252">法人税・地方法人税</text>
+      <rect x="80" y="122" width="280" height="26" rx="3" fill="#faf7f2" stroke="#e3ddd0"/>
+      <text x="220" y="139" text-anchor="middle" font-size="11" fill="#6c6252">住民税（法人税割）・事業税（所得割）</text>
+      <rect x="80" y="154" width="280" height="26" rx="3" fill="#faf7f2" stroke="#e3ddd0"/>
+      <text x="220" y="171" text-anchor="middle" font-size="11" fill="#6c6252">特別法人事業税</text>
+      <rect x="80" y="188" width="280" height="34" rx="3" fill="#efebf6" stroke="#7b6aa6" stroke-width="1.6"/>
+      <text x="220" y="209" text-anchor="middle" font-size="11.5" fill="#463a5e" font-weight="700">住民税（均等割）</text>
+
+      <path d="M400 205 C 440 205, 440 130, 480 130" stroke="#7b6aa6" stroke-width="2.6" fill="none" marker-end="url(#ah3)"/>
+      <defs><marker id="ah3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#7b6aa6"/></marker></defs>
+      <text x="440" y="248" text-anchor="middle" font-size="11" fill="#7b6aa6" font-weight="700">引っ越し</text>
+
+      <text x="680" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#463a5e">改正後：「法人税等」と表示区分を分離</text>
+      <rect x="500" y="50" width="380" height="76" rx="5" fill="#f2efe9" stroke="#e3ddd0"/>
+      <text x="690" y="70" text-anchor="middle" font-size="12.5" fill="#6c6252" font-weight="700">法人税等</text>
+      <text x="690" y="92" text-anchor="middle" font-size="11" fill="#6c6252">法人税・地方法人税・住民税(法人税割)</text>
+      <text x="690" y="110" text-anchor="middle" font-size="11" fill="#6c6252">事業税(所得割)・特別法人事業税</text>
+
+      <rect x="500" y="150" width="380" height="90" rx="5" fill="#efebf6" stroke="#7b6aa6" stroke-width="1.6"/>
+      <text x="690" y="174" text-anchor="middle" font-size="12.5" fill="#463a5e" font-weight="700">その内容に応じた適切な表示区分</text>
+      <text x="690" y="196" text-anchor="middle" font-size="11.5" fill="#463a5e">例：販管費「租税公課」</text>
+      <text x="690" y="216" text-anchor="middle" font-size="10.5" fill="#7b6aa6">住民税（均等割）はここに表示</text>
+    </svg>
+    <figcaption><span class="lbl">図表1</span>住民税（均等割）は「法人税等」から外れ、内容に応じた区分（例：販管費の租税公課）に表示される。<br>納税額・申告そのものは変わらない。</figcaption>
+  </figure>
+  <p class="src">改正企業会計基準第27号「法人税等に関する会計基準」（ASBJ 2026-07-07）</p>
+</section>
+
+<!-- 06 -->
+<section id="s6">
+  <div class="sec-head"><span class="no">06</span><h2 class="mincho">図解：P/Lへの影響</h2></div>
+  <p>住民税（均等割）を「法人税等」から販管費等へ表示替えすると、<strong>税引前当期純利益が減り</strong>、販管費等に表示する場合は<strong>営業利益・経常利益も減ります</strong>。<br>一方、法人税等の総額自体は変わらないため、<strong>当期純利益は原則不変</strong>です（ただし製造原価に配分する場合は棚卸資産を通じた影響があり得ます）。</p>
+  <figure>
+    
+    
+    
+    
+    
+    
+    <!-- FIG-NARROW START (build.py) --><svg class="fig-narrow" viewBox="0 0 360 318" role="img" aria-label="改正前後のP/L各段階利益の比較（縦組み）">
+  <defs><marker id="nah4" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#b7ab97"/></marker></defs>
+  <line x1="16" y1="250" x2="350" y2="250" stroke="#c9c2d6" stroke-width="1.5"/>
+  <rect x="20" y="130" width="24" height="120" fill="#f2efe9" stroke="#e3ddd0"/>
+  <text x="32" y="122" text-anchor="middle" font-size="9" fill="#8a8070">改正前</text>
+  <rect x="48" y="150" width="24" height="100" fill="#efebf6" stroke="#7b6aa6"/>
+  <text x="60" y="122" text-anchor="middle" font-size="9" fill="#7b6aa6">改正後</text>
+  <text x="60" y="164" text-anchor="middle" font-size="8.5" fill="#463a5e" font-weight="700">▼均等割相当</text>
+  <text x="46" y="268" text-anchor="middle" font-size="9.5" fill="#6f6880">営業利益</text>
+  <rect x="105" y="130" width="24" height="120" fill="#f2efe9" stroke="#e3ddd0"/>
+  <rect x="133" y="150" width="24" height="100" fill="#efebf6" stroke="#7b6aa6"/>
+  <text x="145" y="164" text-anchor="middle" font-size="8.5" fill="#463a5e" font-weight="700">▼均等割相当</text>
+  <text x="131" y="268" text-anchor="middle" font-size="9.5" fill="#6f6880">経常利益</text>
+  <rect x="190" y="130" width="24" height="120" fill="#f2efe9" stroke="#e3ddd0"/>
+  <rect x="218" y="150" width="24" height="100" fill="#efebf6" stroke="#7b6aa6"/>
+  <text x="230" y="164" text-anchor="middle" font-size="8.5" fill="#463a5e" font-weight="700">▼均等割相当</text>
+  <text x="216" y="268" text-anchor="middle" font-size="9.5" fill="#6f6880">税引前当期純利益</text>
+  <rect x="285" y="130" width="24" height="120" fill="#f2efe9" stroke="#e3ddd0"/>
+  <rect x="313" y="130" width="24" height="120" fill="#efebf6" stroke="#7b6aa6"/>
+  <text x="311" y="122" text-anchor="middle" font-size="9.5" fill="#463a5e" font-weight="700">変化なし（原則）</text>
+  <text x="311" y="268" text-anchor="middle" font-size="9.5" fill="#6f6880">当期純利益</text>
+  <path d="M248 210 C 266 210, 266 210, 282 210" stroke="#b7ab97" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#nah4)"/>
+  <text x="180" y="296" text-anchor="middle" font-size="9.5" fill="#8a8070">法人税等の総額は不変</text>
+</svg><!-- FIG-NARROW END -->
+    <svg class="fig-wide" viewBox="0 0 900 320" role="img" aria-label="改正前後のP/L各段階利益の比較">
+      <line x1="70" y1="270" x2="860" y2="270" stroke="#c9c2d6" stroke-width="1.5"/>
+      <text x="70" y="292" font-size="11" fill="#6f6880">営業利益</text>
+      <text x="260" y="292" font-size="11" fill="#6f6880">経常利益</text>
+      <text x="470" y="292" font-size="11" fill="#6f6880">税引前当期純利益</text>
+      <text x="720" y="292" font-size="11" fill="#6f6880">当期純利益</text>
+
+      <!-- 営業利益 -->
+      <rect x="70" y="130" width="42" height="140" fill="#f2efe9" stroke="#e3ddd0"/>
+      <text x="91" y="120" text-anchor="middle" font-size="10" fill="#8a8070">改正前</text>
+      <rect x="120" y="150" width="42" height="120" fill="#efebf6" stroke="#7b6aa6"/>
+      <text x="141" y="140" text-anchor="middle" font-size="10" fill="#7b6aa6">改正後</text>
+      <text x="141" y="158" text-anchor="middle" font-size="9.5" fill="#463a5e" font-weight="700">▼均等割相当</text>
+
+      <!-- 経常利益 -->
+      <rect x="260" y="130" width="42" height="140" fill="#f2efe9" stroke="#e3ddd0"/>
+      <rect x="310" y="150" width="42" height="120" fill="#efebf6" stroke="#7b6aa6"/>
+      <text x="331" y="158" text-anchor="middle" font-size="9.5" fill="#463a5e" font-weight="700">▼均等割相当</text>
+
+      <!-- 税引前当期純利益 -->
+      <rect x="470" y="130" width="42" height="140" fill="#f2efe9" stroke="#e3ddd0"/>
+      <rect x="520" y="150" width="42" height="120" fill="#efebf6" stroke="#7b6aa6"/>
+      <text x="541" y="158" text-anchor="middle" font-size="9.5" fill="#463a5e" font-weight="700">▼均等割相当</text>
+
+      <!-- 当期純利益：変化なし -->
+      <rect x="720" y="130" width="42" height="140" fill="#f2efe9" stroke="#e3ddd0"/>
+      <rect x="770" y="130" width="42" height="140" fill="#efebf6" stroke="#7b6aa6"/>
+      <text x="791" y="120" text-anchor="middle" font-size="10.5" fill="#463a5e" font-weight="700">変化なし（原則）</text>
+
+      <path d="M580 200 C 650 200, 650 200, 715 200" stroke="#b7ab97" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#ah4)"/>
+      <defs><marker id="ah4" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#b7ab97"/></marker></defs>
+      <text x="650" y="225" text-anchor="middle" font-size="10" fill="#8a8070">法人税等の総額は不変</text>
+    </svg>
+    <figcaption><span class="lbl">図表2</span>販管費等に均等割を表示替えする場合のイメージ。<br>営業利益・経常利益・税引前当期純利益は表示上減少するが、当期純利益は原則として変わらない（縮尺はイメージ）。</figcaption>
+  </figure>
+  
+</section>
+
+<!-- 07 -->
+<section id="s7">
+  <div class="sec-head"><span class="no">07</span><h2 class="mincho">なぜ改正されたのか（背景・経緯）</h2></div>
+  <p><strong>一言でいうと「税金の列挙方式をやめて原則主義にし、新税ができるたびに基準改正しなくて済むようにした」</strong>という改正です。</p>
+  <div class="panel">
+    <ul>
+      <li>改正前基準は、法人税・地方法人税・住民税・事業税・特別法人事業税と<strong>具体的な税金を列挙</strong>し税法を参照して適用対象を特定していたため、個別の税金の創設のたびに基準を都度改正する必要がありました。</li>
+      <li>2024年年次改善プロジェクトの審議で「原則的な定めを置き具体的な税金を特定しない方法」への見直し意見が出され、2024年11月の公開草案でコメント募集した結果、<strong>概ね支持</strong>されました。</li>
+      <li>直接の契機は<strong>防衛特別法人税</strong>（令和7年度税制改正で創設、2026年4月1日以後開始事業年度から課税）です。<br>従来方式では税制改正から適用までの短期間で基準改正が必要になるため、ASBJは2025年2月20日の補足文書（税効果会計の取扱いのみの暫定対応。<br>当期税金は対象外）、2026年2月27日の<strong>実務対応報告第48号</strong>（当面の会計処理・開示）で対応してきました。</li>
+      <li>改正後は「<strong>課税対象利益を基礎とする税金</strong>」（課税当局の定めに従って算定された特定の事業年度の利益を対象に課される税金とその付加税。<br>国際的な会計基準における法人所得税の定義等を参考）という原則的定義で適用対象を決めます。<br>個別の税金ごとの具体的取扱い（どの税が該当するか、実効税率算式）は<strong>補足文書</strong>に示し、税制改正には基準改正なしで補足文書の変更で機動的に対応します。</li>
+      <li>均等割等の表示が変わるのは、この定義に照らすと均等割（資本金等の額・従業者数に応じた均等額課税）や外形標準（付加価値・資本ベース）は「利益を基礎とする税金」ではないため、税金費用（法人税等）と性質が異なるものを区分した帰結です。</li>
+    </ul>
+  </div>
+
+  <h3>経緯タイムライン</h3>
+  <table>
+    <caption>改正までの経緯</caption>
+    <thead><tr><th>時期</th><th>出来事</th></tr></thead>
+    <tbody>
+      <tr><th>2024年</th><td>年次改善プロジェクト審議で見直し意見</td></tr>
+      <tr><th>2024年11月</th><td>年次改善PJ公開草案の公表時にコメント募集 → 概ね支持</td></tr>
+      <tr><th>2025年2月20日</th><td>防衛特別法人税補足文書の公表（税効果会計のみの暫定対応）</td></tr>
+      <tr><th>2025年3月</th><td>第543回委員会：企業会計基準諮問会議より「法人税等会計基準等の見直し」を提言</td></tr>
+      <tr><th>2025年5月</th><td>審議開始</td></tr>
+      <tr><th>2026年1月9日</th><td>公開草案の公表</td></tr>
+      <tr><th>2026年2月27日</th><td>実務対応報告第48号「防衛特別法人税の会計処理及び開示に関する当面の取扱い」公表（2026/4/1以後開始年度から適用）</td></tr>
+      <tr><th>2026年6月29日</th><td>第580回委員会で公表を承認</td></tr>
+      <tr><th>2026年7月7日</th><td><strong>改正基準等6文書＋補足文書の公表</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>公表された文書（6点＋補足文書）</h3>
+  <div class="panel">
+    <ol class="docs">
+      <li>改正企業会計基準第27号「法人税等に関する会計基準」</li>
+      <li>改正企業会計基準適用指針第28号「税効果会計に係る会計基準の適用指針」</li>
+      <li>改正実務対応報告第42号「グループ通算制度を適用する場合の会計処理及び開示に関する取扱い」</li>
+      <li>改正移管指針第6号「連結財務諸表等におけるキャッシュ・フロー計算書の作成に関する実務指針」</li>
+      <li>企業会計基準第43号「『税効果会計に係る会計基準』の一部改正（その3）」</li>
+      <li>企業会計基準第44号「『連結キャッシュ・フロー計算書等の作成基準』の一部改正（その4）」</li>
+    </ol>
+    <p style="margin-top:14px;font-size:.88em;color:var(--muted);">上記に加え、補足文書「我が国における課税対象利益を基礎とする税金及び税効果会計における税率に関する取扱いについて」（企業会計基準等を追加・変更しない参考文書）。</p>
+  </div>
+  
+</section>
+
+<!-- 08 -->
+<section id="s8">
+  <div class="sec-head"><span class="no">08</span><h2 class="mincho">いつから適用か（決算期別・経過措置）</h2></div>
+  <div class="vs">
+    <div class="col old">
+      <h4><span class="pill old">早期</span>　早期適用</h4>
+      <p class="tagline">2026年7月7日（公表日）以後開始する事業年度から</p>
+      <ul>
+        <li>公表日以後に開始する連結会計年度・事業年度の期首から可能</li>
+        <li>適用は必ず<strong>期首から</strong>（期中適用は不可）</li>
+      </ul>
+    </div>
+    <div class="col new">
+      <h4><span class="pill new">強制</span>　強制適用</h4>
+      <p class="tagline">2028年4月1日以後開始する事業年度から</p>
+      <ul>
+        <li>改正法人税等会計基準第20-7項</li>
+        <li>連結会計年度・事業年度の<strong>期首</strong>から適用</li>
+      </ul>
+    </div>
+  </div>
+
+  <table>
+    <caption>決算期別の適用時期</caption>
+    <thead><tr><th>決算期</th><th>早期適用できる最初の決算期</th><th>強制適用となる最初の決算期</th></tr></thead>
+    <tbody>
+      <tr><th>3月決算</th><td>2028年3月期（2027/4/1開始）から</td><td class="new-cell"><strong>2029年3月期</strong>（2028/4/1開始）から</td></tr>
+      <tr><th>6月決算</th><td>2028年6月期（2027/7/1開始）から</td><td class="new-cell"><strong>2029年6月期</strong>（2028/7/1開始）から</td></tr>
+      <tr><th>9月決算</th><td>2027年9月期（2026/10/1開始）から</td><td class="new-cell"><strong>2029年9月期</strong>（2028/10/1開始）から</td></tr>
+      <tr><th>12月決算</th><td>2027年12月期（2027/1/1開始）から</td><td class="new-cell"><strong>2029年12月期</strong>（2029/1/1開始）から</td></tr>
+    </tbody>
+  </table>
+  
+
+  <figure>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- TL-MINI START (build.py) --><div class="tl-mini" aria-hidden="true"><div class="it"><span class="d">2026/7/7</span><span class="s">改正基準 公表＝早期適用の基準日</span></div><div class="it"><span class="d">2028年3月期</span><span class="s">3月決算：早期適用が可能な最初の期</span></div><div class="it on"><span class="d">2029年3月期</span><span class="s">3月決算：強制適用の初年度</span></div><div class="it"><span class="s">（参考）12月決算は2029年12月期が強制</span></div></div><!-- TL-MINI END -->
+    <svg class="has-mini" viewBox="0 0 900 170" role="img" aria-label="3月決算会社を例にした適用時期タイムライン">
+      <line x1="60" y1="90" x2="840" y2="90" stroke="#d8d1e6" stroke-width="4"/>
+      <line x1="150" y1="90" x2="660" y2="90" stroke="#7b6aa6" stroke-width="4"/>
+
+      <circle cx="150" cy="90" r="8" fill="#fff" stroke="#8f8474" stroke-width="4"/>
+      <text x="150" y="62" text-anchor="middle" font-size="12" font-weight="700" fill="#6c6252">2026/7/7</text>
+      <text x="150" y="122" text-anchor="middle" font-size="11" fill="#8a8070">改正基準 公表</text>
+      <text x="150" y="138" text-anchor="middle" font-size="10" fill="#8a8070">＝早期適用の基準日</text>
+
+      <circle cx="420" cy="90" r="8" fill="#fff" stroke="#7b6aa6" stroke-width="4"/>
+      <text x="420" y="62" text-anchor="middle" font-size="12" font-weight="700" fill="#463a5e">2028年3月期</text>
+      <text x="420" y="122" text-anchor="middle" font-size="11" fill="#7b6aa6">3月決算：早期適用が可能な最初の期</text>
+
+      <circle cx="660" cy="90" r="9" fill="#7b6aa6" stroke="#463a5e" stroke-width="3"/>
+      <text x="660" y="62" text-anchor="middle" font-size="12.5" font-weight="700" fill="#463a5e">2029年3月期</text>
+      <text x="660" y="122" text-anchor="middle" font-size="11.5" fill="#463a5e" font-weight="700">3月決算：強制適用の初年度</text>
+
+      <circle cx="800" cy="90" r="7" fill="#f2efe9" stroke="#b7ab97" stroke-width="3"/>
+      <text x="800" y="62" text-anchor="middle" font-size="10.5" fill="#8a8070">（参考）</text>
+      <text x="800" y="112" text-anchor="middle" font-size="10.5" fill="#8a8070">12月決算は</text>
+      <text x="800" y="128" text-anchor="middle" font-size="10.5" fill="#8a8070">2029年12月期が強制</text>
+    </svg>
+    <figcaption><span class="lbl">図表3</span>3月決算会社を例にした時間軸。<br>決算期ごとの詳細は上表のとおり（12月決算の強制適用初年度は2029年12月期）。</figcaption>
+  </figure>
+
+  <h3>経過措置</h3>
+  <div class="note">
+    <ul style="margin:0;padding-left:18px;">
+      <li>原則は新方針の遡及適用だが、<strong>適用初年度の期首利益剰余金への累積的影響額の加減</strong>による方法が認められる（遡及適用を強制しない）。</li>
+      <li><strong>適用初年度の比較情報（前期分）の表示組替は不要</strong>（企業会計基準第24号第14項にかかわらず）。</li>
+      <li>結論の背景（改正基準第48項）でも、重要性に照らした検討を行えば多くの場合に遡及適用を行わない結論に至ると想定される旨の言及あり。</li>
+      <li>本改正の適用により<strong>実務対応報告第48号（防衛特別法人税）の適用は終了</strong>（第21-2項）。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 09 -->
+<section id="s9">
+  <div class="sec-head"><span class="no">09</span><h2 class="mincho">経理システム対応チェックリスト</h2></div>
+  <p><strong>納税額・申告は変わりません。<br>変わるのは表示（科目・区分）です。</strong><br>主な対応は次の8点です。</p>
+  <div class="panel">
+    <ol class="check">
+      <li><strong>P/L表示科目名</strong>：<br>「法人税、住民税及び事業税」→「法人税等」などの適切な科目へ（名称は例示であり強制ではないが、均等割が含まれなくなるため従来名は不正確になる）</li>
+      <li><strong>均等割の受け皿科目</strong>：<br>販管費「租税公課」等を用意（新設 or 既存科目に補助科目追加）。<br>中間納付・確定計上の仕訳パターンを分離
+        <div class="panel" style="margin-top:10px;background:var(--lav-bg);border-color:var(--purple-line);">
+          <p style="margin:0 0 6px;font-size:.88em;">従来：<code>法人税、住民税及び事業税 1,070 ／ 未払法人税等 1,070</code>（うち均等割70）</p>
+          <p style="margin:0;font-size:.88em;">改正後：<code>法人税等 1,000 ／ 未払法人税等 1,000</code> ＋ <code>租税公課(販管費) 70 ／ 未払税金 70</code></p>
+        </div>
+        <p style="margin:10px 0 0;font-size:.82em;color:var(--muted);">※科目名（租税公課・未払税金）は一例。<br>本ノート独自の作例（ASBJの設例ではない）。<br>均等割を未払法人税等から外すと別表五(二)の納税充当金の範囲とずれる場合があるため税務担当と整理。</p>
+      </li>
+      <li><strong>B/S科目</strong>：<br>未払法人税等の内訳から均等割・付加価値割・資本割分を分離（重要性が乏しければ従来どおり可 → 監査人と協議）。<br>支払期限1年超の税金の固定負債「長期未払法人税等」区分の新設（第11項）も確認</li>
+      <li><strong>C/F計算書</strong>：<br>「法人税等の支払額」の集計ロジックから均等割の納付額を除外</li>
+      <li><strong>税効果計算シート</strong>：<br>実効税率算式は補足文書第9項を参照。<br>防衛特別法人税による税率変更に伴う再計算は本改正を待たずすでに必要（2025年2月補足文書=税効果／48号=当期税金の処理・開示）</li>
+      <li><strong>源泉所得税・外国税金の表示方針の決定</strong>：<br>税額控除の選択の有無で表示先が変わるため、税務ポジションを確認して科目マッピングを決定（税務上の取扱いは税理士等に確認）</li>
+      <li><strong>予算・月次報告</strong>：<br>税引前利益が減り、均等割を販管費等に表示する場合は<strong>営業利益・経常利益も減る</strong>（当期純利益は原則不変）。<br>予実比較・KPI・役員報告の前提を周知</li>
+      <li><strong>注記</strong>：<br>適用初年度は会計方針の変更注記。<br>比較情報の組替は不要</li>
+    </ol>
+  </div>
+  
+</section>
+
+<!-- 10 -->
+<section id="s10">
+  <div class="sec-head"><span class="no">10</span><h2 class="mincho">一次資料</h2></div>
+  <div class="panel">
+    <ul>
+      <li><a href="https://www.asb-j.jp/jp/accounting_standards/y2026/2026-0707.html" target="_blank" rel="noopener">公表ページ</a></li>
+      <li><a href="https://www.asb-j.jp/jp/wp-content/uploads/sites/4/zeikouka_20260707_01.pdf" target="_blank" rel="noopener">公表にあたって(PDF)</a></li>
+      <li><a href="https://www.asb-j.jp/jp/wp-content/uploads/sites/4/zeikouka_20260707_02.pdf" target="_blank" rel="noopener">改正企業会計基準第27号本文(PDF)</a></li>
+      <li><a href="https://www.asb-j.jp/jp/wp-content/uploads/sites/4/zeikouka_20260707_14.pdf" target="_blank" rel="noopener">補足文書(PDF)</a></li>
+      <li><a href="https://www.asb-j.jp/jp/wp-content/uploads/sites/4/zeikouka_20260707_manual.pdf" target="_blank" rel="noopener">研究員解説(PDF)</a></li>
+    </ul>
+    <p style="margin:14px 0 0;font-size:.86em;color:var(--muted);">ローカル保管：<code>nakamura-ws/10_CPA/_work/zeikaisei_2026/</code>（PDF＋抽出テキスト、HTML原本）／Drive最終物：<code>~/gdrive/Nakamura-Workspace/10_CPA/13_KnowHow/法人税等会計基準2026年改正/</code></p>
+  </div>
+  <div class="note">続報ウォッチ：ASBJ→JICPAへ監査保証実務指針第63号の改廃検討を依頼（改正基準第22項）。<br>GitHub Pages公開版：<a href="https://yukinobu-nakamura.github.io/blog/cpa/hojinzei-kaisei-2026/" target="_blank" rel="noopener">https://yukinobu-nakamura.github.io/blog/cpa/hojinzei-kaisei-2026/</a>（2026-09-14公開、HTTP 200確認済）</div>
+  <p style="margin-top:22px;"><a class="backtop" href="#top">▲ 目次に戻る</a></p>
+</section>
+
+</div>
+
+<footer>
+  <div class="inner">
+    <p>本資料は法人税等会計基準2026年改正の理解を目的とした資料です。<br>数値・図表は理解のためのイメージを含みます。<br>確定した事実は基準本文（改正企業会計基準第27号等）に拠ります。</p>
+    <p>作成：2026-09-24 ／ デザイン刷新：会計コンサル調・薄紫（リース会計基準2027 手順書HTMLの様式を踏襲）</p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- DEVICE-ADAPTIVE JS START (build.py) -->
+<script>
+(function(){
+  'use strict';
+  var MOBILE = 720;
+
+  function wrapTables(root){
+    var tables = root.querySelectorAll('table');
+    Array.prototype.forEach.call(tables, function(t){
+      if(t.parentNode && t.parentNode.classList && t.parentNode.classList.contains('tbl-scroll')) return;
+      var box = document.createElement('div');
+      box.className = 'tbl-scroll';
+      var row = t.querySelector('tr');
+      var cols = 0;
+      if(row){
+        Array.prototype.forEach.call(row.children, function(c){
+          cols += (parseInt(c.getAttribute('colspan'),10) || 1);
+        });
+      }
+      if(cols >= 3) box.className += ' is-wide';
+      t.parentNode.insertBefore(box, t);
+      box.appendChild(t);
+    });
+  }
+
+  function wrapFigures(root){
+    // 年表(.timeline)は狭い画面では縦並びに組み替えるので包まない
+    var figs = root.querySelectorAll('figure > svg:not(.fig-narrow)');
+    Array.prototype.forEach.call(figs, function(f){
+      if(f.parentNode && f.parentNode.classList && f.parentNode.classList.contains('fig-scroll')) return;
+      var box = document.createElement('div');
+      box.className = 'fig-scroll';
+      f.parentNode.insertBefore(box, f);
+      box.appendChild(f);
+    });
+  }
+
+  function buildSide(wrap){
+    if(!wrap || wrap.classList.contains('has-side')) return;
+    var toc = null, kids = wrap.children, i;
+    for(i=0;i<kids.length;i++){
+      if(kids[i].tagName === 'NAV' && kids[i].classList.contains('toc')){ toc = kids[i]; break; }
+    }
+    if(!toc) return;
+    var main = document.createElement('main');
+    main.className = 'doc-body';
+    while(toc.nextSibling) main.appendChild(toc.nextSibling);
+    wrap.appendChild(main);
+    wrap.classList.add('has-side');
+  }
+
+  // 目次テキストが「1. 〜」形式のときは ol の連番マーカーを消す（二重番号の防止）
+  function tocMarker(toc){
+    if(!toc) return;
+    Array.prototype.forEach.call(toc.querySelectorAll('ol, ul'), function(list){
+      var links = list.querySelectorAll('a');
+      if(!links.length) return;
+      var numbered = 0;
+      Array.prototype.forEach.call(links, function(a){
+        if(/^\s*\d+\s*[.．、]/.test(a.textContent)) numbered++;
+      });
+      if(numbered / links.length >= 0.6) list.classList.add('no-marker');
+    });
+  }
+
+  function tocToggle(toc){
+    if(!toc || toc.querySelector('.toc-toggle')) return;
+    var head = toc.querySelector('h2, .t, .toc-title');
+    var list = toc.querySelector('ol, ul');
+    if(!head || !list) return;
+    var label = head.textContent.trim() || '目次';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'toc-toggle';
+    btn.innerHTML = '<span>' + label + '</span><span class="mark">▼</span>';
+    head.textContent = '';
+    head.appendChild(btn);
+    function sync(){
+      var closed = toc.classList.contains('is-collapsed');
+      btn.setAttribute('aria-expanded', closed ? 'false' : 'true');
+      btn.querySelector('.mark').textContent = closed ? '▼' : '▲';
+    }
+    btn.addEventListener('click', function(){
+      toc.classList.toggle('is-collapsed');
+      sync();
+    });
+    if(window.innerWidth <= MOBILE) toc.classList.add('is-collapsed');
+    sync();
+  }
+
+  function activeTracker(wrap){
+    var toc = wrap.querySelector('nav.toc');
+    if(!toc || !('IntersectionObserver' in window)) return;
+    var links = {}, targets = [];
+    Array.prototype.forEach.call(toc.querySelectorAll('a[href^="#"]'), function(a){
+      var id = a.getAttribute('href').slice(1);
+      if(!id) return;
+      var el = document.getElementById(id);
+      if(!el) return;
+      links[id] = a; targets.push(el);
+    });
+    if(!targets.length) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var a = links[e.target.id];
+        if(!a) return;
+        if(e.isIntersecting){
+          Array.prototype.forEach.call(toc.querySelectorAll('a.is-active'), function(x){ x.classList.remove('is-active'); });
+          a.classList.add('is-active');
+        }
+      });
+    }, {rootMargin:'-15% 0px -70% 0px', threshold:0});
+    targets.forEach(function(t){ io.observe(t); });
+  }
+
+  // 横スクロールが必要な表・図にだけ案内を出す
+  function scrollHints(){
+    var boxes = document.querySelectorAll('.fig-scroll, .tbl-scroll');
+    Array.prototype.forEach.call(boxes, function(box){
+      var prev = box.previousElementSibling;
+      var has = prev && prev.classList && prev.classList.contains('scroll-hint');
+      var need = (box.scrollWidth - box.clientWidth) > 8;
+      if(need && !has){
+        var h = document.createElement('p');
+        h.className = 'scroll-hint';
+        h.textContent = '← 横にスクロールできます →';
+        box.parentNode.insertBefore(h, box);
+      }else if(!need && has){
+        prev.parentNode.removeChild(prev);
+      }
+    });
+  }
+
+  function backToTop(){
+    if(document.getElementById('to-top')) return;
+    var b = document.createElement('button');
+    b.id = 'to-top'; b.type = 'button';
+    b.setAttribute('aria-label','先頭へ戻る');
+    b.textContent = '▲';
+    document.body.appendChild(b);
+    b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+    window.addEventListener('scroll', function(){
+      if(window.pageYOffset > 500) b.classList.add('show'); else b.classList.remove('show');
+    }, {passive:true});
+  }
+
+  window.__enhanceDoc = function(scope){
+    var wraps = scope.querySelectorAll('.wrap');
+    Array.prototype.forEach.call(wraps, function(w){
+      wrapTables(w);
+      wrapFigures(w);
+      buildSide(w);
+      tocMarker(w.querySelector('nav.toc'));
+      tocToggle(w.querySelector('nav.toc'));
+      activeTracker(w);
+    });
+  };
+
+  function init(){
+    window.__enhanceDoc(document);
+    backToTop();
+    scrollHints();
+    var t;
+    window.addEventListener('resize', function(){
+      clearTimeout(t);
+      t = setTimeout(scrollHints, 200);
+    });
+    window.__scrollHints = scrollHints;
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+<!-- DEVICE-ADAPTIVE JS END -->
+</body>
+</html>
